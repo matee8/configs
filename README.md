@@ -12,6 +12,7 @@ Screenshot: maim
 Notifications: dunst  
 ## IO settings
 Display: xorg-xrandr, brightnessctl  
+Graphics card driver: nvidia, nvidia-utils
 Bluetooth: bluez, bluez-utils  
 Volume: pulsemixer  
 Mouse: xorg-xinput  
