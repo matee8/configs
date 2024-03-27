@@ -1,0 +1,497 @@
+[2024-03-27 09:45:02.493] [info]  [AppEvents] App started
+[2024-03-27 09:45:03.235] [info]  [PluginHandler] Loaded plugins: [
+  'chromecast.js',
+  'discordrpc.js',
+  'lastfm.js',
+  'menubar.js',
+  'mpris.js',
+  'playbackNotifications.js',
+  'raop.js',
+  'thumbar.js',
+  'webNowPlaying.js'
+]
+[2024-03-27 09:45:06.481] [info]  [AppEvents] App ready
+[2024-03-27 09:45:06.482] [info]  [Cider] Application is Ready. Creating Window.
+[2024-03-27 09:45:06.483] [info]  aa
+[2024-03-27 09:45:07.457] [info]  [Cider] Creating Window.
+[2024-03-27 09:45:07.465] [info]  Setting up handlers for local files
+[2024-03-27 09:45:07.679] [info]  [Connect] Auth URL: https://connect.cidercollective.dev/callback/discord?app=cider&appPort=9000
+[2024-03-27 09:45:07.949] [info]  WebSocketServer started on port: 26369
+[2024-03-27 09:45:07.981] [info]  [Cider][Widevine] Status: {
+  oimompecagnajdejgnnjijobebaeigek: {
+    name: 'Widevine Content Decryption Module',
+    status: 'updated',
+    version: '4.10.2710.0'
+  }
+}
+[2024-03-27 09:45:08.074] [info]  {
+  auxAttributes: {
+    amdSwitchable: false,
+    canSupportThreadedTextureMailbox: false,
+    glImplementationParts: '(gl=none,angle=none)',
+    glResetNotificationStrategy: 0,
+    inProcessGpu: true,
+    initializationTime: 0,
+    isAsan: false,
+    isClangCoverage: false,
+    jpegDecodeAcceleratorSupported: false,
+    optimus: true,
+    passthroughCmdDecoder: false,
+    sandboxed: false,
+    subpixelFontRendering: true,
+    targetCpuBits: 64,
+    visibilityCallbackCallCount: 0
+  },
+  gpuDevice: [
+    {
+      active: true,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 5966,
+      gpuPreference: 0,
+      vendorId: 4318
+    },
+    {
+      active: false,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 22807,
+      gpuPreference: 0,
+      vendorId: 32902
+    }
+  ]
+}
+[2024-03-27 09:45:08.075] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 09:45:08.075] [info]  Cider client port: 9000
+[2024-03-27 09:45:08.077] [info]  Cider remote port: 6942
+[2024-03-27 09:45:08.078] [info]  remote broadcasted
+[2024-03-27 09:45:19.090] [warn]  This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+[2024-03-27 09:45:19.090] [error] Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.
+    at node:electron/js2c/sandbox_bundle:2:55792
+    at EventEmitter.<anonymous> (node:electron/js2c/sandbox_bundle:2:49921)
+    at EventEmitter.emit (node:electron/js2c/sandbox_bundle:2:35718)
+    at Object.onMessage (node:electron/js2c/sandbox_bundle:2:47988)
+[2024-03-27 09:45:19.096] [warn]  Cider exited.
+[2024-03-27 09:46:51.447] [info]  [AppEvents] App started
+[2024-03-27 09:46:51.816] [info]  [PluginHandler] Loaded plugins: [
+  'chromecast.js',
+  'discordrpc.js',
+  'lastfm.js',
+  'menubar.js',
+  'mpris.js',
+  'playbackNotifications.js',
+  'raop.js',
+  'thumbar.js',
+  'webNowPlaying.js'
+]
+[2024-03-27 09:46:52.964] [info]  [AppEvents] App ready
+[2024-03-27 09:46:52.965] [info]  [Cider] Application is Ready. Creating Window.
+[2024-03-27 09:46:52.966] [info]  aa
+[2024-03-27 09:46:52.968] [info]  [Cider] Creating Window.
+[2024-03-27 09:46:52.980] [info]  Setting up handlers for local files
+[2024-03-27 09:46:53.344] [info]  [Connect] Auth URL: https://connect.cidercollective.dev/callback/discord?app=cider&appPort=9000
+[2024-03-27 09:46:53.388] [info]  WebSocketServer started on port: 26369
+[2024-03-27 09:46:53.393] [info]  [Cider][Widevine] Status: {
+  oimompecagnajdejgnnjijobebaeigek: {
+    name: 'Widevine Content Decryption Module',
+    status: 'new',
+    version: '4.10.2710.0'
+  }
+}
+[2024-03-27 09:46:53.433] [info]  {
+  auxAttributes: {
+    amdSwitchable: false,
+    canSupportThreadedTextureMailbox: false,
+    glImplementationParts: '(gl=none,angle=none)',
+    glResetNotificationStrategy: 0,
+    inProcessGpu: true,
+    initializationTime: 0,
+    isAsan: false,
+    isClangCoverage: false,
+    jpegDecodeAcceleratorSupported: false,
+    optimus: true,
+    passthroughCmdDecoder: false,
+    sandboxed: false,
+    subpixelFontRendering: true,
+    targetCpuBits: 64,
+    visibilityCallbackCallCount: 0
+  },
+  gpuDevice: [
+    {
+      active: true,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 5966,
+      gpuPreference: 0,
+      vendorId: 4318
+    },
+    {
+      active: false,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 22807,
+      gpuPreference: 0,
+      vendorId: 32902
+    }
+  ]
+}
+[2024-03-27 09:46:53.434] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 09:46:53.434] [info]  Cider client port: 9000
+[2024-03-27 09:46:53.436] [info]  Cider remote port: 6942
+[2024-03-27 09:46:53.437] [info]  remote broadcasted
+[2024-03-27 09:48:28.543] [info]  cookies {
+  'music.ampwebplay.itspod': '16',
+  'music.ampwebplay.pltvcid': 'd9e675491f07484f8abc66143d407ec5016',
+  'music.ampwebplay.pldfltcid': '5c7e36b6d3c841e8aadf2bfc36c49588016',
+  'music.ampwebplay.itua': 'HU',
+  'music.ampwebplay.media-user-token': 'AgrAwU+SVRCvZosWWtKMlHuASFR09N805kuebIUg8/+1oK/un4OWPHzhXjCNlbfc+wR5ClJIkeL1B294rmXpHWwxWHq5PSOwkX/VlarF40IQPGTh6ZqhVtCQHN/0ok/nIC4aJBrkW4DuLDB3uw/AtAxjRUJ+zz6RoWDpbiA6roOgEsjPyYgCFG5RtV0YsTtvTde4atm5+yzI8gRNORNv/huZBsk20EJVZMdEqu7yqfHQGO97Hw==',
+  'music.ampwebplay.dslang': 'US-EN'
+}
+[2024-03-27 09:48:35.912] [warn]  This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+[2024-03-27 09:48:35.913] [error] SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at /opt/Cider/resources/app.asar/node_modules/electron-fetch/lib/index.js:295:55
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-03-27 13:00:20.074] [info]  [AppEvents] App started
+[2024-03-27 13:00:22.693] [info]  [PluginHandler] Loaded plugins: [
+  'chromecast.js',
+  'discordrpc.js',
+  'lastfm.js',
+  'menubar.js',
+  'mpris.js',
+  'playbackNotifications.js',
+  'raop.js',
+  'thumbar.js',
+  'webNowPlaying.js'
+]
+[2024-03-27 13:00:27.531] [info]  [AppEvents] App ready
+[2024-03-27 13:00:27.532] [info]  [Cider] Application is Ready. Creating Window.
+[2024-03-27 13:00:27.532] [info]  aa
+[2024-03-27 13:00:27.594] [info]  [Cider] Creating Window.
+[2024-03-27 13:00:27.833] [info]  Setting up handlers for local files
+[2024-03-27 13:00:28.031] [info]  [Connect] Auth URL: https://connect.cidercollective.dev/callback/discord?app=cider&appPort=9000
+[2024-03-27 13:00:28.492] [info]  WebSocketServer started on port: 26369
+[2024-03-27 13:00:28.580] [info]  [Cider][Widevine] Status: {
+  oimompecagnajdejgnnjijobebaeigek: {
+    name: 'Widevine Content Decryption Module',
+    status: 'new',
+    version: '4.10.2710.0'
+  }
+}
+[2024-03-27 13:00:28.831] [info]  {
+  auxAttributes: {
+    amdSwitchable: false,
+    canSupportThreadedTextureMailbox: false,
+    glImplementationParts: '(gl=none,angle=none)',
+    glResetNotificationStrategy: 0,
+    inProcessGpu: true,
+    initializationTime: 0,
+    isAsan: false,
+    isClangCoverage: false,
+    jpegDecodeAcceleratorSupported: false,
+    optimus: true,
+    passthroughCmdDecoder: false,
+    sandboxed: false,
+    subpixelFontRendering: true,
+    targetCpuBits: 64,
+    visibilityCallbackCallCount: 0
+  },
+  gpuDevice: [
+    {
+      active: true,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 5966,
+      gpuPreference: 0,
+      vendorId: 4318
+    },
+    {
+      active: false,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 22807,
+      gpuPreference: 0,
+      vendorId: 32902
+    }
+  ]
+}
+[2024-03-27 13:00:28.832] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 13:00:28.833] [info]  Cider client port: 9000
+[2024-03-27 13:00:28.836] [info]  Cider remote port: 6942
+[2024-03-27 13:00:28.838] [info]  remote broadcasted
+[2024-03-27 13:00:40.019] [warn]  This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+[2024-03-27 13:00:40.019] [error] SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at /opt/Cider/resources/app.asar/node_modules/electron-fetch/lib/index.js:295:55
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-03-27 13:01:07.112] [warn]  Cider exited.
+[2024-03-27 16:51:55.602] [info]  [AppEvents] App started
+[2024-03-27 16:51:56.371] [info]  [PluginHandler] Loaded plugins: [
+  'chromecast.js',
+  'discordrpc.js',
+  'lastfm.js',
+  'menubar.js',
+  'mpris.js',
+  'playbackNotifications.js',
+  'raop.js',
+  'thumbar.js',
+  'webNowPlaying.js'
+]
+[2024-03-27 16:51:59.907] [info]  [AppEvents] App ready
+[2024-03-27 16:51:59.910] [info]  [Cider] Application is Ready. Creating Window.
+[2024-03-27 16:51:59.911] [info]  aa
+[2024-03-27 16:51:59.949] [info]  [Cider] Creating Window.
+[2024-03-27 16:52:00.037] [info]  Setting up handlers for local files
+[2024-03-27 16:52:00.195] [info]  [Connect] Auth URL: https://connect.cidercollective.dev/callback/discord?app=cider&appPort=9000
+[2024-03-27 16:52:00.422] [info]  WebSocketServer started on port: 26369
+[2024-03-27 16:52:00.479] [info]  [Cider][Widevine] Status: {
+  oimompecagnajdejgnnjijobebaeigek: {
+    name: 'Widevine Content Decryption Module',
+    status: 'new',
+    version: '4.10.2710.0'
+  }
+}
+[2024-03-27 16:52:00.708] [info]  {
+  auxAttributes: {
+    amdSwitchable: false,
+    canSupportThreadedTextureMailbox: false,
+    glImplementationParts: '(gl=none,angle=none)',
+    glResetNotificationStrategy: 0,
+    inProcessGpu: true,
+    initializationTime: 0,
+    isAsan: false,
+    isClangCoverage: false,
+    jpegDecodeAcceleratorSupported: false,
+    optimus: true,
+    passthroughCmdDecoder: false,
+    sandboxed: false,
+    subpixelFontRendering: true,
+    targetCpuBits: 64,
+    visibilityCallbackCallCount: 0
+  },
+  gpuDevice: [
+    {
+      active: true,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 5966,
+      gpuPreference: 0,
+      vendorId: 4318
+    },
+    {
+      active: false,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 22807,
+      gpuPreference: 0,
+      vendorId: 32902
+    }
+  ]
+}
+[2024-03-27 16:52:00.709] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 16:52:00.709] [info]  Cider client port: 9000
+[2024-03-27 16:52:00.714] [info]  Cider remote port: 6942
+[2024-03-27 16:52:00.718] [info]  remote broadcasted
+[2024-03-27 16:52:04.159] [info]  [DiscordRPC][connect] Successfully Connected to Discord. Authed for user: 312236499456491521.
+[2024-03-27 16:52:07.223] [warn]  This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+[2024-03-27 16:52:07.224] [error] SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at /opt/Cider/resources/app.asar/node_modules/electron-fetch/lib/index.js:295:55
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-03-27 16:52:38.788] [warn]  Cider exited.
+[2024-03-27 16:52:41.366] [info]  [AppEvents] App started
+[2024-03-27 16:52:41.703] [info]  [PluginHandler] Loaded plugins: [
+  'chromecast.js',
+  'discordrpc.js',
+  'lastfm.js',
+  'menubar.js',
+  'mpris.js',
+  'playbackNotifications.js',
+  'raop.js',
+  'thumbar.js',
+  'webNowPlaying.js'
+]
+[2024-03-27 16:52:42.529] [info]  [AppEvents] App ready
+[2024-03-27 16:52:42.530] [info]  [Cider] Application is Ready. Creating Window.
+[2024-03-27 16:52:42.531] [info]  aa
+[2024-03-27 16:52:42.535] [info]  [Cider] Creating Window.
+[2024-03-27 16:52:42.549] [info]  Setting up handlers for local files
+[2024-03-27 16:52:42.639] [info]  [Connect] Auth URL: https://connect.cidercollective.dev/callback/discord?app=cider&appPort=9000
+[2024-03-27 16:52:42.714] [info]  WebSocketServer started on port: 26369
+[2024-03-27 16:52:42.724] [info]  [Cider][Widevine] Status: {
+  oimompecagnajdejgnnjijobebaeigek: {
+    name: 'Widevine Content Decryption Module',
+    status: 'new',
+    version: '4.10.2710.0'
+  }
+}
+[2024-03-27 16:52:42.767] [info]  {
+  auxAttributes: {
+    amdSwitchable: false,
+    canSupportThreadedTextureMailbox: false,
+    glImplementationParts: '(gl=none,angle=none)',
+    glResetNotificationStrategy: 0,
+    inProcessGpu: true,
+    initializationTime: 0,
+    isAsan: false,
+    isClangCoverage: false,
+    jpegDecodeAcceleratorSupported: false,
+    optimus: true,
+    passthroughCmdDecoder: false,
+    sandboxed: false,
+    subpixelFontRendering: true,
+    targetCpuBits: 64,
+    visibilityCallbackCallCount: 0
+  },
+  gpuDevice: [
+    {
+      active: true,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 5966,
+      gpuPreference: 0,
+      vendorId: 4318
+    },
+    {
+      active: false,
+      cudaComputeCapabilityMajor: 0,
+      deviceId: 22807,
+      gpuPreference: 0,
+      vendorId: 32902
+    }
+  ]
+}
+[2024-03-27 16:52:42.768] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 16:52:42.769] [info]  Cider client port: 9000
+[2024-03-27 16:52:42.773] [info]  Cider remote port: 6942
+[2024-03-27 16:52:42.776] [info]  remote broadcasted
+[2024-03-27 16:52:43.607] [info]  [DiscordRPC][connect] Successfully Connected to Discord. Authed for user: 312236499456491521.
+[2024-03-27 16:52:46.380] [warn]  This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+[2024-03-27 16:52:46.381] [error] SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at /opt/Cider/resources/app.asar/node_modules/electron-fetch/lib/index.js:295:55
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-03-27 16:53:08.985] [error] {
+  id: 613138073,
+  node_id: 'R_kgDOJIu-mQ',
+  name: 'cider',
+  full_name: 'catppuccin/cider',
+  private: false,
+  owner: {
+    login: 'catppuccin',
+    id: 93489351,
+    node_id: 'O_kgDOBZKIxw',
+    avatar_url: 'https://avatars.githubusercontent.com/u/93489351?v=4',
+    gravatar_id: '',
+    url: 'https://api.github.com/users/catppuccin',
+    html_url: 'https://github.com/catppuccin',
+    followers_url: 'https://api.github.com/users/catppuccin/followers',
+    following_url: 'https://api.github.com/users/catppuccin/following{/other_user}',
+    gists_url: 'https://api.github.com/users/catppuccin/gists{/gist_id}',
+    starred_url: 'https://api.github.com/users/catppuccin/starred{/owner}{/repo}',
+    subscriptions_url: 'https://api.github.com/users/catppuccin/subscriptions',
+    organizations_url: 'https://api.github.com/users/catppuccin/orgs',
+    repos_url: 'https://api.github.com/users/catppuccin/repos',
+    events_url: 'https://api.github.com/users/catppuccin/events{/privacy}',
+    received_events_url: 'https://api.github.com/users/catppuccin/received_events',
+    type: 'Organization',
+    site_admin: false
+  },
+  html_url: 'https://github.com/catppuccin/cider',
+  description: '🍏 Catppuccin Theme for Cider',
+  fork: false,
+  url: 'https://api.github.com/repos/catppuccin/cider',
+  forks_url: 'https://api.github.com/repos/catppuccin/cider/forks',
+  keys_url: 'https://api.github.com/repos/catppuccin/cider/keys{/key_id}',
+  collaborators_url: 'https://api.github.com/repos/catppuccin/cider/collaborators{/collaborator}',
+  teams_url: 'https://api.github.com/repos/catppuccin/cider/teams',
+  hooks_url: 'https://api.github.com/repos/catppuccin/cider/hooks',
+  issue_events_url: 'https://api.github.com/repos/catppuccin/cider/issues/events{/number}',
+  events_url: 'https://api.github.com/repos/catppuccin/cider/events',
+  assignees_url: 'https://api.github.com/repos/catppuccin/cider/assignees{/user}',
+  branches_url: 'https://api.github.com/repos/catppuccin/cider/branches{/branch}',
+  tags_url: 'https://api.github.com/repos/catppuccin/cider/tags',
+  blobs_url: 'https://api.github.com/repos/catppuccin/cider/git/blobs{/sha}',
+  git_tags_url: 'https://api.github.com/repos/catppuccin/cider/git/tags{/sha}',
+  git_refs_url: 'https://api.github.com/repos/catppuccin/cider/git/refs{/sha}',
+  trees_url: 'https://api.github.com/repos/catppuccin/cider/git/trees{/sha}',
+  statuses_url: 'https://api.github.com/repos/catppuccin/cider/statuses/{sha}',
+  languages_url: 'https://api.github.com/repos/catppuccin/cider/languages',
+  stargazers_url: 'https://api.github.com/repos/catppuccin/cider/stargazers',
+  contributors_url: 'https://api.github.com/repos/catppuccin/cider/contributors',
+  subscribers_url: 'https://api.github.com/repos/catppuccin/cider/subscribers',
+  subscription_url: 'https://api.github.com/repos/catppuccin/cider/subscription',
+  commits_url: 'https://api.github.com/repos/catppuccin/cider/commits{/sha}',
+  git_commits_url: 'https://api.github.com/repos/catppuccin/cider/git/commits{/sha}',
+  comments_url: 'https://api.github.com/repos/catppuccin/cider/comments{/number}',
+  issue_comment_url: 'https://api.github.com/repos/catppuccin/cider/issues/comments{/number}',
+  contents_url: 'https://api.github.com/repos/catppuccin/cider/contents/{+path}',
+  compare_url: 'https://api.github.com/repos/catppuccin/cider/compare/{base}...{head}',
+  merges_url: 'https://api.github.com/repos/catppuccin/cider/merges',
+  archive_url: 'https://api.github.com/repos/catppuccin/cider/{archive_format}{/ref}',
+  downloads_url: 'https://api.github.com/repos/catppuccin/cider/downloads',
+  issues_url: 'https://api.github.com/repos/catppuccin/cider/issues{/number}',
+  pulls_url: 'https://api.github.com/repos/catppuccin/cider/pulls{/number}',
+  milestones_url: 'https://api.github.com/repos/catppuccin/cider/milestones{/number}',
+  notifications_url: 'https://api.github.com/repos/catppuccin/cider/notifications{?since,all,participating}',
+  labels_url: 'https://api.github.com/repos/catppuccin/cider/labels{/name}',
+  releases_url: 'https://api.github.com/repos/catppuccin/cider/releases{/id}',
+  deployments_url: 'https://api.github.com/repos/catppuccin/cider/deployments',
+  created_at: '2023-03-13T00:53:56Z',
+  updated_at: '2024-02-19T01:24:54Z',
+  pushed_at: '2023-03-27T14:04:33Z',
+  git_url: 'git://github.com/catppuccin/cider.git',
+  ssh_url: 'git@github.com:catppuccin/cider.git',
+  clone_url: 'https://github.com/catppuccin/cider.git',
+  svn_url: 'https://github.com/catppuccin/cider',
+  homepage: '',
+  size: 2795,
+  stargazers_count: 14,
+  watchers_count: 14,
+  language: 'Less',
+  has_issues: true,
+  has_projects: true,
+  has_downloads: true,
+  has_wiki: true,
+  has_pages: false,
+  has_discussions: false,
+  forks_count: 0,
+  mirror_url: null,
+  archived: false,
+  disabled: false,
+  open_issues_count: 0,
+  license: {
+    key: 'mit',
+    name: 'MIT License',
+    spdx_id: 'MIT',
+    url: 'https://api.github.com/licenses/mit',
+    node_id: 'MDc6TGljZW5zZTEz'
+  },
+  allow_forking: true,
+  is_template: false,
+  web_commit_signoff_required: false,
+  topics: [ 'catppuccin', 'cidermusictheme', 'hacktoberfest', 'theme' ],
+  visibility: 'public',
+  forks: 0,
+  open_issues: 0,
+  watchers: 14,
+  default_branch: 'main',
+  temp_clone_token: null,
+  custom_properties: { whiskers: 'false' },
+  organization: {
+    login: 'catppuccin',
+    id: 93489351,
+    node_id: 'O_kgDOBZKIxw',
+    avatar_url: 'https://avatars.githubusercontent.com/u/93489351?v=4',
+    gravatar_id: '',
+    url: 'https://api.github.com/users/catppuccin',
+    html_url: 'https://github.com/catppuccin',
+    followers_url: 'https://api.github.com/users/catppuccin/followers',
+    following_url: 'https://api.github.com/users/catppuccin/following{/other_user}',
+    gists_url: 'https://api.github.com/users/catppuccin/gists{/gist_id}',
+    starred_url: 'https://api.github.com/users/catppuccin/starred{/owner}{/repo}',
+    subscriptions_url: 'https://api.github.com/users/catppuccin/subscriptions',
+    organizations_url: 'https://api.github.com/users/catppuccin/orgs',
+    repos_url: 'https://api.github.com/users/catppuccin/repos',
+    events_url: 'https://api.github.com/users/catppuccin/events{/privacy}',
+    received_events_url: 'https://api.github.com/users/catppuccin/received_events',
+    type: 'Organization',
+    site_admin: false
+  },
+  network_count: 0,
+  subscribers_count: 3
+}
+[2024-03-27 16:53:09.087] [info]  /home/mate/.config/Cider/Themes/gh_613138073
+[2024-03-27 16:53:09.397] [info]  From here can you check for real changes, the initial scan has been completed.
+[2024-03-27 16:53:43.934] [warn]  Cider exited.

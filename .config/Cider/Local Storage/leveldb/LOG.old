@@ -1,0 +1,5 @@
+2024/03/27-16:51:57.914 174b Reusing MANIFEST /home/mate/.config/Cider/Local Storage/leveldb/MANIFEST-000001
+2024/03/27-16:51:57.928 174b Recovering log #4
+2024/03/27-16:51:57.985 174b Level-0 table #6: started
+2024/03/27-16:51:58.228 174b Level-0 table #6: 21721 bytes OK
+2024/03/27-16:51:58.362 174b Delete type=0 #4
