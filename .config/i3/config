@@ -1,5 +1,5 @@
 # Catppuccin color variables
-set $mauve     #f5c2e7
+set $blue      #89b4fa
 set $text      #cdd6f4
 set $subtext1  #bac2de
 set $subtext0  #a6adc8
@@ -61,6 +61,9 @@ bindsym $mod+q kill
 
 # Start a program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# Start powermenu.
+bindsym $mod+p exec --no-startup-id rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme powermenu
 
 # Change focus.
 bindsym $mod+Left focus left
@@ -146,10 +149,10 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 # Borders.
 gaps inner 10
 gaps outer 10
-gaps top 58
+gaps top 54
 default_border pixel 0
 default_floating_border pixel 0
-client.focused          #83A8EC $base $text $mauve $mauve
+client.focused          #83A8EC $base $text $blue $blue
 client.focused_inactive #D4D7FF $base $text $overlay0 $overlay0
 client.unfocused        #D0D3FF $base $text $overlay0 $overlay0
 client.urgent           #DE688A $base $text $overlay2 $overlay2
@@ -175,6 +178,8 @@ exec --no-startup-id picom -b
 # Bar
 exec --no-startup-id polybar -q
 # Wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/arch.png' 
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/evening-sky.png' 
 # Notifications
 exec --no-startup-id dunst
+# Mount google drive.
+exec --no-startup-id rclone mount psgdrive: ~/Psg-drive
