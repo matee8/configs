@@ -1,5 +1,6 @@
-# Packages (799)
-## i3wm
+<img src="./assets/preview.png" title="Preview" alt="Preview"></img>
+# Packages (803)  
+## i3wm  
 Core: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
@@ -10,13 +11,13 @@ Bar: polybar
 Wallpaper: feh  
 Screenshot: maim  
 Notifications: dunst  
-## IO settings
+## IO settings  
 Display: xorg-xrandr, brightnessctl  
-Graphics card driver: nvidia, nvidia-utils
+Graphics card driver: nvidia, nvidia-utils, nvidia-settings  
 Bluetooth: bluez, bluez-utils  
 Volume: pulsemixer  
 Mouse: xorg-xinput  
-## Terminal
+## Terminal  
 Shell: fish  
 Terminal: alacritty  
 Fetch: fastfetch  
@@ -24,16 +25,17 @@ Prompt: starship
 Task manager: btop  
 Clipboard: xclip  
 Text editor: micro  
-ls replacament: exa  
 Font: ttf-hack-nerd  
 Version control: git  
-## Development
+ls replacament: exa  
+cd replacement: zoxide, fzf  
+## Development  
 Editor: code 
 AMPP: XAMPP (Official website)  
 Network: packettracer (AUR)
 Database planning: mysql-workbench
-Game development: unityhub (AUR)
-### VS Code Extensions
+Game development: unityhub (AUR)  
+### VS Code Extensions  
 ms-dotnettools.vscode-dotnet-runtime  
 muhammad-sammy.csharp  
 llvm-vs-code-extensions.vscode-clangd  
@@ -45,18 +47,19 @@ xabikos.JavaScriptSnippets
 yandeu.five-server  
 Oracle.oracledevtools  
 bmewburn.vscode-intelephense-client  
+ms-python.python  
 sguerri.simple-hide-files  
-#### Theme, icon
+#### Theme, icon  
 Theme: enkia.tokyo-night  
-Icons: Catppuccin.catppuccin-vsc-icons
-### Tools
+Icons: vscode-icons-team.vscode-icons  
+### Tools  
 cmake  
 valgrind  
 dotnet-runtime  
 dotnet-sdk  
 jdk-openjdk  
 php  
-## Apps
+## Apps  
 Explorer: nemo  
 Browser: firefox  
 Archived files: nemo-fileroller  
@@ -71,17 +74,17 @@ Note taking: obsidian
 Media player: vlc  
 Cloud sync: rclone  
 VPN: openvpn  
-## Other stuff
+## Other stuff  
 Compatibility: wine  
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
-Music: cider (AUR)  
+Music: cider (AUR), nvm (AUR)  
 GTK Theme: catppuccin-gtk-theme-mocha (AUR)  
 Papirus folders: papirus-folders-catppuccin-git (AUR)  
 Custom discord: vencord (Official site)  
 # Manual setup  
 Change shell to fish  
-- Turn fish greeting off  
+Turn fish greeting off  
 Make .aur directory  
 Make Desktop, Downloads, Documents, Pictures, Videos, Music, University, Work, Projects, .path directories  
 Set cinnamon default terminal for nemo (gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty)  
@@ -89,12 +92,13 @@ Remove unused .desktop files from /usr/share/applications and rename some
 .ssh folder config  
 Set up symbolic links to /opt/lampp/htdocs  
 git: config (user.email, user.name, credential.helper)  
-Wine: wine mono
+rclone: config  
+Wine: wine mono  
 Firefox: login, always show bookmarks, customize toolbar, login to every site  
 Code: Codeium, git, extensions, UI  
 Discord: login, font size, Vencord CustomCSS  
 Cider: login, theme  
-Obsidian: theme, set up vaults
-LibreOffice: disable tips
+Obsidian: theme, set up vaults  
+LibreOffice: disable tips  
 Packet Tracer: download installer from official site  
 Steam: login  
