@@ -5,5 +5,6 @@ if status is-interactive
     alias xampp="sudo /opt/lampp/lampp"
     alias ls="exa"
     clear
+    cd
     starship init fish | source
 end
