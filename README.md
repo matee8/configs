@@ -1,4 +1,4 @@
-# Packages (801)
+# Packages (799)
 ## i3wm
 Core: i3-wm  
 Server: xorg-server  
@@ -65,12 +65,36 @@ Image editor: gimp
 Video recorder: obs-studio  
 Video editor: shotcut  
 Torrent: qbittorrent  
-PDF reader: zathura  
+PDF reader: zathura, zathura-pdf-mupdf  
 Calculator: speedcrunch  
 Note taking: obsidian  
 Media player: vlc  
+Cloud sync: rclone  
+VPN: openvpn  
 ## Other stuff
 Compatibility: wine  
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
 Music: cider (AUR)  
+GTK Theme: catppuccin-gtk-theme-mocha (AUR)  
+Papirus folders: papirus-folders-catppuccin-git (AUR)  
+Custom discord: vencord (Official site)  
+# Manual setup  
+Change shell to fish  
+- Turn fish greeting off  
+Make .aur directory  
+Make Desktop, Downloads, Documents, Pictures, Videos, Music, University, Work, Projects, .path directories  
+Set cinnamon default terminal for nemo (gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty)  
+Remove unused .desktop files from /usr/share/applications and rename some  
+.ssh folder config  
+Set up symbolic links to /opt/lampp/htdocs  
+git: config (user.email, user.name, credential.helper)  
+Wine: wine mono
+Firefox: login, always show bookmarks, customize toolbar, login to every site  
+Code: Codeium, git, extensions, UI  
+Discord: login, font size, Vencord CustomCSS  
+Cider: login, theme  
+Obsidian: theme, set up vaults
+LibreOffice: disable tips
+Packet Tracer: download installer from official site  
+Steam: login  
