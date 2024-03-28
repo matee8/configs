@@ -150,6 +150,7 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 # Borders.
 gaps inner 10
 gaps outer 10
+gaps top 54
 default_border pixel 0
 default_floating_border pixel 0
 client.focused          #83A8EC $base $text $blue $blue
