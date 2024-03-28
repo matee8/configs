@@ -1,0 +1,185 @@
+# Catppuccin color variables
+set $blue      #89b4fa
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# Mod and alt variable.
+set $mod Mod4
+set $alt Mod1
+
+# Font for window titles .
+font xft:HackNerdFont 8
+
+# Start XDG autostart .desktop files using dex.
+exec --no-startup-id dex --autostart --environment i3
+
+# Pulsemixer to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +10 && pulsemixer --max-volume 100
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -10 && pulsemixer --max-volume 100
+bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
+
+# Brightnessctl to adjust brightness.
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# Touchpad.
+exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# Drag floating windows to their wanted position.
+floating_modifier $mod
+
+# Default applications.
+set $terminal "alacritty"
+set $fileExplorer "nemo"
+set $browser "firefox"
+set $editor "code"
+set $music "cider"
+
+# Keybindings for default applications.
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+e exec --no-startup-id $fileExplorer
+bindsym $mod+b exec --no-startup-id $browser 
+bindsym $mod+c exec --no-startup-id $editor
+bindysm $mod+m exec --no-startup-id $music
+
+# Screenshot
+bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# Kill focused window.
+bindsym $mod+q kill
+
+# Start a program launcher
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# Start powermenu.
+bindsym $mod+p exec --no-startup-id rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme powermenu
+
+# Change focus.
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window.
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+
+# Move focused window in layout
+bindsym $mod+Shift+Left exec --no-startup-id i3l move left
+bindsym $mod+Shift+Down exec --no-startup-id i3l move down
+bindsym $mod+Shift+Up exec --no-startup-id i3l move up
+bindsym $mod+Shift+Right exec --no-startup-id i3l move right
+
+# Enter fullscreen mode for the focused container.
+bindsym $mod+f fullscreen toggle
+
+# Toggle tiling / floating.
+bindsym $mod+Shift+space floating toggle
+
+# Mouse behavior
+focus_follows_mouse no
+
+# Define names for default workspaces.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+
+# Restart i3 inplace.
+bindsym $mod+Shift+r restart
+
+# Resize window.
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        # bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Monitor setup.
+exec_always --no-startup-id xrandr --output eDP-1 --primary
+
+# Borders.
+gaps inner 10
+gaps outer 10
+gaps top 54
+default_border pixel 0
+default_floating_border pixel 0
+client.focused          #83A8EC $base $text $blue $blue
+client.focused_inactive #D4D7FF $base $text $overlay0 $overlay0
+client.unfocused        #D0D3FF $base $text $overlay0 $overlay0
+client.urgent           #DE688A $base $text $overlay2 $overlay2
+client.placeholder      #12121F $base $text $overlay0 $overlay0
+client.background       #12121F
+
+# Dynamic layout
+exec --no-startup-id i3-layouts
+set $i3l autosplit to workspace $ws1
+set $i3l autosplit to workspace $ws2
+set $i3l autosplit to workspace $ws3
+set $i3l autosplit to workspace $ws4
+set $i3l autosplit to workspace $ws5
+set $i3l autosplit to workspace $ws6
+set $i3l autosplit to workspace $ws7
+set $i3l autosplit to workspace $ws8
+set $i3l autosplit to workspace $ws9
+
+
+# Start other applications.
+# Compositor
+exec --no-startup-id picom -b
+# Bar
+exec --no-startup-id polybar -q
+# Wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/evening-sky.png' 
+# Notifications
+exec --no-startup-id dunst
+# Mount google drive.
+exec --no-startup-id rclone mount psgdrive: ~/Psg-drive
