@@ -1,0 +1,9 @@
+[Default Applications]
+application/x-zerosize=code-oss.desktop
+application/pdf=org.pwmt.zathura.desktop
+text/x-csharp=code-oss.desktop
+
+[Added Associations]
+application/x-zerosize=code-oss.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+text/x-csharp=code-oss.desktop;

@@ -7,4 +7,5 @@ if status is-interactive
     clear
     cd
     starship init fish | source
+    zoxide init --cmd cd fish | source
 end

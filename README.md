@@ -1,9 +1,11 @@
-# Packages (778)  
+# Preview
+<img src="./assets/preview.png"></img>
+# Packages (780)  
 ## i3wm  
 Core: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom-ftlabs-git (AUR)  
+Compositor: picom  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
 Bar: polybar  
@@ -60,7 +62,7 @@ jdk-openjdk
 php  
 ## Apps  
 Explorer: ranger  
-Archived files: zip, unzip   
+Archived files: zip, unzip, unrar   
 Browser: firefox  
 Office suite: libreoffice-fresh  
 Image editor: gimp  
@@ -74,7 +76,8 @@ Media player: vlc
 Cloud sync: rclone  
 VPN: openvpn  
 ## Other stuff  
-Compatibility: wine  
+Mount external hard drives: fuse3  
+Compatibility: wine, ntfs-3g  
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
 Music: cider (AUR), nvm (AUR)  
