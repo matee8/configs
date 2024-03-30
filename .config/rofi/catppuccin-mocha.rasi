@@ -1,15 +1,15 @@
 * {
     bg-col:  #1e1e2e;
     bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
+    border-col: #89b4fa;
     selected-col: #1e1e2e;
     blue: #89b4fa;
     fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
+    fg-col2: #1e1e2e;
     grey: #6c7086;
 
-    width: 600;
-    font: "Hack Nerd Font Mono 14";
+    width: 800px;
+    font: "Hack Nerd Font 14";
 }
 
 element-text, element-icon , mode-switcher {
@@ -19,7 +19,7 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-    border: 3px;
+    border: 2px;
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -29,14 +29,14 @@ mainbox {
 }
 
 inputbar {
-    children: [prompt,entry];
+    children: [entry];
     background-color: @bg-col;
     border-radius: 5px;
     padding: 2px;
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @bg-col;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -50,15 +50,16 @@ textbox-prompt-colon {
 
 entry {
     padding: 6px;
-    margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
+    margin: 20px 10px 0px 10px;
+    text-color: @bg-col;
+    background-color: @blue;
+    border-radius: 8px;
 }
 
 listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    margin: 10px 20px -20px 20px;
     columns: 2;
     lines: 5;
     background-color: @bg-col;
@@ -67,7 +68,7 @@ listview {
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
 }
 
 element-icon {
@@ -75,8 +76,9 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
+    background-color:  @blue ;
     text-color: @fg-col2  ;
+    border-radius: 8px;
 }
 
 mode-switcher {
@@ -84,7 +86,7 @@ mode-switcher {
   }
 
 button {
-    padding: 10px;
+    padding: 0px;
     background-color: @bg-col-light;
     text-color: @grey;
     vertical-align: 0.5; 
@@ -93,7 +95,7 @@ button {
 
 button selected {
   background-color: @bg-col;
-  text-color: @blue;
+  text-color: @bg-col;
 }
 
 message {

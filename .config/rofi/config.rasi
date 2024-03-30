@@ -2,15 +2,16 @@ configuration{
     modi: "run,drun,window";
     icon-theme: "Papirus";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
+    window-format: "{icon} {t}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: " 󰣆  Apps ";
-    display-run: "   Run ";
-    display-window: "   Window";
-    display-Network: " 󰤨  Network";
+    display-drun: "";
+    display-run: " ";
+    display-window: " 󰣆";
+    display-Network: "󰤨";
     sidebar-mode: true;
 }
 
