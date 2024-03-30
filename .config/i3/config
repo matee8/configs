@@ -40,8 +40,8 @@ exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput 
 floating_modifier $mod
 
 # Default applications.
-set $terminal "alacritty"
-set $fileExplorer "nemo"
+set $terminal "wezterm"
+set $fileExplorer "wezterm -e 'ranger'"
 set $browser "firefox"
 set $editor "code"
 set $music "cider"
@@ -61,10 +61,10 @@ bindsym Shift+Print exec --no-startup-id maim ~/Pictures/$(date +%s).png
 bindsym $mod+q kill
 
 # Start a program launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id "rofi -show combi -modes combi -combi-modes 'window,drun'"
 
 # Start powermenu.
-bindsym $mod+p exec --no-startup-id rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme powermenu
+bindsym $mod+Shift+e exec --no-startup-id rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme powermenu
 
 # Change focus.
 bindsym $mod+Left focus left
@@ -149,10 +149,9 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 
 # Borders.
 gaps inner 10
-gaps outer 10
-gaps top 54
-default_border pixel 0
-default_floating_border pixel 0
+gaps outer 5
+default_border pixel 2
+default_floating_border pixel 2
 client.focused          #83A8EC $base $text $blue $blue
 client.focused_inactive #D4D7FF $base $text $overlay0 $overlay0
 client.unfocused        #D0D3FF $base $text $overlay0 $overlay0
@@ -184,3 +183,16 @@ exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/evening-sk
 exec --no-startup-id dunst
 # Mount google drive.
 exec --no-startup-id rclone mount psgdrive: ~/Psg-drive
+
+# Window rules for floating dialogs.
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable

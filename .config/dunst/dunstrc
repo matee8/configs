@@ -1,76 +1,55 @@
 [global]
-	# Display.
-	width = 300
-	origin = bottom-right
-	offset = 15x15
+follow = mouse
+indicate_hidden = yes
+offset = 10x10
+notification_height = 0
 
-    # Show how many messages are hidden.
-    indicate_hidden = yes
+separator_height = 2
 
-    # Shrink window if it's smaller than the width.
-    shrink = no
+padding = 8
+horizontal_padding = 8
+text_icon_padding = 0
+frame_width = 2
 
-    # The transparency of the window.
-    transparency = 1
+frame_color = "#89b4fa"
+separator_color = frame
 
-    # Draw a line between multiple notifications.
-    separator_height = 6
-    separator_color = "#89b4fa"
+sort = yes
+idle_threshold = 120
+font = monospace 10
+line_height = 0
+markup = full
+alignment = left
+vertical_alignment = center
+show_age_threshold = 60
+word_wrap = yes
+stack_duplicates = true
+hide_duplicate_count = false
 
-	# Set the notification padding.
-	padding = 16
-    horizontal_padding = 16
+show_indicators = yes
 
-    # Disable frame (border).
-	frame_width = 0
+min_icon_size = 0
+max_icon_size = 64
 
-	# Set the font.
-	font = Hack Nerd Font 11
+icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/animations/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/categories/:/usr/share/icons/Papirus-Dark/16x16/emblems/:/usr/share/icons/Papirus-Dark/16x16/emotes/:/usr/share/icons/Papirus-Dark/16x16/devices/mimetypes:/usr/share/icons/Papirus-Dark/16x16/panel/:/usr/share/icons/Papirus-Dark/16x16/places/
 
-	# Formatting.
-	markup = full
-    format = "<b>%a</b>\n%s"
+dmenu = /usr/bin/rofi -mode dunst:
+browser = /usr/bin/firefox --new-tab
 
-	# Text alignment.
-	alignment = left
-	vertical_alignment = center
+title = Dunst
+class = Dunst
 
-    # Wrap text if it doesn't fit in geometry
-    word_wrap = yes
-
-    # Indicators for URLs and actions.
-    show_indicators = no
-
-    # Align icons.
-    icon_position = left
-
-    # Scale small icons up to this size.
-    min_icon_size = 50
-
-    # Scale larger icons down to this size.
-    max_icon_size = 60    
-
-    # Icon theme.
-	icon_theme = "Papirus-Dark"
-
-	# Avoid timing out hidden notifications.
-	sticky_history = yes
-
-	# Maximum amount of notifications kept in history
-	history_length = 100
-
+corner_radius = 10
+timeout = 5
 [urgency_low]
-	background = "#1E1E2E"
-	foreground = "#CDD6F4"
-	corner-radius = 7
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_normal]
-	background = "#1E1E2E"
-	foreground = "#CDD6F4"
-	corner-radius = 7
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_critical]
-	background = "#1E1E2E"
-	foreground = "#CDD6F4"
-	frame_color = "#FAB387"
-	corner-radius = 7
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"

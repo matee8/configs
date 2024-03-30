@@ -8,8 +8,10 @@
     selected-background: #89b4fa;
     selected-background-alt: #89b4fa;
     selected-background-gradient: linear-gradient(#89b4fa, #89b4fa);
-        
+  	
     unselected-background:  #313244;
+
+	separatorcolor: #6c7086;
     
     red: rgba(220, 50, 47, 100%);
     blue: rgba(38, 139, 210, 100%);

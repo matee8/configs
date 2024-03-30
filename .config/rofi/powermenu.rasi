@@ -1,7 +1,7 @@
 configuration {
     // modi: "window,run,drun";
     show-icons: true;
-    font: "Hack Nerd Font Mono 10";
+    font: "Hack Nerd Font 10";
 }
 
 

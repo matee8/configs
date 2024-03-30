@@ -1,10 +1,9 @@
-<img src="./assets/preview.png" title="Preview" alt="Preview"></img>
-# Packages (803)  
+# Packages (778)  
 ## i3wm  
 Core: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom  
+Compositor: picom-ftlabs-git (AUR)  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
 Bar: polybar  
@@ -19,7 +18,7 @@ Volume: pulsemixer
 Mouse: xorg-xinput  
 ## Terminal  
 Shell: fish  
-Terminal: alacritty  
+Terminal: wezterm  
 Fetch: fastfetch  
 Prompt: starship  
 Task manager: btop  
@@ -60,9 +59,9 @@ dotnet-sdk
 jdk-openjdk  
 php  
 ## Apps  
-Explorer: nemo  
+Explorer: ranger  
+Archived files: zip, unzip   
 Browser: firefox  
-Archived files: nemo-fileroller  
 Office suite: libreoffice-fresh  
 Image editor: gimp  
 Video recorder: obs-studio  
@@ -79,8 +78,6 @@ Compatibility: wine
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
 Music: cider (AUR), nvm (AUR)  
-GTK Theme: catppuccin-gtk-theme-mocha (AUR)  
-Papirus folders: papirus-folders-catppuccin-git (AUR)  
 Custom discord: vencord (Official site)  
 # Manual setup  
 Change shell to fish  
