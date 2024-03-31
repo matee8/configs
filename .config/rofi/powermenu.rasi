@@ -9,10 +9,12 @@ configuration {
 
 
 #window {
-    width: 480px;
-    height: 130px;
+    width: 484px;
+    height: 134px;
     background-color: @background-solid;
     padding: 10px;
+    border: 2px;
+    border-color: #89b4fa;
 }
 
 #mainbox {

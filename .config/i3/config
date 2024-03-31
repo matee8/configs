@@ -149,7 +149,7 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 
 # Borders.
 gaps inner 10
-gaps outer 5
+gaps outer 0
 default_border pixel 2
 default_floating_border pixel 2
 client.focused          #83A8EC $base $text $blue $blue
@@ -182,7 +182,7 @@ exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/evening-sk
 # Notifications
 exec --no-startup-id dunst
 # Mount google drive.
-exec --no-startup-id rclone mount psgdrive: ~/Psg-drive
+exec --no-startup-id rclone mount psgdrive: /mnt/Psg-drive
 
 # Window rules for floating dialogs.
 for_window [window_role="About"] floating enable
