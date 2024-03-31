@@ -1,11 +1,11 @@
-# Preview
-<img src="./assets/preview.png"></img>
-# Packages (780)  
+# Preview  
+<img src="./assets/preview.png" />
+# Packages (781)  
 ## i3wm  
 Core: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom  
+Compositor: picom-ftlabs-git (AUR)  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
 Bar: polybar  
@@ -33,8 +33,8 @@ cd replacement: zoxide, fzf
 ## Development  
 Editor: code 
 AMPP: XAMPP (Official website)  
-Network: packettracer (AUR)
-Database planning: mysql-workbench
+Network: packettracer (AUR)  
+Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
 ### VS Code Extensions  
 ms-dotnettools.vscode-dotnet-runtime  
@@ -62,7 +62,7 @@ jdk-openjdk
 php  
 ## Apps  
 Explorer: ranger  
-Archived files: zip, unzip, unrar   
+Archived files: atool  
 Browser: firefox  
 Office suite: libreoffice-fresh  
 Image editor: gimp  
@@ -76,18 +76,19 @@ Media player: vlc
 Cloud sync: rclone  
 VPN: openvpn  
 ## Other stuff  
-Mount external hard drives: fuse3  
-Compatibility: wine, ntfs-3g  
+Mount helpers: fuse3, ntfs-3g  
+Compatibility: wine  
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
 Music: cider (AUR), nvm (AUR)  
 Custom discord: vencord (Official site)  
 # Manual setup  
+Grub: remove quiet parameter  
+Nvidia driver compatiibility (archwiki)  
 Change shell to fish  
 Turn fish greeting off  
 Make .aur directory  
 Make Desktop, Downloads, Documents, Pictures, Videos, Music, University, Work, Projects, .path directories  
-Set cinnamon default terminal for nemo (gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty)  
 Remove unused .desktop files from /usr/share/applications and rename some  
 .ssh folder config  
 Set up symbolic links to /opt/lampp/htdocs  
