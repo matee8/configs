@@ -1,8 +1,8 @@
 # Preview  
 <img src="./assets/preview.png" />
-# Packages (781)  
-## i3wm  
-Core: i3-wm  
+# Packages (786)  
+## Core  
+Window Manager: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
 Compositor: picom-ftlabs-git (AUR)  
@@ -13,26 +13,27 @@ Wallpaper: feh
 Screenshot: maim  
 Notifications: dunst  
 ## IO settings  
+Processor: intel-ucode  
 Display: xorg-xrandr, brightnessctl  
-Graphics card driver: nvidia, nvidia-utils, nvidia-settings  
+Graphics card: nvidia, nvidia-utils, nvidia-settings  
 Bluetooth: bluez, bluez-utils  
 Volume: pulsemixer  
 Mouse: xorg-xinput  
 ## Terminal  
 Shell: fish  
-Terminal: wezterm  
+Terminal: alacritty  
 Fetch: fastfetch  
 Prompt: starship  
 Task manager: btop  
 Clipboard: xclip  
-Text editor: micro  
+Text editor: neovim  
 Font: ttf-hack-nerd  
 Version control: git  
 ls replacament: exa  
 cd replacement: zoxide, fzf  
 ## Development  
 Editor: code 
-AMPP: XAMPP (Official website)  
+AMPP: xampp (aur)  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
@@ -63,25 +64,30 @@ php
 ## Apps  
 Explorer: ranger  
 Archived files: atool  
+Image previews in ranger: w3m  
 Browser: firefox  
 Office suite: libreoffice-fresh  
+Image viewer: feh  
 Image editor: gimp  
+Media player: vlc  
 Video recorder: obs-studio  
 Video editor: shotcut  
 Torrent: qbittorrent  
 PDF reader: zathura, zathura-pdf-mupdf  
 Calculator: speedcrunch  
-Note taking: obsidian  
-Media player: vlc  
+Note taking: obsidian   
 Cloud sync: rclone  
 VPN: openvpn  
-## Other stuff  
+SSH: openssh  
+## Other stuff 
+Manuals: man-db  
 Mount helpers: fuse3, ntfs-3g  
 Compatibility: wine  
 Emoji font: noto-fonts-emoji  
 Gaming: steam  
-Music: cider (AUR), nvm (AUR)  
+Music: cider (AUR)   
 Custom discord: vencord (Official site)  
+Pacman utilities: pacman-contrib  
 # Manual setup  
 Grub: remove quiet parameter  
 Nvidia driver compatiibility (archwiki)  
