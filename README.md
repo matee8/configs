@@ -32,7 +32,7 @@ Version control: git
 ls replacament: exa  
 cd replacement: zoxide, fzf  
 ## Development  
-Editor: code 
+IDE: code  
 AMPP: xampp (aur)  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
