@@ -1,6 +1,6 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (786)  
+# Packages (787)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
@@ -33,7 +33,7 @@ ls replacament: exa
 cd replacement: zoxide, fzf  
 ## Development  
 IDE: code  
-AMPP: xampp (aur)  
+AMPP: xampp (AUR)  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
