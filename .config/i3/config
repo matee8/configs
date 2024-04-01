@@ -40,8 +40,8 @@ exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput 
 floating_modifier $mod
 
 # Default applications.
-set $terminal "wezterm"
-set $fileExplorer "wezterm -e 'ranger'"
+set $terminal "alacritty"
+set $fileExplorer "alacritty -e 'ranger'"
 set $browser "firefox"
 set $editor "code"
 set $music "cider"
@@ -51,7 +51,7 @@ bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+e exec --no-startup-id $fileExplorer
 bindsym $mod+b exec --no-startup-id $browser 
 bindsym $mod+c exec --no-startup-id $editor
-bindysm $mod+m exec --no-startup-id $music
+bindsym $mod+m exec --no-startup-id $music
 
 # Screenshot
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
