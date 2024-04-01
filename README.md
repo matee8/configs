@@ -1,5 +1,5 @@
 # Preview  
-<img src="./assets/preview.png" />
+<img src="./assets/preview.png"> </img>
 # Packages (786)  
 ## Core  
 Window Manager: i3-wm  
