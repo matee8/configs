@@ -1,10 +1,7 @@
 {
-    // open json editor for settings
-    "workbench.settings.editor": "json",
-
     // Theme
-    "workbench.colorTheme": "Tokyo Night",
-    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.iconTheme": "vscode-icons",
 
     // Change font
     "editor.fontFamily": "Hack Nerd Font",
@@ -24,10 +21,18 @@
     // UI
     "editor.minimap.enabled": false,
     "window.commandCenter": false,
-    "editor.scrollbar.vertical": "auto",
-    "window.titleBarStyle": "custom",
-    "editor.scrollbar.horizontal": "auto",
+    "editor.scrollbar.vertical": "visible",
+    "editor.scrollbar.horizontal": "hidden",
 	"window.menuBarVisibility": "toggle",
+    "explorer.openEditors.visible": 0,
+    "explorer.autoReveal": false,
+    "workbench.tree.indent": 12,
+    "editor.smoothScrolling": true,
+    "workbench.activityBar.location": "top",
+    "workbench.sideBar.location": "right",
+    "editor.rulers": [80],
+
+
 
     // Toggle excluded files
     "files.exclude": {
@@ -58,7 +63,6 @@
         "**/next-env.d.ts": true,
         "**/postcss.config.cjs": true,
         "**/prettier.config.js": true,
-        "**/README.md": true,
         "**/next.config.js": true,
         "**/tailwind.config.ts": true,
         "**/drizzle.config.ts": true,
@@ -93,6 +97,42 @@
             "other": "on"
         }
     },
-    "workbench.activityBar.location": "hidden",
-
+    "oracledevtools.defaultConnection": "GBWYKF.xe",
+    "oracledevtools.connections": [
+        {
+            "authenticationType": 2,
+            "dBAPrivilege": "None",
+            "userID": "GBWYKF",
+            "passwordSaved": true,
+            "password": "EKKE_2024",
+            "dataSource": "193.225.33.71:1521/xe",
+            "connectionType": 2,
+            "databaseHostName": "193.225.33.71",
+            "databasePortNumber": "1521",
+            "databaseServiceName": "xe",
+            "tnsAdmin": "/home/mate/Oracle/network/admin",
+            "name": "GBWYKF.xe",
+            "color": "none",
+            "currentSchema": "",
+            "addSettingsScopeToConnectionName": false,
+            "addCurrentSchemaToConnectionName": false,
+            "filters": [],
+            "useCompatibleNamesDirectoryPath": true
+        }
+    ],
+    "codeium.enableConfig": {
+        "*": true,
+        "ignore": true
+    },
+    "workbench.statusBar.visible": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.colorCustomizations": {
+        "editorOverviewRuler.errorForeground": "#0000",
+        "editorOverviewRuler.warningForeground": "#0000",
+        "editorOverviewRuler.infoForeground": "#fff0",
+        "editorOverviewRuler.informationForeground": "#fff0",
+        "editorOverviewRuler.modifiedForeground": "#fff0",
+        "editorOverviewRuler.addedForeground": "#fff0",
+        "editorOverviewRuler.deletedForeground": "#fff0"
+    }
 }
