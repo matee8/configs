@@ -1,6 +1,6 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (787)  
+# Packages (778)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
@@ -61,8 +61,11 @@ jdk-openjdk
 php  
 ## Apps  
 Explorer: ranger  
-Archived files: atool  
+Archived files: atool, unzip, zip, unrar  
+Syntax highlighting in ranger: highlight  
 Image previews in ranger: w3m  
+HTML previews in ranger: lynx  
+ODT previews in ranger: odt2txt  
 Browser: firefox  
 Chatting: discord  
 Office suite: libreoffice-fresh  
@@ -89,6 +92,7 @@ Gaming: steam
 Music: cider (AUR)   
 Custom discord: vencord (Official site)  
 Pacman utilities: pacman-contrib  
+Pacman mirror helper: reflector  
 # Manual setup  
 Grub: remove quiet parameter  
 Nvidia driver compatiibility (archwiki)  
@@ -99,6 +103,7 @@ Make Desktop, Downloads, Documents, Pictures, Videos, Music, University, Work, P
 Remove unused .desktop files from /usr/share/applications and rename some  
 .ssh folder config  
 Set up symbolic links to /opt/lampp/htdocs  
+Enable paccache.timer and reflector.timer systemd services  
 git: config (user.email, user.name, credential.helper)  
 rclone: config  
 Wine: wine mono  
