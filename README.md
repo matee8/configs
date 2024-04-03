@@ -26,7 +26,7 @@ Fetch: fastfetch
 Prompt: starship  
 Task manager: btop  
 Clipboard: xclip  
-Text editor: neovim  
+Text editor: micro  
 Font: ttf-hack-nerd  
 Version control: git  
 ls replacament: exa  
@@ -41,18 +41,16 @@ Game development: unityhub (AUR)
 ms-dotnettools.vscode-dotnet-runtime  
 muhammad-sammy.csharp  
 llvm-vs-code-extensions.vscode-clangd  
-streetsidesoftware.code-spell-checker  
 Codeium.codeium  
 ecmel.vscode-html-css  
 abusaidm.html-snippets  
 xabikos.JavaScriptSnippets  
-yandeu.five-server  
 Oracle.oracledevtools  
 bmewburn.vscode-intelephense-client  
 ms-python.python  
 sguerri.simple-hide-files  
 #### Theme, icon  
-Theme: enkia.tokyo-night  
+Theme: GitHub.github-vscode-theme  
 Icons: vscode-icons-team.vscode-icons  
 ### Tools  
 cmake  
@@ -66,12 +64,14 @@ Explorer: ranger
 Archived files: atool  
 Image previews in ranger: w3m  
 Browser: firefox  
+Chatting: discord  
 Office suite: libreoffice-fresh  
 Image viewer: feh  
 Image editor: gimp  
 Media player: vlc  
 Video recorder: obs-studio  
 Video editor: shotcut  
+Audio editor: audacity  
 Torrent: qbittorrent  
 PDF reader: zathura, zathura-pdf-mupdf  
 Calculator: speedcrunch  
@@ -84,6 +84,7 @@ Manuals: man-db
 Mount helpers: fuse3, ntfs-3g  
 Compatibility: wine  
 Emoji font: noto-fonts-emoji  
+Icons: papirus-icon-theme  
 Gaming: steam  
 Music: cider (AUR)   
 Custom discord: vencord (Official site)  
