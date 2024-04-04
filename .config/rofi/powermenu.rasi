@@ -5,9 +5,9 @@
     background:           #1e1e2e;
     background-solid:     #1e1e2e;
     
-    selected-background: #89b4fa;
-    selected-background-alt: #89b4fa;
-    selected-background-gradient: linear-gradient(#89b4fa, #89b4fa);
+    selected-background: #cba6f7;
+    selected-background-alt: #cba6f7;
+    selected-background-gradient: linear-gradient(#cba6f7, #cba6f7);
   	
     unselected-background:  #313244;
 
@@ -28,8 +28,7 @@ configuration {
     height: 134px;
     background-color: @background-solid;
     padding: 10px;
-    border: 2px;
-    border-color: #89b4fa;
+	border-radius: 7px;
 }
 
 #mainbox {

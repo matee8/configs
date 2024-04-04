@@ -1,11 +1,11 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (778)  
+# Packages (789)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom-ftlabs-git (AUR)  
+Compositor: picom  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
 Bar: polybar  
@@ -26,32 +26,16 @@ Fetch: fastfetch
 Prompt: starship  
 Task manager: btop  
 Clipboard: xclip  
-Text editor: micro  
 Font: ttf-hack-nerd  
 Version control: git  
 ls replacament: exa  
 cd replacement: zoxide, fzf  
 ## Development  
-IDE: code  
+Editor: neovim, npm  
 AMPP: xampp (AUR)  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
-### VS Code Extensions  
-ms-dotnettools.vscode-dotnet-runtime  
-muhammad-sammy.csharp  
-llvm-vs-code-extensions.vscode-clangd  
-Codeium.codeium  
-ecmel.vscode-html-css  
-abusaidm.html-snippets  
-xabikos.JavaScriptSnippets  
-Oracle.oracledevtools  
-bmewburn.vscode-intelephense-client  
-ms-python.python  
-sguerri.simple-hide-files  
-#### Theme, icon  
-Theme: GitHub.github-vscode-theme  
-Icons: vscode-icons-team.vscode-icons  
 ### Tools  
 cmake  
 valgrind  
