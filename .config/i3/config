@@ -1,5 +1,5 @@
 # Catppuccin color variables
-set $blue      #89b4fa
+set $blue      #cba6f7
 set $text      #cdd6f4
 set $subtext1  #bac2de
 set $subtext0  #a6adc8
@@ -41,16 +41,16 @@ floating_modifier $mod
 
 # Default applications.
 set $terminal "alacritty"
-set $fileExplorer "alacritty -e 'ranger'"
+set $fileExplorer "alacritty -e ranger"
 set $browser "firefox"
-set $editor "code"
+set $editor "alacritty -e nvim"
 set $music "cider"
 
 # Keybindings for default applications.
 bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+e exec --no-startup-id $fileExplorer
 bindsym $mod+b exec --no-startup-id $browser 
-bindsym $mod+c exec --no-startup-id $editor
+bindsym $mod+n exec --no-startup-id $editor
 bindsym $mod+m exec --no-startup-id $music
 
 # Screenshot
@@ -77,7 +77,6 @@ bindsym $alt+Shift+Left move left
 bindsym $alt+Shift+Down move down
 bindsym $alt+Shift+Up move up
 bindsym $alt+Shift+Right move right
-
 
 # Move focused window in layout
 bindsym $mod+Shift+Left exec --no-startup-id i3l move left
@@ -140,7 +139,7 @@ bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
 exec_always --no-startup-id xrandr --output eDP-1 --primary
 
 # Borders.
-gaps inner 10
+gaps inner 5
 gaps outer 0
 default_border pixel 2
 default_floating_border pixel 2
@@ -170,7 +169,7 @@ exec --no-startup-id picom -b
 # Bar
 exec --no-startup-id polybar -q
 # Wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/forest.png' 
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/evening-sky.png' 
 # Notifications
 exec --no-startup-id dunst
 # Mount google drive.

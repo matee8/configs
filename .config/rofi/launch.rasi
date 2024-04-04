@@ -18,9 +18,10 @@ configuration{
 * {
     bg-col:  #1e1e2e;
     bg-col-light: #1e1e2e;
-    border-col: #89b4fa;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
+    border-col: #cba6f7;
+	selected-col: #1e1e2e;
+    blue: #cba6f7;
+
     fg-col: #cdd6f4;
     fg-col2: #1e1e2e;
     grey: #6c7086;
@@ -36,9 +37,8 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-    border: 2px;
-    border-color: @border-col;
-    background-color: @bg-col;
+	border-radius: 7px;
+	background-color: @bg-col;
 }
 
 mainbox {
