@@ -24,7 +24,7 @@ vim.o.autoindent = ai
 vim.g.mapleader = " "
 
 -- Border column
--- vim.o.colorcolumn = '80'
+vim.o.colorcolumn = '80'
 
 -- No word wrap
 vim.o.wrap = false
@@ -85,6 +85,7 @@ require("lazy").setup({
 			'nvim-lua/plenary.nvim',
 		},
 	},
+	{ 'mattn/emmet-vim' },
 	-- Oracle database management
 	{ 'tpope/vim-dadbod' },
 	{ 'kristijanhusak/vim-dadbod-ui' },
@@ -122,7 +123,7 @@ require('dashboard').setup({
                 icon = ' ',
                 desc = 'Open',
                 key = 'o',
-                action = 'Explore'
+                action = 'NvimTreeFindFileToggle'
             },
             {
                 icon = ' ',

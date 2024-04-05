@@ -1,11 +1,11 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (789)  
+# Packages (798)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom  
+Compositor: picom-ftlabs-git (AUR)  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
 Bar: polybar  
