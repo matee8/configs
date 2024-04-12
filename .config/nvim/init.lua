@@ -11,6 +11,9 @@ local servers = {
     'sqlls'
 }
 
+-- Cursorline
+vim.o.cursorline = true
+
 -- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
@@ -18,7 +21,7 @@ vim.o.relativenumber = true
 -- Indentation
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.autoindent = ai
+vim.o.expandtab = true
 
 -- Leader
 vim.g.mapleader = " "
@@ -60,10 +63,10 @@ require("lazy").setup({
 	},
 	{ 'romgrk/barbar.nvim' },
 	{ 'nvim-tree/nvim-tree.lua' },
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	build = ":TSUpdate",
+	-- },
 	-- Language Server Protocol
 	{ 'williamboman/mason.nvim' },
 	{ 'williamboman/mason-lspconfig.nvim' },
@@ -86,6 +89,7 @@ require("lazy").setup({
 		},
 	},
 	{ 'mattn/emmet-vim' },
+	{ 'numTOStr/Comment.nvim' },
 	-- Oracle database management
 	{ 'tpope/vim-dadbod' },
 	{ 'kristijanhusak/vim-dadbod-ui' },
@@ -183,15 +187,15 @@ require('barbar').setup({
 })
 
 -- Treesitter
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "c_sharp", "javascript", "php", "python", "java", "bash", "html", "css", "sql" },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-	additional_vim_regex_highlighting = false,
-  },
-}
+-- require'nvim-treesitter.configs'.setup {
+--   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "c_sharp", "javascript", "php", "python", "java", "bash", "html", "css", "sql" },
+--   sync_install = false,
+--   auto_install = true,
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting = false,
+--   },
+-- }
 
 -- File explorer
 vim.g.loaded_netrw = 1
@@ -298,3 +302,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Comment
+require('Comment').setup()

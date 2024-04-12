@@ -1,14 +1,14 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (798)  
+# Packages (786)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom-ftlabs-git (AUR)  
+Compositor: picom
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
-Bar: polybar  
+Status bar: i3status  
 Wallpaper: feh  
 Screenshot: maim  
 Notifications: dunst  
@@ -29,10 +29,9 @@ Clipboard: xclip
 Font: ttf-hack-nerd  
 Version control: git  
 ls replacament: exa  
-cd replacement: zoxide, fzf  
+cd replacement: zoxide  
 ## Development  
 Editor: neovim, npm  
-AMPP: xampp (AUR)  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
@@ -43,13 +42,15 @@ dotnet-runtime
 dotnet-sdk  
 jdk-openjdk  
 php  
+apache  
+php-apache  
+mariadb  
+phpmyadmin  
 ## Apps  
 Explorer: ranger  
 Archived files: atool, unzip, zip, unrar  
 Syntax highlighting in ranger: highlight  
 Image previews in ranger: w3m  
-HTML previews in ranger: lynx  
-ODT previews in ranger: odt2txt  
 Browser: firefox  
 Chatting: discord  
 Office suite: libreoffice-fresh  
@@ -67,7 +68,6 @@ Cloud sync: rclone
 VPN: openvpn  
 SSH: openssh  
 ## Other stuff 
-Manuals: man-db  
 Mount helpers: fuse3, ntfs-3g  
 Compatibility: wine  
 Emoji font: noto-fonts-emoji  

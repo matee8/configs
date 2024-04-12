@@ -20,7 +20,7 @@ configuration{
     bg-col-light: #1e1e2e;
     border-col: #cba6f7;
 	selected-col: #1e1e2e;
-    blue: #cba6f7;
+    mauve: #cba6f7;
 
     fg-col: #cdd6f4;
     fg-col2: #1e1e2e;
@@ -37,7 +37,8 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-	border-radius: 7px;
+	border: 2px;
+    border-color: @mauve;
 	background-color: @bg-col;
 }
 
@@ -48,7 +49,6 @@ mainbox {
 inputbar {
     children: [entry];
     background-color: @bg-col;
-    border-radius: 5px;
     padding: 2px;
 }
 
@@ -56,7 +56,6 @@ prompt {
     background-color: @bg-col;
     padding: 6px;
     text-color: @bg-col;
-    border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }
 
@@ -69,8 +68,7 @@ entry {
     padding: 6px;
     margin: 20px 10px 0px 10px;
     text-color: @bg-col;
-    background-color: @blue;
-    border-radius: 8px;
+    background-color: @mauve;
 }
 
 listview {
@@ -93,9 +91,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @blue ;
+    background-color:  @mauve ;
     text-color: @fg-col2  ;
-    border-radius: 8px;
 }
 
 mode-switcher {
@@ -104,8 +101,8 @@ mode-switcher {
 
 button {
     padding: 0px;
-    background-color: @bg-col-light;
-    text-color: @grey;
+    background-color: @bg-col;
+    text-color: @bg-col;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }
@@ -125,6 +122,6 @@ message {
 textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
-    text-color: @blue;
+    text-color: @mauve;
     background-color: @bg-col-light;
 }

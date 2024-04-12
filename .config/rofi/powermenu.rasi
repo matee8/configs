@@ -28,7 +28,8 @@ configuration {
     height: 134px;
     background-color: @background-solid;
     padding: 10px;
-	border-radius: 7px;
+    border: 2px;
+    border-color: @selected-background;
 }
 
 #mainbox {
@@ -47,7 +48,6 @@ configuration {
 element {
     margin: 8px;
     padding: 10px;
-    border-radius: 8px;
     orientation: vertical;
 }
 
