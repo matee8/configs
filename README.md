@@ -1,14 +1,14 @@
 # Preview  
 <img src="./assets/preview.png"> </img>
-# Packages (786)  
+# Packages (790)  
 ## Core  
 Window Manager: i3-wm  
 Server: xorg-server  
 Init: xorg-xinit  
-Compositor: picom
+Compositor: picom-ftlabs-git (AUR)  
 Layout: i3-layouts (AUR)  
 Launcher: rofi  
-Status bar: i3status  
+Status bar: polybar  
 Wallpaper: feh  
 Screenshot: maim  
 Notifications: dunst  
@@ -29,9 +29,12 @@ Clipboard: xclip
 Font: ttf-hack-nerd  
 Version control: git  
 ls replacament: exa  
-cd replacement: zoxide  
+cd helper: zoxide  
+Fuzzy finder: fzf  
 ## Development  
-Editor: neovim, npm  
+Editor: neovim  
+Search tool: ripgrep  
+Package manager: npm  
 Network: packettracer (AUR)  
 Database planning: mysql-workbench  
 Game development: unityhub (AUR)  
@@ -46,6 +49,8 @@ apache
 php-apache  
 mariadb  
 phpmyadmin  
+rustup  
+go  
 ## Apps  
 Explorer: ranger  
 Archived files: atool, unzip, zip, unrar  
@@ -63,7 +68,6 @@ Audio editor: audacity
 Torrent: qbittorrent  
 PDF reader: zathura, zathura-pdf-mupdf  
 Calculator: speedcrunch  
-Note taking: obsidian   
 Cloud sync: rclone  
 VPN: openvpn  
 SSH: openssh  
@@ -74,28 +78,46 @@ Emoji font: noto-fonts-emoji
 Icons: papirus-icon-theme  
 Gaming: steam  
 Music: cider (AUR)   
-Custom discord: vencord (Official site)  
+Custom discord: vencord (Official site, not as a package)  
 Pacman utilities: pacman-contrib  
 Pacman mirror helper: reflector  
 # Manual setup  
-Grub: remove quiet parameter  
-Nvidia driver compatiibility (archwiki)  
-Change shell to fish  
-Turn fish greeting off  
-Make .aur directory  
-Make Desktop, Downloads, Documents, Pictures, Videos, Music, University, Work, Projects, .path directories  
-Remove unused .desktop files from /usr/share/applications and rename some  
-.ssh folder config  
-Set up symbolic links to /opt/lampp/htdocs  
-Enable paccache.timer and reflector.timer systemd services  
-git: config (user.email, user.name, credential.helper)  
+## Commands
+sudo grub-mkconfig -o /boot/grub/grub.cfg  
+mkinitcpio -P linux  
+chsh -s /bin/fish  
+echo "set -U fish_greeting" | fish  
+mkdir ~/.aur  
+mkdir ~/Downloads  
+mkdir ~/Documents  
+mkdir ~/Projects  
+mkdir ~/Pictures
+mkdir ~/University  
+mkdir ~/Videos  
+mkdir ~/Work  
+mkdir ~/.path  
+sudo chmod 557 /srv/http  
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql  
+sudo systemctl start mariadb.service  
+sudo mariadb -u root -p  
+sudo mariadb-secure-installation  
+mkdir /srv/http/Webprog-2  
+ln -s /srv/http/ ~/Projects/PHP  
+ln -s /src/http/Webprog-2 ~/University/Maskodik-felev/Webprog-2  
+sudo systemctl enable paccache.timer  
+sudo systemctl enable reflector.timer  
+## Apps
+cider: login, set theme  
+discord: login, font size  
+firefox: login, customize toolbar, login to every site  
+git: user.name, user.email, credential.helper  
+libreoffice-fresh: disable tips, icons: colibre dark, scheme: dark  
+neovim: codeium  
+packettracer: download, login  
 rclone: config  
-Wine: wine mono  
-Firefox: login, always show bookmarks, customize toolbar, login to every site  
-Code: Codeium, git, extensions, UI  
-Discord: login, font size, Vencord CustomCSS  
-Cider: login, theme  
-Obsidian: theme, set up vaults  
-LibreOffice: disable tips  
-Packet Tracer: download installer from official site  
-Steam: login  
+speedcrunch: zoom  
+steam: login  
+unityhub: install latest unity version  
+wine: wine mono  
+## Other
+Remove unused .desktop files from /usr/share/applications and rename some  
