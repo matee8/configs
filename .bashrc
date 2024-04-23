@@ -7,7 +7,6 @@
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export "MICRO_TRUECOLOR=1"
 export PATH="/home/mate/.path:$PATH"
 export VISUAL=nvim
 export EDITOR=nvim

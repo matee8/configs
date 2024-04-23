@@ -1,105 +1,146 @@
-* {
-    foreground:           #cdd6f4;
-    selected-foreground:  rgba(0, 0, 0, 100%);
-    
-    background:           #1e1e2e;
-    background-solid:     #1e1e2e;
-    
-    selected-background: #cba6f7;
-    selected-background-alt: #cba6f7;
-    selected-background-gradient: linear-gradient(#cba6f7, #cba6f7);
-  	
-    unselected-background:  #313244;
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
 
-	separatorcolor: #6c7086;
-    
-    red: rgba(220, 50, 47, 100%);
-    blue: rgba(38, 139, 210, 100%);
-}
-
+/*****----- Configuration -----*****/
 configuration {
-    // modi: "window,run,drun";
-    show-icons: true;
-    font: "Hack Nerd Font 10";
+    show-icons:                 false;
 }
 
-#window {
-    width: 484px;
-    height: 134px;
-    background-color: @background-solid;
-    padding: 10px;
-    border: 2px;
-    border-color: @selected-background;
+/*****----- Global Properties -----*****/
+* {
+    font:                        "Hack Nerd Font 10";
+    background:                  #1e1e2e;
+    background-alt:              #1e1e2e;
+    foreground:                  #cdd6f4;
+    selected:                    #cba6f7;
+    active:                      #cba6f7;
+    urgent:                      #cba6f7;
 }
 
-#mainbox {
-    border:  0;
-    padding: 0;
-    children: [listview];
-    background-color: @background-solid;
+/*
+USE_BUTTONS=YES
+*/
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       800px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               7;
+    cursor:                      "default";
+    background-color:            @background;
 }
 
-#listview {
-    columns: 4;
-    layout: vertical;
-    background-color: transparent;
+/*****----- Main Box -----*****/
+mainbox {
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listview" ];
 }
 
+/*****----- Imagebox -----*****/
+imagebox {
+    spacing:                     30px;
+    padding:                     30px;
+    background-color:            transparent;
+    background-image:            url("~/.wallpapers/ocean.png", height);
+    children:                    [ "inputbar", "dummy", "message" ];
+}
+
+/*****----- User -----*****/
+userimage {
+    margin:                      0px 0px;
+    border:                      10px;
+    border-radius:               10px;
+    border-color:                @background-alt;
+    background-color:            transparent;
+    text-color:                  @background-alt;
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background;
+    text-color:                  @foreground;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     2;
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     30px;
+    margin:                      30px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
 element {
-    margin: 8px;
-    padding: 10px;
-    orientation: vertical;
+    enabled:                     true;
+    padding:                     40px 10px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      pointer;
 }
-
-element-icon {
-    size: 48px;
-    margin: 2px;
-}
-
 element-text {
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
+    font:                        "Hack Nerd Font bold 14";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
 }
-
-#element.normal.normal, element.alternate.normal {
-    background-color: @unselected-background;
-    text-color:       @foreground;
-    size: 0px;
-}
-
-#element-text {
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
-}
-
-#element-text.normal, element-icon.normal {
-    background-color: transparent;
-}
-
-#element.selected.normal {
-    background-image: @selected-background-gradient;
-    // background-color: @selected-background;
-    text-color:       @selected-foreground;
-    border-color: #d07ef2;
-}
-
-#mode-switcher {
-    border:       0px 0px 0px ;
-}
-
-#button {
-    spacing:    0;
-    text-color: @foreground;
-}
-
-#button.selected {
-    background-color: @selected-background;
-    text-color:       @selected-foreground;
-}
-
-element-text, element-icon {
-    background-color: inherit;
-    text-color: inherit;
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
+element selected.normal {
+    background-color:            var(selected);
+    text-color:                  var(background);
 }
