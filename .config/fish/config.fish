@@ -4,7 +4,6 @@ if status is-interactive
     set -gx VISUAL nvim
     alias clear="clear && fastfetch"
     alias startx="startx && clear"
-    alias ls="exa"
     clear
     starship init fish | source
     zoxide init --cmd cd fish | source

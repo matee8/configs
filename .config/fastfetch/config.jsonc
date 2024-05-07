@@ -14,25 +14,10 @@
     },
     "modules": [
         {
-            "type": "custom",
-            "format": "\u001b[90m┌────────────────────────────────────────────────────────────┐"
-        },
-        {
             "type": "title",
             "keyWidth": 10
         },
-        {
-            "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
-        },
-        {
-            "type": "custom",
-            "format": " \u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m       \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m"
-        },
-        {
-            "type": "custom",
-            "format": "\u001b[90m┌────────────────────────────────────────────────────────────┐"
-        },
+        "break",
         {
             "type": "os",
             "key": " OS",
@@ -40,17 +25,17 @@
         },
         {
             "type": "kernel",
-            "key": "│ ├",
+            "key": "  ├",
             "keyColor": "yellow"
         },
         {
             "type": "packages",
-            "key": "│ ├󰏖",
+            "key": "  ├󰏖",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "│ └",
+            "key": "  └",
             "keyColor": "yellow"
         },
         {
@@ -60,12 +45,12 @@
         },
         {
             "type": "icons",
-            "key": "│ ├󰀻",
+            "key": "  ├󰀻",
             "keyColor": "blue"
         },
         {
             "type": "terminal",
-            "key": "│ ├",
+            "key": "  ├",
             "keyColor": "blue"
         },
         {
@@ -75,42 +60,33 @@
         },
         {
             "type": "cpu",
-            "key": "│ ├",
+            "key": "  ├",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "│ ├󰤽",
+            "key": "  ├󰤽",
             "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "│ ├󱛟",
+            "key": "  ├󱛟",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "│ ├",
+            "key": "  ├",
             "keyColor": "green"
         },
         {
             "type": "uptime",
-            "key": "│ ├󰅐",
+            "key": "  ├󰅐",
             "keyColor": "green"
         },
         {
             "type": "display",
-            "key": "│ └󰍹",
+            "key": "  └󰍹",
             "keyColor": "green"
         },
-        {
-            "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": " \u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m       \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m"
-        }
     ]
 }

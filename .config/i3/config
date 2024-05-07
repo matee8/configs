@@ -1,5 +1,5 @@
 # Catppuccin color variables
-set $mauve     #cba6f7
+set $pink      #f5c2e7
 set $text      #cdd6f4
 set $subtext1  #bac2de
 set $subtext0  #a6adc8
@@ -41,7 +41,6 @@ floating_modifier $mod
 
 # Default applications.
 set $terminal "alacritty"
-set $fileExplorer "alacritty -e ranger"
 set $browser "firefox"
 set $editor "alacritty -e nvim"
 set $music "cider"
@@ -50,7 +49,6 @@ set $googleDrive "rclone mount psgdrive: ~/Psg-drive"
 
 # Keybindings for default applications.
 bindsym $mod+Return exec --no-startup-id $terminal
-bindsym $mod+e exec --no-startup-id $fileExplorer
 bindsym $mod+b exec --no-startup-id $browser 
 bindsym $mod+v exec --no-startup-id $editor
 bindsym $mod+m exec --no-startup-id $music
@@ -64,10 +62,11 @@ bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t
 bindsym $mod+q kill
 
 # Start a program launcher
-bindsym $mod+d exec --no-startup-id "rofi -show drun -theme launch"
+# bindsym $mod+d exec --no-startup-id "rofi -show drun -theme launch"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#11111b' -nf '#cdd6f4' -sb '#f5c2e7' -sf '#11111b' -fn "Hack Nerd Font-13"
 
 # Start powermenu.
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh 
+# bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh 
 
 # Change focus.
 bindsym $mod+Left focus left
@@ -76,16 +75,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Move focused window.
-bindsym $alt+Shift+Left move left
-bindsym $alt+Shift+Down move down
-bindsym $alt+Shift+Up move up
-bindsym $alt+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # Move focused window in layout
-bindsym $mod+Shift+Left exec --no-startup-id i3l move left
-bindsym $mod+Shift+Down exec --no-startup-id i3l move down
-bindsym $mod+Shift+Up exec --no-startup-id i3l move up
-bindsym $mod+Shift+Right exec --no-startup-id i3l move right
+# bindsym $mod+Shift+Left exec --no-startup-id i3l move left
+# bindsym $mod+Shift+Down exec --no-startup-id i3l move down
+# bindsym $mod+Shift+Up exec --no-startup-id i3l move up
+# bindsym $mod+Shift+Right exec --no-startup-id i3l move right
 
 # Enter fullscreen mode for the focused container.
 bindsym $mod+f fullscreen toggle
@@ -141,9 +140,9 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 # Borders.
 gaps inner 5
 gaps outer 0
-default_border pixel 0
-default_floating_border pixel 0
-client.focused          #83A8EC $base $text $blue $blue
+default_border pixel 2
+default_floating_border pixel 2
+client.focused          #83A8EC $base $text $pink $pink
 client.focused_inactive #D4D7FF $base $text $overlay0 $overlay0
 client.unfocused        #D0D3FF $base $text $overlay0 $overlay0
 client.urgent           #DE688A $base $text $overlay2 $overlay2
@@ -151,16 +150,16 @@ client.placeholder      #12121F $base $text $overlay0 $overlay0
 client.background       #12121F
 
 # Dynamic layout
-exec --no-startup-id i3-layouts
-set $i3l autosplit to workspace $ws1
-set $i3l autosplit to workspace $ws2
-set $i3l autosplit to workspace $ws3
-set $i3l autosplit to workspace $ws4
-set $i3l autosplit to workspace $ws5
-set $i3l autosplit to workspace $ws6
-set $i3l autosplit to workspace $ws7
-set $i3l autosplit to workspace $ws8
-set $i3l autosplit to workspace $ws9
+# exec --no-startup-id i3-layouts
+# set $i3l autosplit to workspace $ws1
+# set $i3l autosplit to workspace $ws2
+# set $i3l autosplit to workspace $ws3
+# set $i3l autosplit to workspace $ws4
+# set $i3l autosplit to workspace $ws5
+# set $i3l autosplit to workspace $ws6
+# set $i3l autosplit to workspace $ws7
+# set $i3l autosplit to workspace $ws8
+# set $i3l autosplit to workspace $ws9
 
 
 # Start other applications.
@@ -172,6 +171,8 @@ exec --no-startup-id polybar -q
 exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/ocean.png' 
 # Notifications
 exec --no-startup-id dunst
+# Layout manager
+exec --no-startup-id i3-autolayout autolayout
 
 # Window rules for floating dialogs.
 for_window [window_role="About"] floating enable

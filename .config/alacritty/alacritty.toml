@@ -1,5 +1,6 @@
 [font]
 size = 8
+offset.y = 2
 
 [font.normal]
 family = "Hack Nerd Font"
@@ -20,7 +21,6 @@ style = "Bold Italic"
 [window.padding]
 x = 8 
 y = 8
-
 
 [colors.primary]
 background = "#1E1E2E"
