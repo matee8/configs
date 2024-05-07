@@ -117,7 +117,7 @@ mkdir /srv/http/Webprog-2\
 ln -s /srv/http/ ~/Projects/PHP\
 ln -s /src/http/Webprog-2 ~/University/Maskodik-felev/Webprog-2\
 sudo systemctl enable paccache.timer\
-sudo systemctl enable reflector.timer\
+sudo systemctl enable reflector.timer
 ## Apps
 cider: login, set theme\
 discord: login, font size\
@@ -130,4 +130,4 @@ rclone: config\
 speedcrunch: zoom\
 steam: login\
 unityhub: install latest unity version\
-wine: wine mono\
+wine: wine mono
