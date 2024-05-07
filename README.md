@@ -1,3 +1,5 @@
+# Preview
+<img src="./assets/preview.png"></img> 
 # Packages (789)
 ## Core
 Window manager: i3-wm\
