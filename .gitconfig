@@ -1,0 +1,7 @@
+[credential]
+	helper = store
+[user]
+	email = molnarmatenorbert@gmail.com
+	name = matee8
+[pull]
+    rebase = false

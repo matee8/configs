@@ -1,5 +1,5 @@
 # Catppuccin color variables
-set $pink      #f5c2e7
+set $mauve     #cba6f7
 set $text      #cdd6f4
 set $subtext1  #bac2de
 set $subtext0  #a6adc8
@@ -41,6 +41,7 @@ floating_modifier $mod
 
 # Default applications.
 set $terminal "alacritty"
+set $fileExplorer "alacritty -e ranger"
 set $browser "firefox"
 set $editor "alacritty -e nvim"
 set $music "cider"
@@ -49,11 +50,12 @@ set $googleDrive "rclone mount psgdrive: ~/Psg-drive"
 
 # Keybindings for default applications.
 bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+e exec --no-startup-id $fileExplorer
 bindsym $mod+b exec --no-startup-id $browser 
 bindsym $mod+v exec --no-startup-id $editor
-# bindsym $mod+m exec --no-startup-id $music
-# bindsym $mod+c exec --no-startup-id $chat
-# bindsym $mod+g exec --no-startup-id $googleDrive
+bindsym $mod+m exec --no-startup-id $music
+bindsym $mod+c exec --no-startup-id $chat
+bindsym $mod+g exec --no-startup-id $googleDrive
 
 # Screenshot
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
@@ -62,19 +64,29 @@ bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t
 bindsym $mod+q kill
 
 # Start a program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#11111b' -nf '#cdd6f4' -sb '#f5c2e7' -sf '#11111b' -fn "Hack Nerd Font-13"
+# bindsym $mod+d exec --no-startup-id "rofi -show drun -theme launch"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#11111B' -nf '#cdd6f4' -sb '#cba6f7' -sf '#11111B' -fn "Hack Nerd Font-13"
+
+# Start powermenu.
+# bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh 
 
 # Change focus.
-bindsym $mod+H focus left
-bindsym $mod+J focus down
-bindsym $mod+K focus up
-bindsym $mod+L focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # Move focused window.
-bindsym $mod+Shift+H move left
-bindsym $mod+Shift+J move down
-bindsym $mod+Shift+K move up
-bindsym $mod+Shift+L move right
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+# Move focused window in layout
+bindsym $mod+Shift+Left exec --no-startup-id i3l move left
+bindsym $mod+Shift+Down exec --no-startup-id i3l move down
+bindsym $mod+Shift+Up exec --no-startup-id i3l move up
+bindsym $mod+Shift+Right exec --no-startup-id i3l move right
 
 # Enter fullscreen mode for the focused container.
 bindsym $mod+f fullscreen toggle
@@ -130,37 +142,26 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary
 # Borders.
 gaps inner 0
 gaps outer 0
-default_border pixel 1
-default_floating_border pixel 1
-client.focused          #83A8EC $base $text $pink $pink
-client.focused_inactive #D4D7FF $base $text $overlay0 $overlay0
-client.unfocused        #D0D3FF $base $text $overlay0 $overlay0
-client.urgent           #DE688A $base $text $overlay2 $overlay2
-client.placeholder      #12121F $base $text $overlay0 $overlay0
+default_border pixel 2
+default_floating_border pixel 2
+client.focused          #83A8EC $base $text $mauve $mauve
+client.focused_inactive #D4D7FF $base $text $mantle $mantle
+client.unfocused        #D0D3FF $base $text $mantle $mantle
+client.urgent           #DE688A $base $text $mantle $mantle
+client.placeholder      #12121F $base $text $mantle $mantle
 client.background       #12121F
 
-# Statusbar
-# bar {
-#     i3bar_command i3bar
-#     status_command i3status
-#
-#     # mode hide
-#     position top
-#     separator_symbol " "
-#     modifier $mod
-#
-#     font pango:Hack Nerd Font 10
-#
-#     colors {
-#         background $crust
-#         statusline $pink
-#         separator $pink
-#
-#         focused_workspace $pink $pink $base
-#         active_workspace $base $base $text
-#         inactive_workspace $base $base $text
-#     }
-# }
+# Dynamic layout
+exec --no-startup-id i3-layouts
+set $i3l autosplit to workspace $ws1
+set $i3l autosplit to workspace $ws2
+set $i3l autosplit to workspace $ws3
+set $i3l autosplit to workspace $ws4
+set $i3l autosplit to workspace $ws5
+set $i3l autosplit to workspace $ws6
+set $i3l autosplit to workspace $ws7
+set $i3l autosplit to workspace $ws8
+set $i3l autosplit to workspace $ws9
 
 
 # Start other applications.
@@ -171,9 +172,7 @@ exec --no-startup-id polybar -q
 # Wallpaper
 exec --no-startup-id feh --no-fehbg --bg-fill '/home/mate/.wallpapers/ocean.png' 
 # Notifications
-# exec --no-startup-id dunst
-# Layout manager
-exec --no-startup-id i3-autolayout autolayout
+exec --no-startup-id dunst
 
 # Window rules for floating dialogs.
 for_window [window_role="About"] floating enable

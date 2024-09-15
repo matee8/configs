@@ -12,7 +12,6 @@ export VISUAL=nvim
 export EDITOR=nvim
 alias clear="clear && fastfetch"
 alias startx="startx && clear"
-alias ls="exa"
 source /etc/profile.d/debuginfod.sh
 clear
 eval "$(starship init bash)"
