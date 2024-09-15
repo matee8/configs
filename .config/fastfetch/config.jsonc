@@ -64,11 +64,6 @@
             "keyColor": "green"
         },
         {
-            "type": "gpu",
-            "key": "  ├󰤽",
-            "keyColor": "green"
-        },
-        {
             "type": "disk",
             "key": "  ├󱛟",
             "keyColor": "green"

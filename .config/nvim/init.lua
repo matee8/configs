@@ -6,11 +6,11 @@ local servers = {
     'bashls',
     'html',
     'cssls',
-    'tsserver',
+    'ts_ls',
     'rust_analyzer',
     'gopls',
-    'zls'
-    -- 'phpactor'
+    'zls',
+    'phpactor'
 }
 
 -- Cursorline
@@ -42,12 +42,18 @@ vim.o.timeoutlen = 1000
 
 -- No word wrap
 vim.wo.wrap = false
+vim.opt.foldenable = false
+vim.opt.foldmethod = 'manual'
+vim.opt.foldlevelstart = 99
 
 -- System clipboard
 vim.o.clipboard = 'unnamedplus'
 
+-- Infinite undo
+vim.opt.undofile = true
+
 -- Disable mouse
-vim.o.mouse = nil
+vim.o.mouse = ''
 
 -- Appearance 
 vim.g.netrw_banner = 0
@@ -64,9 +70,20 @@ vim.o.background = 'dark'
 vim.g.mapleader = ' '
 
 -- General keymaps
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>buffer #<CR>')
+vim.keymap.set('i', '<Up>', '')
+vim.keymap.set('i', '<Down>', '')
+vim.keymap.set('i', '<Right>', '')
+vim.keymap.set('i', '<Left>', '')
+vim.keymap.set('n', '<Up>', '')
+vim.keymap.set('n', '<Down>', '')
+vim.keymap.set('n', '<Right>', '')
+vim.keymap.set('n', '<Left>', '')
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', '<leader>w', '<CMD>w<CR>')
+vim.keymap.set('t', '<C-c>', '<C-\\><C-n><CMD>buffer #<CR><CMD>bd! term*<CR>')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>buffer #<CR><CMD>bd! term*<CR>')
 
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {
+vim.keymap.set('v', 'J', ":m '<+1<CR>gv=gv", {
     silent = true, 
     desc = 'Move selected line down in visual mode' 
 })
@@ -75,7 +92,14 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {
     desc = 'Move selected line up in visual mode' 
 })
 
+vim.keymap.set('v', 'L', '<CMD>s/^/ /g<CR>gv')
+vim.keymap.set('v', 'H', '<CMD>s/^ //g<CR>gv')
+
 vim.keymap.set('x', '<leader>p', [["_dP]], {
+    silent = true, 
+    desc = 'Paste without yank' 
+})
+vim.keymap.set('n', '<leader>d', '"_dd', {
     silent = true, 
     desc = 'Paste without yank' 
 })
@@ -85,7 +109,7 @@ vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-l>', '<Right>')
 
 -- LSP Keymaps
-vim.keymap.set('n', '<leader>d', vim.lsp.buf.hover, {
+vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {
     silent = true,
     desc = 'Open LSP docs'
 })
@@ -101,6 +125,10 @@ vim.keymap.set('n', '<leader>q',
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, {
     silent = true, 
     desc = 'Format file' 
+})
+vim.keymap.set('n', '<leader>lqf', vim.lsp.buf.code_action, {
+        silent = true,
+        desc = 'Quick fixes'
 })
 vim.keymap.set('n', '<leader>ld', 
     function() require('telescope.builtin').lsp_definitions() end, {
@@ -150,19 +178,19 @@ vim.keymap.set('n', '<leader>fc',
     function() require('telescope.builtin').grep_string() end, {
         silent = true,
         desc = 'Fuzzy find string under cursor in current directory'
-})
+    })
 
 -- Harpoon
 vim.keymap.set('n', '<leader>ha', 
     function() require('harpoon.mark').add_file() end, {
         silent = true,
         desc = 'Mark file to harpoon'
-})
+    })
 vim.keymap.set('n', '<leader>hm', 
     function() require('harpoon.ui').toggle_quick_menu() end, {
         silent = true,
         desc = 'Show harpoon marked files' 
-})
+    })
 vim.keymap.set('n', '<A-1>', function() require('harpoon.ui').nav_file(1) end, {
     silent = true,
     desc = 'Go to harpoon 1' 
@@ -204,12 +232,6 @@ vim.keymap.set('n', '<A-9>', function() require('harpoon.ui').nav_file(9) end, {
 vim.keymap.set('n', '<leader>md', '<CMD>MarkdownPreviewToggle<CR>', { 
     silent = true,
     desc = 'Toggle MarkdownPreview' 
-})
-
--- Decenter buffer
-vim.keymap.set('n', '<leader>dc', '<CMD>NoNeckPain<CR>', {
-    silent = true,
-    desc = 'Center/decenter buffer'
 })
 
 -- Jump around codebase
@@ -254,60 +276,66 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Install plugins
-require('lazy').setup({
+require('lazy').setup(
     {
-        'nvim-lua/plenary.nvim'
-    },
-    { 
-        'nvimdev/dashboard-nvim',
-        'projekt0n/github-nvim-theme',
-        'nvim-lualine/lualine.nvim',
-        'nvim-tree/nvim-web-devicons',
-        'nvim-treesitter/nvim-treesitter',
-        'windwp/nvim-ts-autotag',
-        'shortcuts/no-neck-pain.nvim'
+        {
+            'nvim-lua/plenary.nvim'
+        },
+        { 
+            'nvimdev/dashboard-nvim',
+            { 'catppuccin/nvim', as = 'catppuccin' },
+            'nvim-lualine/lualine.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'nvim-treesitter/nvim-treesitter',
+            'windwp/nvim-ts-autotag',
+            'lukas-reineke/indent-blankline.nvim'
+        },
+        {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+            'jose-elias-alvarez/null-ls.nvim'
+            
+        },
+        {
+            'L3MON4D3/LuaSnip',
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-nvim-lsp',
+            'dcampos/cmp-emmet-vim',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-path'
+        },
+        {
+            'nvim-telescope/telescope.nvim',
+            'nvim-telescope/telescope-file-browser.nvim',
+            'ThePrimeagen/harpoon'
+        },
+        {
+            'folke/flash.nvim',
+            'kylechui/nvim-surround',
+            -- 'Exafunction/codeium.nvim',
+            -- 'ray-x/lsp_signature.nvim',
+            'windwp/nvim-autopairs',
+            'numToStr/Comment.nvim',
+            'lewis6991/gitsigns.nvim'
+        },
+        -- {
+        --     'tpope/vim-dadbod',
+        --     'kristijanhusak/vim-dadbod-ui',
+        --     'kristijanhusak/vim-dadbod-completion'
+        -- },
+        {
+            'iamcco/markdown-preview.nvim',
+            cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+            ft = { "markdown" },
+            build = function() vim.fn["mkdp#util#install"]() end,
+        },
     },
     {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        'neovim/nvim-lspconfig'
-    },
-    {
-        'L3MON4D3/LuaSnip',
-        'hrsh7th/nvim-cmp',
-        'hrsh7th/cmp-nvim-lsp',
-        'dcampos/cmp-emmet-vim',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-path'
-    },
-    {
-        'nvim-telescope/telescope.nvim',
-        'nvim-telescope/telescope-file-browser.nvim',
-        'ThePrimeagen/harpoon',
-    },
-    {
-        'folke/flash.nvim',
-        'kylechui/nvim-surround',
-        'Exafunction/codeium.nvim',
-        'ray-x/lsp_signature.nvim',
-        'windwp/nvim-autopairs',
-        'numToStr/Comment.nvim',
-        'lewis6991/gitsigns.nvim',
-        'zanadoman/speedrun.nvim'
-    },
-    {
-        'tpope/vim-dadbod',
-        'kristijanhusak/vim-dadbod-ui',
-        'kristijanhusak/vim-dadbod-completion'
-    },
-    {
-        'iamcco/markdown-preview.nvim',
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
+        ui = { border = 'rounded' }
     }
-})
+)
 
 -- Startup screen
 require('dashboard').setup({
@@ -371,20 +399,52 @@ require('dashboard').setup({
 })
 
 -- Theme
-require('github-theme').setup({
-    options = {
-        transparent = true,
-        terminal_colors = true
+require('catppuccin').setup({
+    flavour = 'mocha',
+    transparent_background = true,
+    show_end_of_buffer = false,
+    term_colors = true,
+    integrations = {
+        dashboard = true,
+        mason = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" }
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" }
+            },
+            inlay_hints = {
+                background = true
+            }
+        },
+        cmp = true,
+        telescope = {
+            enabled = true
+        },
+        harpoon = true,
+        flash = true
     },
+    custom_highlights = function(colors)
+        return {
+            WinSeparator = { fg = '#1e1e2e' }
+        }
+    end
 })
-vim.cmd.colorscheme 'github_dark'
 
-vim.cmd("hi EndOfBuffer guifg=#1e1e2e")
-vim.cmd("hi WinSeparator guifg=#1e1e2e")
+vim.cmd.colorscheme('catppuccin')
 
 -- Status line
 require('lualine').setup({
     options = {
+        theme = 'catppuccin',
         globalstatus = true
     }
 })
@@ -419,33 +479,60 @@ require('nvim-treesitter.configs').setup {
     },
 }
 
--- Center buffer
-require('no-neck-pain').setup({
-    autocmds = {
-        enableOnVimEnter = true
-    }
+-- Indentation indicator
+require('ibl').setup({
+    indent = { char = '.' },
+    scope = { enabled = false },
+    exclude = { filetypes = {'dashboard'} }
 })
 
 -- Install servers
-require('mason').setup({})
+require('mason').setup({ ui = { border = 'rounded' } })
 
 require('mason-lspconfig').setup({ ensure_installed = servers })
 
--- Start servers
-for _, server in ipairs(servers) do
-    require('lspconfig')[server].setup({
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    })
-end
+-- Add clang autoformatting
+local null_ls = require('null-ls')
 
-require('lspconfig').phpactor.setup{
-    on_attach = on_attach,
-    init_options = {
-        ['language_server_phpstan'] = true,
-        ['language_server_psalm'] = true
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.clang_format
+    }
+})
+
+-- Start servers
+local server_opts = {
+    clangd = {
+        cmd = {
+            'clangd', '--offset-encoding=utf-16', '--header-insertion=never' 
+        } 
     },
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
+    phpactor = {
+        on_attach = on_attach,
+        init_options = {
+            ['language_server_phpstan'] = true,
+            ['language_server_psalm'] = true
+        },
+    },
+    rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    allFeatures = true
+                },
+                checkOnSave = {
+                    allTargets = false
+                }
+            }
+        }
+    },
 }
+
+for _, server in ipairs(servers) do
+    local opts = server_opts[server] or {}
+    opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
+    require('lspconfig')[server].setup(opts)
+end
 
 -- Autocompletion
 require('cmp').setup({
@@ -458,18 +545,18 @@ require('cmp').setup({
         { name = 'nvim_lsp' },
         { name = 'emmet_vim', option = { filetypes = { 'html', 'css', 'php' } } },
         { name = 'vim-dadbod-completion' },
-        { name = 'codeium' },
+        -- { name = 'codeium' },
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' }
     },
     mapping = {
-        ['<C-Up>'] = require('cmp').mapping.select_prev_item(),
-        ['<C-Down>'] = require('cmp').mapping.select_next_item(),
+        ['<C-K>'] = require('cmp').mapping.select_prev_item(),
+        ['<C-J>'] = require('cmp').mapping.select_next_item(),
         ['<C-f>'] = require('cmp').mapping.confirm({select = true}),
         ['<C-e>'] = require('cmp').mapping.abort(),
-        ['<A-Up>'] = require('cmp').mapping.scroll_docs(-1),
-        ['<A-Down>'] = require('cmp').mapping.scroll_docs(1)
+        ['<A-K>'] = require('cmp').mapping.scroll_docs(-1),
+        ['<A-J>'] = require('cmp').mapping.scroll_docs(1)
     },
     window = {
         completion = require('cmp').config.window.bordered(),
@@ -482,14 +569,6 @@ require('cmp').setup({
         end
     }
 })
-
-vim.diagnostic.config({
-    update_in_insert = true,
-})
-
--- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
---     border = 'rounded'
--- })
 
 require('cmp').setup.cmdline(':', {
     sources = {{name = 'cmdline'}},
@@ -523,19 +602,19 @@ require('harpoon').setup({
         save_on_toggle = true
     }
 })
-
--- LSP hints
-require('lsp_signature').setup({
-    bind = true,
-    -- handler_opts = { border = 'rounded' },
-    hint_prefix = '■ '
-})
+--
+-- -- LSP hints
+-- require('lsp_signature').setup({
+--     bind = true,
+--     handler_opts = { border = 'rounded' },
+--     hint_prefix = '■ '
+-- })
 
 -- Surround tool
 require('nvim-surround').setup()
 
 -- Codeium AI
-require('codeium').setup()
+-- require('codeium').setup()
 
 -- Autopairs
 require('nvim-autopairs').setup()
@@ -547,7 +626,7 @@ require('Comment.ft').set('plsql', '--%s')
 -- Git integration
 require('gitsigns').setup({
     on_attach = function()
-        vim.keymap.set('n', '<leader>h', ':Gitsigns\n', {
+        vim.keymap.set('n', '<leader>hh', ':Gitsigns\n', {
             silent = true,
             desc = 'Gitsigns'
         })
@@ -589,42 +668,49 @@ require('gitsigns').setup({
     end
 })
 
--- Code runner
-require('speedrun').setup({
-    keymap = '<leader>sr',
-    langs = {
-        rust = {
-            cmd = 'cargo run --release'
-        }
-    }
-})
-
 -- Fix lsp floating window
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
     opts.max_width = opts.max_width or 80
     opts.max_height = opts.max_height or 15
-    if opts.width ~= nil and opts.width < 0 then
-        opts.width = opts.width or 80
-        opts.height = opts.height or 15
-    end
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
---Code runner
+vim.api.nvim_create_autocmd({ 
+    'CursorHold', 
+    'CursorHoldI' 
+}, {
+    callback = function()
+        if not require('cmp').visible() then
+            vim.lsp.buf.hover()
+        end
+    end
+})
+
+vim.diagnostic.config({
+    virtual_text = false,
+    update_in_insert = true,
+    float = { border = 'rounded' }
+})
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = 'rounded'
+})
+
+-- Code runner
 vim.api.nvim_create_autocmd('BufEnter', {
     callback = function(opts)
         if vim.bo[opts.buf].filetype == 'c' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal gcc -std=c99' .. 
+                '<CMD>terminal gcc -std=c23' .. 
                 ' -O3 -Werror -Wall -Wextra -Wpedantic % && ./a.out<CR>', {
                     silent = true,
                     desc = 'Run 󰙱 '
             })
         elseif vim.bo[opts.buf].filetype == 'cpp' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal g++ -std=c++11 -O3 ' ..
+                '<CMD>terminal g++ -std=c++23 -O3 ' ..
                 '-Werror -Wall -Wextra -Wpedantic % && ./a.out<CR>', {
                     silent = true,
                     desc = 'Run 󰙲 '
@@ -649,7 +735,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
             })
         elseif vim.bo[opts.buf].filetype == 'sh' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal ./%<CR>', {
+                '<CMD>!chmod u+x %<CR><CMD>terminal ./%<CR>', {
                     silent = true,
                     desc = 'Run  '
             })
@@ -659,9 +745,14 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run 󰟓  '
             })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!gofmt -w %<CR>', {
+                    silent = true,
+                    desc = 'Run formatter'
+            })
         elseif vim.bo[opts.buf].filetype == 'rust' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal cargo run --release<CR>', {
+                '<CMD>terminal cargo run<CR>', {
                     silent = true,
                     desc = 'Run 󱘗  '
             })
@@ -670,11 +761,39 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run clippy'
             })
+            vim.keymap.set('n', '<leader>rt',
+                '<CMD>terminal cargo test<CR>', {
+                    silent = true,
+                    desc = 'Run tests'
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!cargo +nightly fmt<CR>', {
+                    silent = true,
+                    desc = 'Run formatter'
+            })
+            vim.keymap.set('n', '<leader>rb',
+                '<CMD>terminal cargo check<CR>', {
+                    silent = true,
+                    desc = 'Run check'
+            })
         elseif vim.bo[opts.buf].filetype == 'zig' then
+            vim.g.zig_fmt_parse_errors = 0
+            vim.g.zig_fmt_autosave = 0
             vim.keymap.set('n', '<leader>rr', 
                 '<CMD>terminal zig run %<CR>', {
                     silent = true,
                     desc = 'Run  '
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>terminal zig fmt %<CR>', {
+                    silent = true,
+                    desc = 'Run formatter'
+                })
+        elseif vim.bo[opts.buf].filetype == 'javascript' then
+            vim.keymap.set('n', '<leader>rr',
+                '<CMD>terminal node %<CR>', {
+                    silent = true,
+                    desc = 'Run  '
             })
         end
     end
