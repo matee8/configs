@@ -229,7 +229,6 @@ vim.keymap.set('n', '<A-9>', function() require('harpoon.ui').nav_file(9) end, {
     desc = 'Go to harpoon 9' 
 })
 
-
 -- Jump around codebase
 vim.keymap.set({'n', 'x', 'o'}, 's', 
     function() require('flash').jump() end, {
@@ -255,6 +254,12 @@ vim.keymap.set('c', '<C-s>',
     function() require('flash').toggle() end, {
         silent = true,
         desc = 'Toggle Flash Search'
+})
+
+-- Center buffer
+vim.keymap.set('n', '<leader>zz', '<CMD>NoNeckPain<CR>', {
+    silent = true,
+    desc = 'Zen mode'
 })
 
 -- Plugin manager
@@ -284,7 +289,8 @@ require('lazy').setup(
             'nvim-tree/nvim-web-devicons',
             'nvim-treesitter/nvim-treesitter',
             'windwp/nvim-ts-autotag',
-            'lukas-reineke/indent-blankline.nvim'
+            'lukas-reineke/indent-blankline.nvim',
+            'shortcuts/no-neck-pain.nvim'
         },
         {
             'williamboman/mason.nvim',
@@ -309,10 +315,10 @@ require('lazy').setup(
         },
         {
             'folke/flash.nvim',
-            'kylechui/nvim-surround',
+            -- 'kylechui/nvim-surround',
             -- 'Exafunction/codeium.nvim',
             -- 'ray-x/lsp_signature.nvim',
-            -- 'windwp/nvim-autopairs',
+            'windwp/nvim-autopairs',
             'numToStr/Comment.nvim',
             'lewis6991/gitsigns.nvim'
         },
@@ -606,13 +612,13 @@ require('harpoon').setup({
 -- })
 
 -- Surround tool
-require('nvim-surround').setup()
+-- require('nvim-surround').setup()
 
 -- Codeium AI
 -- require('codeium').setup()
 
 -- Autopairs
--- require('nvim-autopairs').setup()
+require('nvim-autopairs').setup()
 
 -- Comment
 require('Comment').setup()
