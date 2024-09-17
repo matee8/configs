@@ -1,6 +1,4 @@
-# Preview
-<img src="./assets/preview.png"></img> 
-# Packages (789)
+# Packages (708)
 ## Core
 Window manager: i3-wm\
 Server: xorg-server\
@@ -9,13 +7,11 @@ Layout manager: i3-autolayout (AUR)\
 Compositor: picom\
 Launcher: dmenu\
 Status bar: polybar\
-Notifications: dunst\
 Screenshot: maim\
 Font: ttf-hack-nerd\
 Clipboard: xclip
 ## IO settings
-Processor: intel-ucode\
-Graphics card: nvidia, nvidia-settings\
+Processor: amd-ucode\
 Display: xorg-xrandr, brightnessctl\
 Bluetooth: bluez, bluez-utils\
 Volume: pulsemixer\
@@ -27,66 +23,57 @@ Fetch: fastfetch\
 Prompt: starship\
 Task manager: btop\
 Fuzzy finder: fzf, ripgrep\
+Better looking ls: eza\
 Smarter cd command: zoxide
 ## Development
 Editor: neovim\
 Version control: git\
 Memory checker: valgrind
 ### Tools
-#### Server, database
-apache\
+#### Database
 mariadb\
-phpmyadmin\
-mysql-workbench\
-oracle-instantclient-basic (AUR)\
-oracle-instantclient-sqlplus (AUR)
-#### Network
-packettracer (AUR)
+postgresql
 #### C
-cmake
+cmake\
+clang
 #### C#
 dotnet-runtime\
-dotnet-sdk\
-unityhub (AUR)
+dotnet-sdk
 #### Go
 go
 #### JavaScript
 npm\
 nvm (AUR)\
-typescript\
 nodejs
 #### PHP
 php\
-php-apache\
-phpactor (AUR)
+phpactor (AUR)\
+composer
 #### Rust
 rustup
 #### Zig
 zig
 #### Java
-jdk-openjdk
+jdk-openjdk\
+maven
 #### Python
 python
 ## Apps
 Browser: firefox\
 Office suite: libreoffice-fresh\
-Archives: atool, unzip, zip, unrar\
+Archives: atool, zip, unrar\
 Torrent: qbittorrent\
-Calculator: speedcrunch\
 PDF viewer: zathura, zathura-pdf-mupdf\
-Audio editor: audacity\
 Image viewer: feh\
 Image editor: gimp\
-Video player: vlc\
 Video recorder: obs-studio\
-Video editor: shotcut\
 SSH: openssh\
 VPN: openvpn\
 Cloud sync: rclone
 ## Other stuff
 Music: cider (AUR)\
 Chatting: discord\
-Gaming: steam\
+Gaming: steam, heroic-games-launcher-bin (AUR)\
 Emoji font: noto-fonts-emoji\
 Icons: papirus-icon-theme\
 Compatibility: wine\
@@ -108,14 +95,10 @@ mkdir ~/University\
 mkdir ~/Videos\
 mkdir ~/Work\
 mkdir ~/.path\
-sudo chmod 557 /srv/http\
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql\
 sudo systemctl start mariadb.service\
 sudo mariadb -u root -p\
 sudo mariadb-secure-installation\
-mkdir /srv/http/Webprog-2\
-ln -s /srv/http/ ~/Projects/PHP\
-ln -s /src/http/Webprog-2 ~/University/Maskodik-felev/Webprog-2\
 sudo systemctl enable paccache.timer\
 sudo systemctl enable reflector.timer
 ## Apps
@@ -127,7 +110,6 @@ libreoffice-fresh: disable tips, icons: colibre dark, scheme: dark\
 neovim: codeium\
 packettracer: download, login\
 rclone: config\
-speedcrunch: zoom\
 steam: login\
 unityhub: install latest unity version\
 wine: wine mono
