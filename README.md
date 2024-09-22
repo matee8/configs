@@ -1,4 +1,4 @@
-# Packages (708)
+# Packages (700)
 ## Core
 Window manager: i3-wm\
 Server: xorg-server\
@@ -34,7 +34,6 @@ Memory checker: valgrind
 mariadb\
 postgresql
 #### C
-cmake\
 clang
 #### C#
 dotnet-runtime\
@@ -71,7 +70,7 @@ SSH: openssh\
 VPN: openvpn\
 Cloud sync: rclone
 ## Other stuff
-Music: cider (AUR)\
+Music: apple-music-bin (AUR)\
 Chatting: discord\
 Gaming: steam, heroic-games-launcher-bin (AUR)\
 Emoji font: noto-fonts-emoji\
@@ -102,14 +101,10 @@ sudo mariadb-secure-installation\
 sudo systemctl enable paccache.timer\
 sudo systemctl enable reflector.timer
 ## Apps
-cider: login, set theme\
+apple-music-bin: login\
 discord: login, font size\
 firefox: login, customize toolbar, login to every site\
-git: user.name, user.email, credential.helper\
 libreoffice-fresh: disable tips, icons: colibre dark, scheme: dark\
-neovim: codeium\
-packettracer: download, login\
 rclone: config\
 steam: login\
-unityhub: install latest unity version\
 wine: wine mono

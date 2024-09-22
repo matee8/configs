@@ -283,7 +283,6 @@ require('lazy').setup(
             'nvim-lua/plenary.nvim'
         },
         { 
-            -- 'nvimdev/dashboard-nvim',
             { 'catppuccin/nvim', as = 'catppuccin' },
             'nvim-lualine/lualine.nvim',
             'nvim-tree/nvim-web-devicons',
@@ -315,90 +314,15 @@ require('lazy').setup(
         },
         {
             'folke/flash.nvim',
-            -- 'kylechui/nvim-surround',
-            -- 'Exafunction/codeium.nvim',
-            -- 'ray-x/lsp_signature.nvim',
             'windwp/nvim-autopairs',
             'numToStr/Comment.nvim',
             'lewis6991/gitsigns.nvim'
         },
-        -- {
-        --     'tpope/vim-dadbod',
-        --     'kristijanhusak/vim-dadbod-ui',
-        --     'kristijanhusak/vim-dadbod-completion'
-        -- },
-        -- {
-        --     'iamcco/markdown-preview.nvim',
-        --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        --     ft = { "markdown" },
-        --     build = function() vim.fn["mkdp#util#install"]() end,
-        -- },
     },
     {
         ui = { border = 'rounded' }
     }
 )
-
--- Startup screen
--- require('dashboard').setup({
---     shortcut_type = 'number',
---     config = {
---         disable_move = true,
--- 		header = {
---         	[[                               __                ]],
--- 			[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
--- 			[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
--- 			[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
--- 			[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
--- 			[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
--- 		 	[[                                                 ]],
--- 		 	[[                                                 ]],
---
--- 		},
--- 		shortcut = {
---             {
---                 icon = ' ',
---                 desc = 'New',
---                 key = 'n',
---                 action = 'enew'
---             },
---             {
---                 icon = ' ',
---                 desc = 'Open',
---                 key = 'o',
---                 action = 'Telescope file_browser'
---             },
---             {
---                 icon = ' ',
---                 desc = 'DB',
---                 key = 'd',
---                 action = 'bdelete | DBUI'
---             },
---             {
---                 icon = ' ',
---                 desc = 'Update',
---                 key = 'u',
---                 action = 'Lazy update | MasonUpdate'
---             },
---             {
---                 icon = ' ',
---                 desc = 'Config',
---                 key = 'c',
---                 action = 'edit ' .. vim.fn.stdpath('config') .. '/init.lua'
---             },
---             {
---                 icon = '󰩈 ',
---                 desc = 'Quit',
---                 key = 'q',
---                 action = 'quit' 
---             }
---         },
---         packages = { enable = false },
---         project = { enable = false },
---         mru = { limit = 20 },
---         footer = {}
---     }
--- })
 
 -- Theme
 require('catppuccin').setup({
@@ -407,7 +331,6 @@ require('catppuccin').setup({
     show_end_of_buffer = false,
     term_colors = true,
     integrations = {
-        -- dashboard = true,
         mason = true,
         native_lsp = {
             enabled = true,
@@ -486,6 +409,14 @@ require('ibl').setup({
     indent = { char = '.' },
     scope = { enabled = false },
     exclude = { filetypes = {'dashboard'} }
+})
+
+-- Center buffer
+require('no-neck-pain').setup({
+    width = 90,
+    autocmds = {
+        enableOnVimEnter = true,
+    }
 })
 
 -- Install servers
@@ -603,19 +534,6 @@ require('harpoon').setup({
         save_on_toggle = true
     }
 })
---
--- -- LSP hints
--- require('lsp_signature').setup({
---     bind = true,
---     handler_opts = { border = 'rounded' },
---     hint_prefix = '■ '
--- })
-
--- Surround tool
--- require('nvim-surround').setup()
-
--- Codeium AI
--- require('codeium').setup()
 
 -- Autopairs
 require('nvim-autopairs').setup()
@@ -623,51 +541,6 @@ require('nvim-autopairs').setup()
 -- Comment
 require('Comment').setup()
 require('Comment.ft').set('plsql', '--%s')
-
--- Git integration
-require('gitsigns').setup({
-    on_attach = function()
-        vim.keymap.set('n', '<leader>hh', ':Gitsigns\n', {
-            silent = true,
-            desc = 'Gitsigns'
-        })
-
-        vim.keymap.set('n', '<leader>hp', ':Gitsigns preview_hunk_inline\n', {
-            silent = true,
-            desc = 'Gitsigns preview hunk'
-        })
-
-        vim.keymap.set('n', '<leader>hs', ':Gitsigns stage_hunk\n', {
-            silent = true,
-            desc = 'Gitsigns stage hunk'
-        })
-
-        vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk\n', {
-            silent = true,
-            desc = 'Gitsigns unstage hunk'
-        })
-
-        vim.keymap.set('n', '<leader>hr', ':Gitsigns reset_hunk\n', {
-            silent = true,
-            desc = 'Gitsigns reset hunk'
-        })
-
-        vim.keymap.set('n', '<leader>hS', ':Gitsigns stage_buffer\n', {
-            silent = true,
-            desc = 'Gitsigns stage buffer'
-        })
-
-        vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer\n', {
-            silent = true,
-            desc = 'Gitsigns reset buffer'
-        })
-
-        vim.keymap.set('n', '<leader>hb', ':Gitsigns toggle_current_line_blame\n', {
-            silent = true,
-            desc = 'Gitsigns toggle blame'
-        })
-    end
-})
 
 -- Fix lsp floating window
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -772,11 +645,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run formatter'
             })
-            vim.keymap.set('n', '<leader>rb',
-                '<CMD>terminal cargo check<CR>', {
-                    silent = true,
-                    desc = 'Run check'
-            })
         elseif vim.bo[opts.buf].filetype == 'zig' then
             vim.g.zig_fmt_parse_errors = 0
             vim.g.zig_fmt_autosave = 0
@@ -798,7 +666,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
             })
         elseif vim.bo[opts.buf].filetype == 'haskell' then
             vim.keymap.set('n', '<leader>rr',
-                '<CMD>terminal ghci<CR>', {
+                '<CMD>terminal ghci<CR>i:l ' .. vim.fn.expand('%') .. '<CR>', {
                     silent = true,
                     desc = 'Run  '
             })
