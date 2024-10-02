@@ -1,4 +1,4 @@
-# Packages (700)
+# Packages (773)
 ## Core
 Window manager: i3-wm\
 Server: xorg-server\
@@ -27,6 +27,7 @@ Better looking ls: eza\
 Smarter cd command: zoxide
 ## Development
 Editor: neovim\
+Paginator: less\
 Version control: git\
 Memory checker: valgrind
 ### Tools
@@ -56,7 +57,8 @@ zig
 jdk-openjdk\
 maven
 #### Python
-python
+python\
+python-pylint
 ## Apps
 Browser: firefox\
 Office suite: libreoffice-fresh\
@@ -72,7 +74,7 @@ Cloud sync: rclone
 ## Other stuff
 Music: apple-music-bin (AUR)\
 Chatting: discord\
-Gaming: steam, heroic-games-launcher-bin (AUR)\
+Gaming: steam, lutris\
 Emoji font: noto-fonts-emoji\
 Icons: papirus-icon-theme\
 Compatibility: wine\

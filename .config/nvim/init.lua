@@ -607,6 +607,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run  '
             })
+            vim.keymap.set('n', '<leader>rp',
+                '<CMD>terminal pylint %<CR>', {
+                    silent = true,
+                    desc = 'Run pylint'
+            })
         elseif vim.bo[opts.buf].filetype == 'sh' then
             vim.keymap.set('n', '<leader>rr', 
                 '<CMD>!chmod u+x %<CR><CMD>terminal ./%<CR>', {
