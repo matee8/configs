@@ -9,7 +9,8 @@ Launcher: dmenu\
 Status bar: polybar\
 Screenshot: maim\
 Font: ttf-hack-nerd\
-Clipboard: xclip
+Clipboard: xclip\
+Terminal multiplexer: tmux
 ## IO settings
 Processor: amd-ucode\
 Display: xorg-xrandr, brightnessctl\
