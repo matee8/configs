@@ -577,17 +577,38 @@ vim.api.nvim_create_autocmd('BufEnter', {
     callback = function(opts)
         if vim.bo[opts.buf].filetype == 'c' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal gcc -std=c23' .. 
+                '<CMD>terminal clang -std=c23' .. 
                 ' -O3 -Werror -Wall -Wextra -Wpedantic % && ./a.out<CR>', {
                     silent = true,
                     desc = 'Run 󰙱 '
             })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!clang-format -i %<CR>', {
+                    silent = true,
+                    desc = 'Run clang-format'
+            })
+            vim.keymap.set('n', '<leader>rt',
+                '<CMD>terminal clang-tidy *.c<CR>', {
+                    silent = true,
+                    desc = 'Run clang-tidy'
+            })
         elseif vim.bo[opts.buf].filetype == 'cpp' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal g++ -std=c++23 -O3 ' ..
-                '-Werror -Wall -Wextra -Wpedantic % && ./a.out<CR>', {
+                '<CMD>terminal clang++ -O2 -DNDEBUG -pedantic-errors -Wall' ..
+                ' -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror' ..
+                ' -std=c++23 && ./a.out<CR>', {
                     silent = true,
                     desc = 'Run 󰙲 '
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!clang-format -i %<CR>', {
+                    silent = true,
+                    desc = 'Run clang-format'
+            })
+            vim.keymap.set('n', '<leader>rt',
+                '<CMD>terminal clang-tidy *.cpp<CR>', {
+                    silent = true,
+                    desc = 'Run clang-tidy'
             })
         elseif vim.bo[opts.buf].filetype == 'cs' then
             vim.keymap.set('n', '<leader>rr', 
@@ -611,6 +632,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
                 '<CMD>terminal pylint %<CR>', {
                     silent = true,
                     desc = 'Run pylint'
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!yapf --style google -i %<CR>', {
+                    silent = true,
+                    desc = 'Run yapf'
             })
         elseif vim.bo[opts.buf].filetype == 'sh' then
             vim.keymap.set('n', '<leader>rr', 

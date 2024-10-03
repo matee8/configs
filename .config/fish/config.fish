@@ -3,11 +3,12 @@ if status is-interactive
     set -gx PATH "/home/mate/.path:/home/mate/.cargo/bin:/home/mate/.fly/bin:$PATH"
     set -gx EDITOR nvim
     set -gx VISUAL nvim
-    # alias clear="clear && fastfetch"
-    # alias startx="startx && clear"
-    # clear
+    alias clear="clear && fastfetch"
+    alias startx="startx && clear"
+    alias cppdebug="clang++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
+    alias cpprelease="clang++ -O2 -DNDEBUG -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
+    clear
     alias ls="exa"
-    alias learncppg++="g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -ggdb -std=c++23"
     starship init fish | source
     zoxide init --cmd cd fish | source
 end
