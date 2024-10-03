@@ -59,7 +59,8 @@ jdk-openjdk\
 maven
 #### Python
 python\
-python-pylint
+python-pylint\
+yapf
 ## Apps
 Browser: firefox\
 Office suite: libreoffice-fresh\
