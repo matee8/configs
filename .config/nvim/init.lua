@@ -587,7 +587,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run clang-format'
             })
-            vim.keymap.set('n', '<leader>rt',
+            vim.keymap.set('n', '<leader>rl',
                 '<CMD>terminal clang-tidy *.c<CR>', {
                     silent = true,
                     desc = 'Run clang-tidy'
@@ -605,7 +605,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run clang-format'
             })
-            vim.keymap.set('n', '<leader>rt',
+            vim.keymap.set('n', '<leader>rl',
                 '<CMD>terminal clang-tidy *.cpp<CR>', {
                     silent = true,
                     desc = 'Run clang-tidy'
@@ -616,11 +616,31 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run 󰌛 '
             })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!dotnet format<CR>', {
+                    silent = true,
+                    desc = 'Run formatter'
+            })
+            vim.keymap.set('n', '<leader>rl',
+                '<CMD>terminal dotnet csharpier .<CR>', {
+                    silent = true,
+                    desc = 'Run linter'
+            })
         elseif vim.bo[opts.buf].filetype == 'java' then
             vim.keymap.set('n', '<leader>rr', 
                 '<CMD>terminal java %<CR>', {
                     silent = true,
                     desc = 'Run  '
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!mvn spotless:apply', {
+                    silent = true,
+                    desc = 'Run formatter'
+            })
+            vim.keymap.set('n', '<leader>rl',
+                '<CMD>terminal mvn spotbugs:check', {
+                    silent = true,
+                    desc = 'Run linter'
             })
         elseif vim.bo[opts.buf].filetype == 'python' then
             vim.keymap.set('n', '<leader>rr', 
@@ -628,7 +648,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run  '
             })
-            vim.keymap.set('n', '<leader>rp',
+            vim.keymap.set('n', '<leader>rl',
                 '<CMD>terminal pylint %<CR>', {
                     silent = true,
                     desc = 'Run pylint'
@@ -655,13 +675,23 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run formatter'
             })
+            vim.keymap.set('n', '<leader>rl',
+                '<CMD>terminal staticcheck ./..<CR>', {
+                    silent = true,
+                    desc = 'Run staticcheck'
+            })
+            vim.keymap.set('n', '<leader>rv',
+                '<CMD>terminal go vet ./...<CR>', {
+                    silent = true,
+                    desc = 'Run go vetter'
+            })
         elseif vim.bo[opts.buf].filetype == 'rust' then
             vim.keymap.set('n', '<leader>rr', 
                 '<CMD>terminal cargo run<CR>', {
                     silent = true,
                     desc = 'Run 󱘗  '
             })
-            vim.keymap.set('n', '<leader>rc', 
+            vim.keymap.set('n', '<leader>rl',
                 '<CMD>terminal cargo clippy<CR>', {
                     silent = true,
                     desc = 'Run clippy'
@@ -695,11 +725,31 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     silent = true,
                     desc = 'Run  '
             })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!prettier --write "**/*.js"<CR>', {
+                    silent = true,
+                    desc = 'Run prettier'
+            })
+            vim.keymap.set('n', '<leader>re',
+                '<CMD>terminal npx eslint src/<CR>', {
+                    silent = true,
+                    desc = "Run eslint"
+            })
         elseif vim.bo[opts.buf].filetype == 'haskell' then
             vim.keymap.set('n', '<leader>rr',
                 '<CMD>terminal ghci<CR>i:l ' .. vim.fn.expand('%') .. '<CR>', {
                     silent = true,
                     desc = 'Run  '
+            })
+            vim.keymap.set('n', '<leader>rf',
+                '<CMD>!ormolu --mode inplace *.hs<CR>', {
+                    silent = true,
+                    desc = 'Run ormolu'
+            })
+            vim.keymap.set('n', '<leader>rl',
+                '<CMD>terminal hlint *.hs<CR>', {
+                    silent = true,
+                    desc = 'Run hlint'
             })
         end
     end
