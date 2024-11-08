@@ -4,11 +4,11 @@ if status is-interactive
     set -gx EDITOR nvim
     set -gx VISUAL nvim
     set -gx DOTNET_PATH "/usr/bin/dotnet"
-    alias clear="clear && fastfetch"
-    alias startx="startx && clear"
+    # alias clear="clear && fastfetch"
+    # alias startx="startx && clear"
     alias cppdebug="clang++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
     alias cpprelease="clang++ -O2 -DNDEBUG -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
-    clear
+    # clear
     alias ls="exa"
     starship init fish | source
     zoxide init --cmd cd fish | source

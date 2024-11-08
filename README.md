@@ -20,7 +20,6 @@ Mouse: xorg-xinput
 ## Terminal
 Shell: fish\
 Terminal: alacritty\
-Fetch: fastfetch\
 Prompt: starship\
 Task manager: btop\
 Fuzzy finder: fzf, ripgrep\
@@ -57,7 +56,6 @@ eslint (npm)\
 prettier (npm)
 #### PHP
 php\
-phpactor (AUR)\
 composer
 #### Rust
 rustup
