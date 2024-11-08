@@ -33,8 +33,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Touchpad.
-exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN0001:00 04F3:3140 Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN0001:00 04F3:3140 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Drag floating windows to their wanted position.
 floating_modifier $mod
@@ -42,18 +42,10 @@ floating_modifier $mod
 # Default applications.
 set $terminal "alacritty"
 set $browser "firefox"
-set $editor "alacritty -e nvim"
-set $music "cider"
-set $chat "discord"
-set $googleDrive "rclone mount psgdrive: ~/Psg-drive"
 
 # Keybindings for default applications.
 bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+b exec --no-startup-id $browser 
-bindsym $mod+v exec --no-startup-id $editor
-# bindsym $mod+m exec --no-startup-id $music
-# bindsym $mod+c exec --no-startup-id $chat
-# bindsym $mod+g exec --no-startup-id $googleDrive
 
 # Screenshot
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
@@ -119,10 +111,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # Resize containers.
-bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+H resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+J resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+K resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+L resize grow width 10 px or 10 ppt
 
 # Monitor setup.
 exec_always --no-startup-id xrandr --output eDP-1 --primary

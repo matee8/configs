@@ -1,10 +1,10 @@
 [font]
 size = 9
-offset.y = 1
+# offset.y = 0
 
 [font.normal]
 family = "Hack Nerd Font"
-style = "bold"
+style = "Bold"
 
 [font.bold]
 family = "Hack Nerd Font"
@@ -18,7 +18,7 @@ style = "Italic"
 family = "Hack Nerd Font"
 style = "Bold Italic"
 
-[window.padding]
+# [window.padding]
 # x = 4
 # y = 4
 

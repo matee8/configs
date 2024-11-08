@@ -10,7 +10,7 @@ local servers = {
     'rust_analyzer',
     'gopls',
     'zls',
-    'phpactor',
+    'intelephense',
     'hls',
     'ocamllsp'
 }
@@ -446,13 +446,6 @@ local server_opts = {
         cmd = {
             'clangd', '--offset-encoding=utf-16', '--header-insertion=never' 
         } 
-    },
-    phpactor = {
-        on_attach = on_attach,
-        init_options = {
-            ['language_server_phpstan'] = true,
-            ['language_server_psalm'] = true
-        },
     },
     rust_analyzer = {
         settings = {
