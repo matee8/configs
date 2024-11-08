@@ -30,30 +30,37 @@ Smarter cd command: zoxide
 Editor: neovim\
 Paginator: less\
 Version control: git\
-Memory checker: valgrind
+Memory checker: valgrind\
+Virtualization: docker\
+Portability: mingw, mingw-w64-configure (AUR), mingw-w64-environment (AUR),
+mingw-w64-gcc, mingw-w64-pkg-config (AUR)
 ### Tools
 #### Database
 mariadb\
 postgresql
 #### C
-clang
+clang\
+gdb
 #### C#
 dotnet-runtime\
-dotnet-sdk
+dotnet-sdk\
+csharpier (dotnet)
 #### Go
-go
+go\
+staticcheck (go)\
+pkgsite (go)
 #### JavaScript
 npm\
 nvm (AUR)\
-nodejs
+nodejs\
+eslint (npm)\
+prettier (npm)
 #### PHP
 php\
 phpactor (AUR)\
 composer
 #### Rust
 rustup
-#### Zig
-zig
 #### Java
 jdk-openjdk\
 maven
@@ -61,6 +68,12 @@ maven
 python\
 python-pylint\
 yapf
+#### Ocaml
+opam
+#### Haskell
+ghcup (official site)\
+hlint (cabal)\
+ormolu (cabal)
 ## Apps
 Browser: firefox\
 Office suite: libreoffice-fresh\
