@@ -1,7 +1,7 @@
 local servers = {
     'clangd',
     'csharp_ls',
-    'jdtls',
+    -- 'jdtls',
     'pyright',
     'bashls',
     'html',
@@ -11,7 +11,8 @@ local servers = {
     'gopls',
     'zls',
     'phpactor',
-    'hls'
+    'hls',
+    'ocamllsp'
 }
 
 -- Cursorline
@@ -416,6 +417,12 @@ require('no-neck-pain').setup({
     width = 90,
     autocmds = {
         enableOnVimEnter = true,
+        skipEnteringNoNeckPainBuffer = true
+    },
+    buffers = {
+        right = {
+            enabled = false
+        }
     }
 })
 
@@ -460,6 +467,8 @@ local server_opts = {
         }
     },
 }
+
+vim.cmd('set rtp^="/home/mate/.opam/default/share/ocp-indent/vim"')
 
 for _, server in ipairs(servers) do
     local opts = server_opts[server] or {}
@@ -553,11 +562,10 @@ end
 
 vim.api.nvim_create_autocmd({ 
     'CursorHold', 
-    'CursorHoldI' 
 }, {
     callback = function()
         if not require('cmp').visible() then
-            vim.lsp.buf.hover()
+            vim.cmd("silent! vim.lsp.buf.hover()")
         end
     end
 })
@@ -666,7 +674,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
             })
         elseif vim.bo[opts.buf].filetype == 'go' then
             vim.keymap.set('n', '<leader>rr', 
-                '<CMD>terminal go run .<CR>', {
+                '<CMD>terminal go run ./...<CR>', {
                     silent = true,
                     desc = 'Run 󰟓  '
             })

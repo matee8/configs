@@ -14,4 +14,8 @@ if status is-interactive
     zoxide init --cmd cd fish | source
 end
 
+# haskell
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/mate/.ghcup/bin $PATH # ghcup-env
+
+# ocaml
+test -r '/home/mate/.opam/opam-init/init.fish' && source '/home/mate/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
