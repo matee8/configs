@@ -18,6 +18,8 @@ local servers = {
 -- Cursorline
 vim.o.cursorline = true
 
+vim.cmd("setlocal spell spelllang=hu,en")
+
 -- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
