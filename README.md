@@ -4,7 +4,6 @@ Window manager: i3-wm\
 Server: xorg-server\
 Init: xorg-xinit\
 Layout manager: i3-autolayout (AUR)\
-Compositor: picom\
 Launcher: dmenu\
 Status bar: polybar\
 Screenshot: maim\
@@ -22,8 +21,22 @@ Shell: zsh\
 Terminal: alacritty\
 Prompt: starship\
 Fuzzy finder: fzf\
+### Modern Unix
 cd: zoxide\
 grep: ripgrep\
+cat: bat\
+curl: xh\
+du: dust\
+ls: lsd\
+diff: git-delta\
+find: fd\
+man: tldr\
+top: btop
+### ZSH plugins
+zsh-autosuggestions\
+zhs-completions\
+zhs-history-substring-search\
+zhs-syntax-highlighting
 ## Development
 Editor: neovim\
 Paginator: less\
@@ -81,14 +94,12 @@ Image viewer: feh\
 Image editor: gimp\
 Video recorder: obs-studio\
 SSH: openssh\
-VPN: openvpn\
 Cloud sync: rclone
 ## Other stuff
 Music: apple-music-bin (AUR)\
 Chatting: discord\
 Gaming: steam, lutris\
 Emoji font: noto-fonts-emoji\
-Icons: papirus-icon-theme\
 Compatibility: wine\
 Mount helper: fuse3, ntfs-3g\
 Pacman utilities: pacman-contrib\
@@ -97,8 +108,7 @@ Pacman mirror helper: reflector
 ## Commands
 sudo grub-mkconfig -o /boot/grub/grub.cfg\
 mkinitcpio -P linux\
-chsh -s /bin/fish\
-echo "set -U fish_greeting" | fish\
+chsh -s /bin/zsh\
 mkdir ~/.aur\
 mkdir ~/Downloads\
 mkdir ~/Documents\
