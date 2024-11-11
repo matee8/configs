@@ -57,6 +57,10 @@ vim.opt.undofile = true
 -- Disable mouse
 vim.o.mouse = ''
 
+-- Disable swap files
+vim.opt.swapfile = false
+vim.opt.backup = false
+
 -- Appearance 
 vim.g.netrw_banner = 0
 vim.o.termguicolors = true
@@ -68,8 +72,32 @@ vim.o.showmode = false
 vim.o.hlsearch = false
 vim.o.background = 'dark'
 
+-- Beeping
+vim.opt.vb = true
+
+-- Diffs
+vim.opt.diffopt:append('iwhite')
+vim.opt.diffopt:append('algorithm:histogram')
+vim.opt.diffopt:append('indent-heuristic')
+
 -- Leader
 vim.g.mapleader = ' '
+
+-- Highlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+    pattern = '*',
+    command = 'silent! lua vim.highlight.on_yank({ timeout =  500 })'
+})
+
+-- Shorter columns
+local text = vim.api.nvim_create_augroup('text', { clear = true })
+for _, pat in ipairs({'text', 'markdown', 'mail', 'gitcommit'}) do
+	vim.api.nvim_create_autocmd('Filetype', {
+		pattern = pat,
+		group = text,
+		command = 'setlocal spell tw=72 colorcolumn=73',
+	})
+end
 
 -- General keymaps
 vim.keymap.set('i', '<Up>', '')
@@ -84,6 +112,8 @@ vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', '<leader>w', '<CMD>w<CR>')
 vim.keymap.set('t', '<C-c>', '<C-\\><C-n><CMD>buffer #<CR><CMD>bd! term*<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>buffer #<CR><CMD>bd! term*<CR>')
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
 
 vim.keymap.set('v', 'J', ":m '<+1<CR>gv=gv", {
     silent = true, 
@@ -109,56 +139,83 @@ vim.keymap.set('i', '<C-h>', '<Left>')
 vim.keymap.set('i', '<C-j>', '<Down>')
 vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-l>', '<Right>')
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+
+vim.keymap.set('n', 'n', 'nzz', { silent = true })
+vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 
 -- LSP Keymaps
-vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {
-    silent = true,
-    desc = 'Open LSP docs'
-})
-vim.keymap.set('n', '<leader>q', 
-    function() 
-        if vim.api.nvim_get_current_win() ~= 1000 then
-            vim.api.nvim_win_close(vim.api.nvim_get_current_win(), {}) 
-        end
-    end, {
-        silent = true,
-        desc = 'Close LSP docs'
-})
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, {
-    silent = true, 
-    desc = 'Format file' 
-})
-vim.keymap.set('n', '<leader>lqf', vim.lsp.buf.code_action, {
-        silent = true,
-        desc = 'Quick fixes'
-})
-vim.keymap.set('n', '<leader>ld', 
-    function() require('telescope.builtin').lsp_definitions() end, {
-        silent = true,
-        desc = 'Go to definitions'
-})
-vim.keymap.set('n', '<leader>lr', 
-    function() require('telescope.builtin').lsp_references() end, {
-        silent = true,
-        desc = 'Go to references'
-})
-vim.keymap.set('n', '<leader>lt', 
-    function() require('telescope.builtin').lsp_type_definitions() end, {
-        silent = true,
-        desc = 'Go to type definitions'
-})
-vim.keymap.set('n', '<leader>lld',
-    function() require('telescope.builtin').diagnostics() end, {
-        silent = true,
-        desc = 'List diagnostics for all buffers'
-})
-vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, {
-    silent = true,
-    desc = 'Rename'
-})
-vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, {
-    silent = true,
-    desc = 'Show diagnostic for line'
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {
+            silent = true,
+            desc = 'Open LSP docs'
+        })
+        vim.keymap.set('n', '<leader>q', 
+            function() 
+                if vim.api.nvim_get_current_win() ~= 1000 then
+                    vim.api.nvim_win_close(vim.api.nvim_get_current_win(), {}) 
+                end
+            end, {
+                silent = true,
+                desc = 'Close LSP docs'
+        })
+        vim.keymap.set('n', '<leader>lf', function() 
+                vim.lsp.buf.format({ async = true })
+            end, {
+            silent = true, 
+            desc = 'Format file' 
+        })
+        vim.keymap.set('n', '<leader>lqf', vim.lsp.buf.code_action, {
+                silent = true,
+                desc = 'Quick fixes'
+        })
+        vim.keymap.set('n', '<leader>ld', 
+            function() require('telescope.builtin').lsp_definitions() end, {
+                silent = true,
+                desc = 'Go to definitions'
+        })
+        vim.keymap.set('n', '<leader>lr', 
+            function() require('telescope.builtin').lsp_references() end, {
+                silent = true,
+                desc = 'Go to references'
+        })
+        vim.keymap.set('n', '<leader>lt', 
+            function() require('telescope.builtin').lsp_type_definitions() end, {
+                silent = true,
+                desc = 'Go to type definitions'
+        })
+        vim.keymap.set('n', '<leader>lld',
+            function() require('telescope.builtin').diagnostics() end, {
+                silent = true,
+                desc = 'List diagnostics for all buffers'
+        })
+        vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, {
+            silent = true,
+            desc = 'Rename'
+        })
+        vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, {
+            silent = true,
+            desc = 'Show diagnostic for line'
+        })
+        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
+            silent = true,
+        })
+        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
+            silent = true,
+        })
+        vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, {
+            silent = true,
+        })
+        vim.keymap.set('n', '<leader>lsh', vim.lsp.buf.signature_help, {
+            silent = true
+        })
+        vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, {
+            silent = true
+        })
+    end,
 })
 
 -- Fuzzy finder
@@ -180,7 +237,11 @@ vim.keymap.set('n', '<leader>fc',
     function() require('telescope.builtin').grep_string() end, {
         silent = true,
         desc = 'Fuzzy find string under cursor in current directory'
-    })
+})
+vim.keymap.set('n', '<leader>fh', 
+    function() require('telescope.builtin').search_history() end, {
+    silent = true
+})
 
 -- Harpoon
 vim.keymap.set('n', '<leader>ha', 
@@ -284,13 +345,21 @@ require('lazy').setup(
             'nvim-lua/plenary.nvim'
         },
         { 
-            { 'catppuccin/nvim', as = 'catppuccin' },
-            'nvim-lualine/lualine.nvim',
+            { 
+                'catppuccin/nvim', 
+                as = 'catppuccin', 
+                lazy = false, 
+                priority = 10000
+            },
+            { 
+                'nvim-lualine/lualine.nvim',
+                lazy = false
+            },
             'nvim-tree/nvim-web-devicons',
-            'nvim-treesitter/nvim-treesitter',
+            { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" },
             'windwp/nvim-ts-autotag',
             'lukas-reineke/indent-blankline.nvim',
-            'shortcuts/no-neck-pain.nvim'
+            { 'shortcuts/no-neck-pain.nvim', lazy = false }
         },
         {
             'williamboman/mason.nvim',
@@ -299,14 +368,17 @@ require('lazy').setup(
             'jose-elias-alvarez/null-ls.nvim'
             
         },
-        {
-            'L3MON4D3/LuaSnip',
+        { 
             'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
-            'dcampos/cmp-emmet-vim',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-cmdline',
-            'hrsh7th/cmp-path'
+            event = "InsertEnter",
+            dependencies = {
+                'L3MON4D3/LuaSnip',
+                'hrsh7th/cmp-nvim-lsp',
+                'dcampos/cmp-emmet-vim',
+                'hrsh7th/cmp-buffer',
+                'hrsh7th/cmp-cmdline',
+                'hrsh7th/cmp-path'
+            }
         },
         {
             'nvim-telescope/telescope.nvim',
@@ -318,6 +390,13 @@ require('lazy').setup(
             'windwp/nvim-autopairs',
             'numToStr/Comment.nvim',
             'lewis6991/gitsigns.nvim'
+        },
+        {
+            'plasticboy/vim-markdown',
+            ft = { "markdown" },
+            dependencies = {
+                'godlygeek/tabular',
+            }
         },
     },
     {
@@ -408,8 +487,7 @@ require('nvim-treesitter.configs').setup {
 -- Indentation indicator
 require('ibl').setup({
     indent = { char = '.' },
-    scope = { enabled = false },
-    exclude = { filetypes = {'dashboard'} }
+    scope = { enabled = false }
 })
 
 -- Center buffer
@@ -478,6 +556,7 @@ require('cmp').setup({
     },
     sources = {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'emmet_vim', option = { filetypes = { 'html', 'css', 'php' } } },
         { name = 'vim-dadbod-completion' },
         { name = 'luasnip' },
@@ -489,8 +568,8 @@ require('cmp').setup({
         ['<C-J>'] = require('cmp').mapping.select_next_item(),
         ['<C-f>'] = require('cmp').mapping.confirm({select = true}),
         ['<C-e>'] = require('cmp').mapping.abort(),
-        ['<A-K>'] = require('cmp').mapping.scroll_docs(-1),
-        ['<A-J>'] = require('cmp').mapping.scroll_docs(1)
+        ['<A-K>'] = require('cmp').mapping.scroll_docs(-4),
+        ['<A-J>'] = require('cmp').mapping.scroll_docs(4)
     },
     window = {
         completion = require('cmp').config.window.bordered(),
@@ -544,6 +623,9 @@ require('nvim-autopairs').setup()
 require('Comment').setup()
 require('Comment.ft').set('plsql', '--%s')
 
+-- Version control
+require('gitsigns').setup()
+
 -- Fix lsp floating window
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -572,6 +654,12 @@ vim.diagnostic.config({
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = 'rounded'
 })
+
+-- Markdown
+vim.g.vim_markdown_folding_disabled = 1
+vim.g.vim_markdown_frontmatter = 1
+vim.g.vim_markdown_new_list_item_indent = 0
+vim.g.vim_markdown_auto_insert_bullets = 0
 
 -- Code runner
 vim.api.nvim_create_autocmd('BufEnter', {

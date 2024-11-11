@@ -136,12 +136,12 @@ client.background       #12121F
 #     i3bar_command i3bar
 #     status_command i3status
 #
-#     # mode hide
+#     mode hide
 #     position top
 #     separator_symbol " "
 #     modifier $mod
 #
-#     font pango:Hack Nerd Font 10
+#     font pango:Hack Nerd Font 12
 #
 #     colors {
 #         background $crust
@@ -157,7 +157,7 @@ client.background       #12121F
 
 # Start other applications.
 # Compositor
-exec --no-startup-id picom -b
+# exec --no-startup-id picom -b
 # Bar
 exec --no-startup-id polybar -q
 # Wallpaper
