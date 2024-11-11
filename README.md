@@ -20,7 +20,7 @@ Mouse: xorg-xinput
 Shell: zsh\
 Terminal: alacritty\
 Prompt: starship\
-Fuzzy finder: fzf\
+Fuzzy finder: fzf
 ### Modern Unix
 cd: zoxide\
 grep: ripgrep\
