@@ -1,4 +1,4 @@
-# Packages (773)
+# Packages (816)
 ## Core
 Window manager: i3-wm\
 Server: xorg-server\
