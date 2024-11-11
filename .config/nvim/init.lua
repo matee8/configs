@@ -115,7 +115,7 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>buffer #<CR><CMD>bd! term*<CR>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
-vim.keymap.set('v', 'J', ":m '<+1<CR>gv=gv", {
+vim.keymap.set('v', 'J', ':m "<+1<CR>gv=gv', {
     silent = true, 
     desc = 'Move selected line down in visual mode' 
 })
@@ -127,7 +127,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {
 vim.keymap.set('v', 'L', '<CMD>s/^/ /g<CR>gv')
 vim.keymap.set('v', 'H', '<CMD>s/^ //g<CR>gv')
 
-vim.keymap.set('x', '<leader>p', [["_dP]], {
+vim.keymap.set('x', '<leader>p', [['_dP]], {
     silent = true, 
     desc = 'Paste without yank' 
 })
@@ -355,22 +355,33 @@ require('lazy').setup(
                 'nvim-lualine/lualine.nvim',
                 lazy = false
             },
-            'nvim-tree/nvim-web-devicons',
-            { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" },
-            'windwp/nvim-ts-autotag',
-            'lukas-reineke/indent-blankline.nvim',
-            { 'shortcuts/no-neck-pain.nvim', lazy = false }
+            { 'nvim-tree/nvim-web-devicons', lazy = false },
+            { 
+                'nvim-treesitter/nvim-treesitter', 
+                run = ':TSUpdate',
+            },
+            { 'lukas-reineke/indent-blankline.nvim', lazy = false },
+            { 'shortcuts/no-neck-pain.nvim', lazy = false },
+            { 
+                'windwp/nvim-ts-autotag', 
+                event = 'BufReadPre',
+                ft = { 'html', 'javascript', 'markdown', 'typescript', 'php' },
+            }
         },
         {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
+            { 
+                'williamboman/mason.nvim',
+                build = ':MasonUpdate',
+                dependencies = {
+                    'williamboman/mason-lspconfig.nvim',
+                }
+            },
             'jose-elias-alvarez/null-ls.nvim'
-            
         },
         { 
             'hrsh7th/nvim-cmp',
-            event = "InsertEnter",
+            event = 'InsertEnter',
             dependencies = {
                 'L3MON4D3/LuaSnip',
                 'hrsh7th/cmp-nvim-lsp',
@@ -383,17 +394,17 @@ require('lazy').setup(
         {
             'nvim-telescope/telescope.nvim',
             'nvim-telescope/telescope-file-browser.nvim',
-            'ThePrimeagen/harpoon'
+            { 'ThePrimeagen/harpoon', event = 'BufReadPre' }
         },
         {
-            'folke/flash.nvim',
-            'windwp/nvim-autopairs',
-            'numToStr/Comment.nvim',
+            { 'folke/flash.nvim', event = 'BufReadPre' },
+            { 'windwp/nvim-autopairs', event = 'InsertEnter' },
+            { 'numToStr/Comment.nvim', event = 'BufReadPre' },
             'lewis6991/gitsigns.nvim'
         },
         {
             'plasticboy/vim-markdown',
-            ft = { "markdown" },
+            ft = { 'markdown' },
             dependencies = {
                 'godlygeek/tabular',
             }
@@ -415,16 +426,16 @@ require('catppuccin').setup({
         native_lsp = {
             enabled = true,
             virtual_text = {
-                errors = { "italic" },
-                hints = { "italic" },
-                warnings = { "italic" },
-                information = { "italic" }
+                errors = { 'italic' },
+                hints = { 'italic' },
+                warnings = { 'italic' },
+                information = { 'italic' }
             },
             underlines = {
-                errors = { "underline" },
-                hints = { "underline" },
-                warnings = { "underline" },
-                information = { "underline" }
+                errors = { 'underline' },
+                hints = { 'underline' },
+                warnings = { 'underline' },
+                information = { 'underline' }
             },
             inlay_hints = {
                 background = true
@@ -527,7 +538,7 @@ local server_opts = {
     },
     rust_analyzer = {
         settings = {
-            ["rust-analyzer"] = {
+            ['rust-analyzer'] = {
                 cargo = {
                     allFeatures = true
                 },
@@ -539,7 +550,7 @@ local server_opts = {
     },
 }
 
-vim.cmd('set rtp^="/home/mate/.opam/default/share/ocp-indent/vim"')
+vim.cmd("set rtp^='/home/mate/.opam/default/share/ocp-indent/vim'")
 
 for _, server in ipairs(servers) do
     local opts = server_opts[server] or {}
@@ -640,7 +651,7 @@ vim.api.nvim_create_autocmd({
 }, {
     callback = function()
         if not require('cmp').visible() then
-            vim.cmd("silent! vim.lsp.buf.hover()")
+            vim.cmd('silent! vim.lsp.buf.hover()')
         end
     end
 })
@@ -815,14 +826,14 @@ vim.api.nvim_create_autocmd('BufEnter', {
                     desc = 'Run  '
             })
             vim.keymap.set('n', '<leader>rf',
-                '<CMD>!prettier --write "**/*.js"<CR>', {
+                "<CMD>!prettier --write '**/*.js'<CR>", {
                     silent = true,
                     desc = 'Run prettier'
             })
             vim.keymap.set('n', '<leader>re',
                 '<CMD>terminal npx eslint src/<CR>', {
                     silent = true,
-                    desc = "Run eslint"
+                    desc = 'Run eslint'
             })
         elseif vim.bo[opts.buf].filetype == 'haskell' then
             vim.keymap.set('n', '<leader>rr',
