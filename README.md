@@ -18,13 +18,12 @@ Bluetooth: bluez, bluez-utils\
 Volume: pulsemixer\
 Mouse: xorg-xinput
 ## Terminal
-Shell: fish\
+Shell: zsh\
 Terminal: alacritty\
 Prompt: starship\
-Task manager: btop\
-Fuzzy finder: fzf, ripgrep\
-Better looking ls: eza\
-Smarter cd command: zoxide
+Fuzzy finder: fzf\
+cd: zoxide\
+grep: ripgrep\
 ## Development
 Editor: neovim\
 Paginator: less\
