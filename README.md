@@ -5,6 +5,7 @@ Server: xorg-server\
 Init: xorg-xinit\
 Layout manager: i3-autolayout (AUR)\
 Launcher: dmenu\
+Compositor: picom\
 Status bar: polybar\
 Screenshot: maim\
 Font: ttf-hack-nerd\
