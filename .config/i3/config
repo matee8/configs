@@ -157,7 +157,7 @@ client.background       #12121F
 
 # Start other applications.
 # Compositor
-# exec --no-startup-id picom -b
+exec --no-startup-id picom -b
 # Bar
 exec --no-startup-id polybar -q
 # Wallpaper
