@@ -1,23 +1,41 @@
 local servers = {
-    'clangd',
-    'csharp_ls',
-    -- 'jdtls',
-    'pyright',
-    'bashls',
-    'html',
-    'cssls',
-    'ts_ls',
-    'rust_analyzer',
-    'gopls',
-    'zls',
-    'intelephense',
-    'hls',
-    'ocamllsp'
-}
+    clangd = {
+        cmd = {
+            'clangd', '--offset-encoding=utf-16', '--header-insertion=never' 
+        } 
+    },
+    csharp_ls = {},
+    pyright = {},
+    bashls = {},
+    html = {},
+    cssls = {},
+    ts_ls = {},
+    rust_analyzer = {
+        settings = {
+            ['rust-analyzer'] = {
+                cargo = {
+                    allFeatures = true
+                },
+                checkOnSave = {
+                    allTargets = false
+                }
+            }
+        }
+    },
+    gopls = {},
+    zls = {},
+    intelephense = {},
+    hls = {},
+    ocamllsp = {}
+} 
 
 -- Cursorline
 vim.o.cursorline = true
 
+-- Center cursorline
+vim.o.scrolloff = 30
+
+-- Spellcheck
 vim.cmd("setlocal spell spelllang=hu,en")
 
 -- Line numbers
@@ -33,9 +51,6 @@ vim.o.autoindent = true
 -- Search settings
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
--- Center cursorline
-vim.o.scrolloff = 30
 
 -- Border column
 vim.o.colorcolumn = '80'
@@ -149,9 +164,8 @@ vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 
 -- LSP Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
-        vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {
+        vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end, {
             silent = true,
             desc = 'Open LSP docs'
         })
@@ -379,7 +393,6 @@ require('lazy').setup(
                     'williamboman/mason-lspconfig.nvim',
                 }
             },
-            'jose-elias-alvarez/null-ls.nvim'
         },
         { 
             'hrsh7th/nvim-cmp',
@@ -520,45 +533,16 @@ require('no-neck-pain').setup({
 -- Install servers
 require('mason').setup({ ui = { border = 'rounded' } })
 
-require('mason-lspconfig').setup({ ensure_installed = servers })
-
--- Add clang autoformatting
-local null_ls = require('null-ls')
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.clang_format
-    }
+require('mason-lspconfig').setup({ 
+    ensure_installed = vim.tbl_keys(servers),
+    handlers = { function(server)
+        local opts = servers[server] or {}
+        opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
+        require('lspconfig')[server].setup(opts)
+    end }
 })
 
--- Start servers
-local server_opts = {
-    clangd = {
-        cmd = {
-            'clangd', '--offset-encoding=utf-16', '--header-insertion=never' 
-        } 
-    },
-    rust_analyzer = {
-        settings = {
-            ['rust-analyzer'] = {
-                cargo = {
-                    allFeatures = true
-                },
-                checkOnSave = {
-                    allTargets = false
-                }
-            }
-        }
-    },
-}
-
 vim.cmd("set rtp^='/home/mate/.opam/default/share/ocp-indent/vim'")
-
-for _, server in ipairs(servers) do
-    local opts = server_opts[server] or {}
-    opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
-    require('lspconfig')[server].setup(opts)
-end
 
 -- Autocompletion
 require('cmp').setup({
@@ -597,10 +581,10 @@ require('cmp').setup({
 })
 
 require('cmp').setup.cmdline(':', {
-    sources = {{name = 'cmdline'}},
+    sources = {{name = 'cmdline', name = 'path'}},
 })
 
-require('cmp').setup.cmdline('/', {
+require('cmp').setup.cmdline({'/', '?'}, {
     sources = {{name = 'buffer'}},
 })
 
@@ -637,24 +621,36 @@ require('Comment').setup()
 require('Comment.ft').set('plsql', '--%s')
 
 -- Version control
-require('gitsigns').setup()
+require('gitsigns').setup({
+    auto_attach = true
+})
 
--- Fix lsp floating window
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.max_width = opts.max_width or 80
-    opts.max_height = opts.max_height or 15
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
-vim.api.nvim_create_autocmd({ 
-    'CursorHold', 
-}, {
-    callback = function()
-        if not require('cmp').visible() then
-            vim.cmd('silent! vim.lsp.buf.hover()')
+-- Fix LSP floating window
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function() 
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.max_width = opts.max_width or 80
+            opts.max_height = opts.max_height or 15
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
         end
+
+        vim.api.nvim_create_autocmd({ 
+            'CursorHold', 
+        }, {
+            callback = function()
+                if not require('cmp').visible() and
+                    not vim.diagnostic.open_float({focusable = false}) then
+                    vim.lsp.buf.hover()
+                end
+            end
+        })
+
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = 'rounded'
+        })
     end
 })
 
@@ -664,15 +660,17 @@ vim.diagnostic.config({
     float = { border = 'rounded' }
 })
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = 'rounded'
-})
-
 -- Markdown
-vim.g.vim_markdown_folding_disabled = 1
-vim.g.vim_markdown_frontmatter = 1
-vim.g.vim_markdown_new_list_item_indent = 0
-vim.g.vim_markdown_auto_insert_bullets = 0
+vim.api.nvim_create_autocmd('BufEnter', {
+    callback = function(opts)
+        if vim.bo[opts.buf].filetype == 'markdown' then
+            vim.g.vim_markdown_folding_disabled = 1
+            vim.g.vim_markdown_frontmatter = 1
+            vim.g.vim_markdown_new_list_item_indent = 0
+            vim.g.vim_markdown_auto_insert_bullets = 0
+        end
+    end
+})
 
 -- Code runner
 vim.api.nvim_create_autocmd('BufEnter', {
