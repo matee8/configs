@@ -15,12 +15,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# export TERM="xterm-256color"
 export PATH="/home/mate/.path:/home/mate/.cargo/bin:/home/mate/go/bin:/home/mate/.fly/bin:/home/mate/.dotnet/tools:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export DOTNET_PATH="/usr/bin/dotnet"
 
+alias claer="clear"
 alias clear="clear && fastfetch"
 alias startx="startx && clear"
 alias cppdebug="clang++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
