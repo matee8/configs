@@ -53,3 +53,10 @@ export PATH="$HOME/.cabal/bin:/home/mate/.ghcup/bin:$PATH"
 [[ ! -r '/home/mate/.opam/opam-init/init.zsh' ]] || source '/home/mate/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
 clear
+
+# bun completions
+[ -s "/home/mate/.bun/_bun" ] && source "/home/mate/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
