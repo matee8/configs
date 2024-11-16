@@ -362,8 +362,8 @@ require('lazy').setup(
         },
         { 
             { 
-                'catppuccin/nvim', 
-                as = 'catppuccin', 
+                'rose-pine/neovim', 
+                as = 'rose-pine', 
                 lazy = false, 
                 priority = 10000
             },
@@ -431,51 +431,55 @@ require('lazy').setup(
 )
 
 -- Theme
-require('catppuccin').setup({
-    flavour = 'mocha',
-    transparent_background = true,
-    show_end_of_buffer = false,
-    term_colors = true,
-    integrations = {
-        mason = true,
-        native_lsp = {
-            enabled = true,
-            virtual_text = {
-                errors = { 'italic' },
-                hints = { 'italic' },
-                warnings = { 'italic' },
-                information = { 'italic' }
-            },
-            underlines = {
-                errors = { 'underline' },
-                hints = { 'underline' },
-                warnings = { 'underline' },
-                information = { 'underline' }
-            },
-            inlay_hints = {
-                background = true
-            }
-        },
-        cmp = true,
-        telescope = {
-            enabled = true
-        },
-        harpoon = true,
-        flash = true
-    },
-    custom_highlights = function(colors)
-        return {
-            WinSeparator = { fg = '#1e1e2e' }
-        }
-    end
+-- require('catppuccin').setup({
+--     flavour = 'mocha',
+--     transparent_background = true,
+--     show_end_of_buffer = false,
+--     term_colors = true,
+--     integrations = {
+--         mason = true,
+--         native_lsp = {
+--             enabled = true,
+--             virtual_text = {
+--                 errors = { 'italic' },
+--                 hints = { 'italic' },
+--                 warnings = { 'italic' },
+--                 information = { 'italic' }
+--             },
+--             underlines = {
+--                 errors = { 'underline' },
+--                 hints = { 'underline' },
+--                 warnings = { 'underline' },
+--                 information = { 'underline' }
+--             },
+--             inlay_hints = {
+--                 background = true
+--             }
+--         },
+--         cmp = true,
+--         telescope = {
+--             enabled = true
+--         },
+--         harpoon = true,
+--         flash = true
+--     },
+--     custom_highlights = function(colors)
+--         return {
+--             WinSeparator = { fg = '#1e1e2e' }
+--         }
+--     end
+-- })
+
+require('rose-pine').setup({
+    variant = 'main',
 })
 
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('rose-pine')
 
 -- Status line
 require('lualine').setup({
     options = {
-        theme = 'catppuccin',
+        theme = 'rose-pine',
         globalstatus = true
     }
 })
