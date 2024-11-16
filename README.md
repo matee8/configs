@@ -1,12 +1,11 @@
-# Packages (816)
+# Packages (755)
 ## Core
-Window manager: i3-wm\
+Window manager: dwm (official repo)\
 Server: xorg-server\
 Init: xorg-xinit\
-Layout manager: i3-autolayout (AUR)\
-Launcher: dmenu\
+Launcher: dmenu (official repo)\
+Status: slstatus (official repo)\
 Compositor: picom\
-Status bar: polybar\
 Screenshot: maim\
 Font: ttf-hack-nerd\
 Clipboard: xclip\
@@ -19,19 +18,12 @@ Volume: pulsemixer\
 Mouse: xorg-xinput
 ## Terminal
 Shell: zsh\
-Terminal: alacritty\
-Prompt: starship\
+Terminal: st (official repo)\
 Fuzzy finder: fzf
 ### Modern Unix
 cd: zoxide\
 grep: ripgrep\
-cat: bat\
-curl: xh\
-du: dust\
-ls: lsd\
-diff: git-delta\
 find: fd\
-man: tldr\
 top: btop
 ### ZSH plugins
 zsh-autosuggestions\
@@ -66,7 +58,8 @@ npm\
 nvm (AUR)\
 nodejs\
 eslint (npm)\
-prettier (npm)
+prettier (npm)\
+bun (official site)
 #### PHP
 php\
 composer
@@ -94,15 +87,13 @@ PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: feh\
 Image editor: gimp\
 Video recorder: obs-studio\
-SSH: openssh\
-Cloud sync: rclone
+SSH: openssh
 ## Other stuff
 Music: apple-music-bin (AUR)\
 Chatting: discord\
 Gaming: steam, lutris\
 Emoji font: noto-fonts-emoji\
 Compatibility: wine\
-Mount helper: fuse3, ntfs-3g\
 Pacman utilities: pacman-contrib\
 Pacman mirror helper: reflector
 # Manual setup  

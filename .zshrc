@@ -19,17 +19,16 @@ export PATH="/home/mate/.path:/home/mate/.cargo/bin:/home/mate/go/bin:/home/mate
 export EDITOR="nvim"
 export VISUAL="nvim"
 export DOTNET_PATH="/usr/bin/dotnet"
+# export PS1='%F{blue}%n@%m %F{magenta}%f%n%F{red}\n$ %f'
+NEWLINE=$'\n'
+export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
 
 alias claer="clear"
-alias clear="clear && fastfetch"
-alias startx="startx && clear"
-alias cppdebug="clang++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
-alias cpprelease="clang++ -O2 -DNDEBUG -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23"
+alias ls="ls --color=auto "
 
 bindkey -s "^[s" 'tmux-sessionizer\n'
 
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(starship init zsh)"
 
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -42,8 +41,6 @@ bindkey "^[[3~" delete-char
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
-alias ls="lsd"
-
 # haskell
 [[ -z "$GHCUP_INSTALL_BASE_PREFIX" ]] && export GHCUP_INSTALL_BASE_PREFIX="$HOME"
 export PATH="$HOME/.cabal/bin:/home/mate/.ghcup/bin:$PATH"
@@ -51,8 +48,6 @@ export PATH="$HOME/.cabal/bin:/home/mate/.ghcup/bin:$PATH"
 
 # ocaml
 [[ ! -r '/home/mate/.opam/opam-init/init.zsh' ]] || source '/home/mate/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-
-clear
 
 # bun completions
 [ -s "/home/mate/.bun/_bun" ] && source "/home/mate/.bun/_bun"
