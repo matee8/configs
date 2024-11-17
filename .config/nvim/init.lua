@@ -23,7 +23,6 @@ local servers = {
         }
     },
     gopls = {},
-    zls = {},
     intelephense = {},
     hls = {},
     ocamllsp = {}
@@ -500,7 +499,6 @@ require('nvim-treesitter.configs').setup {
         'javascript',
         'php',
         'python',
-        'java',
         'bash',
         'html',
         'css',
