@@ -14,3 +14,4 @@
 [alias]
 	c = commit
 	s = status
+    p = push
