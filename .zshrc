@@ -19,7 +19,6 @@ export PATH="/home/mate/.path:/home/mate/.cargo/bin:/home/mate/go/bin:/home/mate
 export EDITOR="nvim"
 export VISUAL="nvim"
 export DOTNET_PATH="/usr/bin/dotnet"
-# export PS1='%F{blue}%n@%m %F{magenta}%f%n%F{red}\n$ %f'
 NEWLINE=$'\n'
 export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
 
