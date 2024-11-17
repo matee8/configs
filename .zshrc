@@ -23,7 +23,19 @@ NEWLINE=$'\n'
 export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
 
 alias claer="clear"
-alias ls="ls --color=auto "
+alias ls="ls --color=auto -h"
+alias grep="grep --color=auto -i"
+alias mkdir="mkdir -pv"
+alias ping="ping -c 5"
+alias rm="rm -I --preserve-root"
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+alias df="df -H"
+alias di="du -shc"
 
 bindkey -s "^[s" 'tmux-sessionizer\n'
 
