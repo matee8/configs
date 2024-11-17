@@ -643,13 +643,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return orig_util_open_floating_preview(contents, syntax, opts, ...)
         end
 
+        local i = 0
+
         vim.api.nvim_create_autocmd({ 
             'CursorHold', 
         }, {
             callback = function()
                 if not require('cmp').visible() and
                     not vim.diagnostic.open_float({ focusable = false }) then
-                    vim.lsp.buf.hover({ focusable = false })
+                    vim.cmd('silent! lua vim.lsp.buf.hover()')
                 end
             end
         })
