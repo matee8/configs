@@ -1,10 +1,10 @@
-# Packages (755)
+# Packages (693)
 ## Core
-Window manager: dwm (official repo)\
+Window manager: i3-wm\
 Server: xorg-server\
 Init: xorg-xinit\
-Launcher: dmenu (official repo)\
-Status: slstatus (official repo)\
+Scratchpad: i3-swallow (AUR)\
+Status: i3status\
 Compositor: picom\
 Screenshot: maim\
 Font: ttf-hack-nerd\
@@ -14,11 +14,10 @@ Terminal multiplexer: tmux
 Processor: amd-ucode\
 Display: xorg-xrandr, brightnessctl\
 Bluetooth: bluez, bluez-utils\
-Volume: pulsemixer\
 Mouse: xorg-xinput
 ## Terminal
 Shell: zsh\
-Terminal: st (official repo)\
+Terminal: alacritty\
 Fuzzy finder: fzf
 ### Modern Unix
 cd: zoxide\
@@ -36,8 +35,6 @@ Paginator: less\
 Version control: git\
 Memory checker: valgrind\
 Virtualization: docker\
-Portability: mingw, mingw-w64-configure (AUR), mingw-w64-environment (AUR),
-mingw-w64-gcc, mingw-w64-pkg-config (AUR)
 ### Tools
 #### Database
 mariadb\
@@ -55,7 +52,6 @@ staticcheck (go)\
 pkgsite (go)
 #### JavaScript
 npm\
-nvm (AUR)\
 nodejs\
 eslint (npm)\
 prettier (npm)\
@@ -65,9 +61,6 @@ php\
 composer
 #### Rust
 rustup
-#### Java
-jdk-openjdk\
-maven
 #### Python
 python\
 python-pylint\
@@ -85,13 +78,10 @@ Archives: atool, zip, unrar\
 Torrent: qbittorrent\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: feh\
-Image editor: gimp\
-Video recorder: obs-studio\
 SSH: openssh
 ## Other stuff
-Music: apple-music-bin (AUR)\
 Chatting: discord\
-Gaming: steam, lutris\
+Gaming: lutris\
 Emoji font: noto-fonts-emoji\
 Compatibility: wine\
 Pacman utilities: pacman-contrib\
@@ -117,10 +107,7 @@ sudo mariadb-secure-installation\
 sudo systemctl enable paccache.timer\
 sudo systemctl enable reflector.timer
 ## Apps
-apple-music-bin: login\
 discord: login, font size\
 firefox: login, customize toolbar, login to every site\
 libreoffice-fresh: disable tips, icons: colibre dark, scheme: dark\
-rclone: config\
-steam: login\
 wine: wine mono

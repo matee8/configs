@@ -165,7 +165,9 @@ vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 -- LSP Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
-        vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end, {
+        vim.keymap.set('n', '<leader>h', function()
+            vim.lsp.buf.hover({focusable = false})
+        end, {
             silent = true,
             desc = 'Open LSP docs'
         })
@@ -475,6 +477,8 @@ require('rose-pine').setup({
 })
 
 vim.cmd.colorscheme('rose-pine')
+vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = '#191724', bg = '#191724' })
+vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#191724', bg = '#191724' })
 
 -- Status line
 require('lualine').setup({
@@ -646,8 +650,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         }, {
             callback = function()
                 if not require('cmp').visible() and
-                    not vim.diagnostic.open_float({focusable = false}) then
-                    vim.lsp.buf.hover()
+                    not vim.diagnostic.open_float({ focusable = false }) then
+                    vim.lsp.buf.hover({ focusable = false })
                 end
             end
         })
