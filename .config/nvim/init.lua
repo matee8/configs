@@ -55,8 +55,8 @@ vim.o.smartcase = true
 vim.o.colorcolumn = '80'
 
 -- Update time
-vim.o.updatetime = 1000
-vim.o.timeoutlen = 1000
+vim.o.updatetime = 100
+vim.o.timeoutlen = 100
 
 -- No word wrap
 vim.wo.wrap = false
@@ -644,17 +644,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
 
         local i = 0
-
-        vim.api.nvim_create_autocmd({ 
-            'CursorHold', 
-        }, {
-            callback = function()
-                if not require('cmp').visible() and
-                    not vim.diagnostic.open_float({ focusable = false }) then
-                    vim.cmd('silent! lua vim.lsp.buf.hover()')
-                end
-            end
-        })
 
         vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
             border = 'rounded'
