@@ -7,3 +7,10 @@
     rebase = false
 [init]
 	defaultBranch = main
+[ui "color"]
+    ui = always
+[color]
+    ui = true
+[alias]
+	c = commit
+	s = status
