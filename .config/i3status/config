@@ -44,7 +44,7 @@ volume master {
 
 # Battery
 battery all {
-    format = "󰁹 %status %percentage"
+    format = "󰁹 %percentage"
     format_down = "󰁹 down"
 	last_full_capacity = true
 }
