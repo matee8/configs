@@ -14,7 +14,7 @@ Display: brightnessctl\
 Bluetooth: bluez, bluez-utils\
 ## Terminal
 Shell: zsh\
-Terminal: alacritty\
+Terminal: foot\
 Fuzzy finder: fzf\
 Terminal multiplexer: tmux
 ### Modern Unix
