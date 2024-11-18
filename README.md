@@ -11,7 +11,7 @@ Wallpaper: swaybg
 ## IO settings
 Processor: amd-ucode\
 Display: brightnessctl\
-Bluetooth: bluez, bluez-utils\
+Bluetooth: bluez, bluez-utils
 ## Terminal
 Shell: zsh\
 Terminal: foot\
@@ -75,7 +75,7 @@ Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
 Torrent: qbittorrent\
 PDF viewer: zathura, zathura-pdf-mupdf\
-Image viewer: \
+Image viewer: imv\
 SSH: openssh
 ## Other stuff
 Chatting: discord\
