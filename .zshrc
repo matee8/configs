@@ -21,6 +21,7 @@ export VISUAL="nvim"
 export DOTNET_PATH="/usr/bin/dotnet"
 NEWLINE=$'\n'
 export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
+export BEMENU_BACKEND="wayland"
 
 alias claer="clear"
 alias ls="ls --color=auto -h"

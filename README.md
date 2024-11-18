@@ -1,24 +1,22 @@
 # Packages (693)
 ## Core
-Window manager: i3-wm\
-Server: xorg-server\
-Init: xorg-xinit\
-Scratchpad: i3-swallow (AUR)\
-Status: i3status\
-Compositor: picom\
-Screenshot: maim\
+Compositor: sway\
+Layout manager: autotiling\
 Font: ttf-hack-nerd\
-Clipboard: xclip\
-Terminal multiplexer: tmux
+Menu: bemenu\
+Status: i3status\
+Screenshot: slurp, grim\
+Clipboard: wl-clipboard\
+Wallpaper: swaybg
 ## IO settings
 Processor: amd-ucode\
-Display: xorg-xrandr, brightnessctl\
+Display: brightnessctl\
 Bluetooth: bluez, bluez-utils\
-Mouse: xorg-xinput
 ## Terminal
 Shell: zsh\
 Terminal: alacritty\
-Fuzzy finder: fzf
+Fuzzy finder: fzf\
+Terminal multiplexer: tmux
 ### Modern Unix
 cd: zoxide\
 grep: ripgrep\
@@ -34,7 +32,7 @@ Editor: neovim\
 Paginator: less\
 Version control: git\
 Memory checker: valgrind\
-Virtualization: docker\
+Virtualization: docker
 ### Tools
 #### Database
 mariadb\
@@ -77,7 +75,7 @@ Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
 Torrent: qbittorrent\
 PDF viewer: zathura, zathura-pdf-mupdf\
-Image viewer: feh\
+Image viewer: \
 SSH: openssh
 ## Other stuff
 Chatting: discord\
