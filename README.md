@@ -1,4 +1,4 @@
-# Packages (676)
+# Packages (720)
 ## Core
 Compositor: sway\
 Layout manager: autotiling\
@@ -73,9 +73,12 @@ ormolu (cabal)
 Browser: firefox\
 Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
-Torrent: rtorrent\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
+Image editor: gimp\
+Video player: mpv\
+Screen recording tool: obs-studio\
+BitTorrent client: qbittorrent\
 SSH: openssh
 ## Other stuff
 Gaming: lutris\
