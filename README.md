@@ -1,4 +1,4 @@
-# Packages (683)
+# Packages (676)
 ## Core
 Compositor: sway\
 Layout manager: autotiling\
@@ -73,12 +73,11 @@ ormolu (cabal)
 Browser: firefox\
 Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
-Torrent: qbittorrent\
+Torrent: rtorrent\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: \
 SSH: openssh
 ## Other stuff
-Chatting: discord\
 Gaming: lutris\
 Emoji font: noto-fonts-emoji\
 Compatibility: wine\
