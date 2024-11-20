@@ -7,7 +7,9 @@ Menu: bemenu\
 Status: i3status\
 Screenshot: slurp, grim\
 Clipboard: wl-clipboard\
-Wallpaper: swaybg
+Wallpaper: swaybg\
+Compatiblity layer: xorg-xwayland\
+Application sandboxing: xdg-desktop-portal
 ## IO settings
 Processor: amd-ucode\
 Display: brightnessctl\
@@ -75,11 +77,13 @@ Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
+Image editor: gimp\
 Video player: mpv\
+Screen recording tool: wf-recorder\
 BitTorrent client: qbittorrent\
 SSH: openssh
 ## Other stuff
-Gaming: lutris\
+Gaming: heroic-games-launcher (AUR)\
 Emoji font: noto-fonts-emoji\
 Compatibility: wine\
 Pacman utilities: pacman-contrib\
