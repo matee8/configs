@@ -1,4 +1,4 @@
-# Packages (720)
+# Packages (663)
 ## Core
 Compositor: sway\
 Layout manager: autotiling\
