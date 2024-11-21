@@ -35,7 +35,7 @@ vim.o.cursorline = true
 vim.o.scrolloff = 30
 
 -- Spellcheck
-vim.cmd("setlocal spell spelllang=hu,en")
+-- vim.cmd("setlocal spell spelllang=hu,en")
 
 -- Line numbers
 vim.o.number = true
@@ -55,8 +55,8 @@ vim.o.smartcase = true
 vim.o.colorcolumn = '80'
 
 -- Update time
-vim.o.updatetime = 100
-vim.o.timeoutlen = 100
+vim.o.updatetime = 250
+vim.o.timeoutlen = 250
 
 -- No word wrap
 vim.wo.wrap = false
@@ -106,14 +106,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Shorter columns
-local text = vim.api.nvim_create_augroup('text', { clear = true })
-for _, pat in ipairs({'text', 'markdown', 'mail', 'gitcommit'}) do
-	vim.api.nvim_create_autocmd('Filetype', {
-		pattern = pat,
-		group = text,
-		command = 'setlocal spell tw=72 colorcolumn=73',
-	})
-end
+-- local text = vim.api.nvim_create_augroup('text', { clear = true })
+-- for _, pat in ipairs({'text', 'markdown', 'mail', 'gitcommit'}) do
+-- 	vim.api.nvim_create_autocmd('Filetype', {
+-- 		pattern = pat,
+-- 		group = text,
+-- 		command = 'setlocal spell tw=72 colorcolumn=73',
+-- 	})
+-- end
 
 -- General keymaps
 vim.keymap.set('i', '<Up>', '')
@@ -363,8 +363,8 @@ require('lazy').setup(
         },
         { 
             { 
-                'rose-pine/neovim', 
-                as = 'rose-pine', 
+                'catppuccin/nvim', 
+                as = 'catppuccin', 
                 lazy = false, 
                 priority = 10000
             },
@@ -432,57 +432,57 @@ require('lazy').setup(
 )
 
 -- Theme
--- require('catppuccin').setup({
---     flavour = 'mocha',
---     transparent_background = true,
---     show_end_of_buffer = false,
---     term_colors = true,
---     integrations = {
---         mason = true,
---         native_lsp = {
---             enabled = true,
---             virtual_text = {
---                 errors = { 'italic' },
---                 hints = { 'italic' },
---                 warnings = { 'italic' },
---                 information = { 'italic' }
---             },
---             underlines = {
---                 errors = { 'underline' },
---                 hints = { 'underline' },
---                 warnings = { 'underline' },
---                 information = { 'underline' }
---             },
---             inlay_hints = {
---                 background = true
---             }
---         },
---         cmp = true,
---         telescope = {
---             enabled = true
---         },
---         harpoon = true,
---         flash = true
---     },
---     custom_highlights = function(colors)
---         return {
---             WinSeparator = { fg = '#1e1e2e' }
---         }
---     end
--- })
-
-require('rose-pine').setup({
-    variant = 'main',
+require('catppuccin').setup({
+    flavour = 'mocha',
+    transparent_background = true,
+    show_end_of_buffer = false,
+    term_colors = true,
+    integrations = {
+        mason = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { 'italic' },
+                hints = { 'italic' },
+                warnings = { 'italic' },
+                information = { 'italic' }
+            },
+            underlines = {
+                errors = { 'underline' },
+                hints = { 'underline' },
+                warnings = { 'underline' },
+                information = { 'underline' }
+            },
+            inlay_hints = {
+                background = true
+            }
+        },
+        cmp = true,
+        telescope = {
+            enabled = true
+        },
+        harpoon = true,
+        flash = true
+    },
+    custom_highlights = function(colors)
+        return {
+            WinSeparator = { fg = '#1e1e2e' }
+        }
+    end
 })
 
-vim.cmd.colorscheme('rose-pine')
-vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = '#191724', bg = '#191724' })
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#191724', bg = '#191724' })
+-- require('rose-pine').setup({
+--     variant = 'main',
+-- })
+
+vim.cmd.colorscheme('catppuccin')
+-- vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = '#191724', bg = '#191724' })
+-- vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#191724', bg = '#191724' })
 
 -- Status line
 require('lualine').setup({
     options = {
-        theme = 'rose-pine',
+        theme = 'catppuccin',
         globalstatus = true
     }
 })
