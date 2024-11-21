@@ -1,4 +1,4 @@
-# Packages (663)
+# Packages (641)
 ## Core
 Compositor: sway\
 Layout manager: autotiling\
@@ -77,7 +77,6 @@ Office suite: libreoffice-fresh\
 Archives: atool, zip, unrar\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
-Image editor: gimp\
 Video player: mpv\
 Screen recording tool: wf-recorder\
 BitTorrent client: qbittorrent\
@@ -87,7 +86,8 @@ Gaming: heroic-games-launcher (AUR)\
 Emoji font: noto-fonts-emoji\
 Compatibility: wine\
 Pacman utilities: pacman-contrib\
-Pacman mirror helper: reflector
+Pacman mirror helper: reflector\
+Qt compatibility: qt6-wayland
 # Manual setup  
 ## Commands
 sudo grub-mkconfig -o /boot/grub/grub.cfg\
