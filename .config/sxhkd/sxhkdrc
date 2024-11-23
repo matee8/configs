@@ -1,0 +1,65 @@
+~button2
+    ;echo -n | xclip -in
+
+super + Return
+    urxvtc
+
+super + d
+    dmenu_run -nb '#11111b' -nf '#cdd6f4' -sb '#f5c2e7' -sf '#11111b' -fn "Hack Nerd Font-13"
+
+super + period
+    systemctl suspend
+
+super + q
+	bspc node -k
+
+super + m
+	bspc desktop -l next
+
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+super + ctrl + space
+	bspc node -p cancel
+
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+super + control + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+super + alt + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+XF86AudioMute
+    wpctl set-mute @DEFAULT_SINK@ toggle
+
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_SINK@ -5%
+
+XF86AudioRaiseVolume
+    wpctl set-volume @DEFAULT_SINK@ +5%
+
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
+XF86MonBrightnessUp
+    brightnessctl set 5%+
+
+Print
+    maim --select | xclip -selection clipboard -t image/png

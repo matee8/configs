@@ -1,115 +1,104 @@
-# Packages (641)
-## Core
-Compositor: sway\
-Layout manager: autotiling\
+Operating System: Arch Linux\
+Packages: n
+# Core
+Kernel: linux, linux-firmware\
+Service configuration and init system: systemd (base)\
+Bootloader: grub\
+Processor microcode: amd-ucode\
+Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
+Digital signal processor: sof-firmware\
+Application sandboxing: xdg-desktop-portal\
+Tools: base, base-devel
+# I/O
+Display server: xorg-server\
+Display server initialisation: xorg-xinit\
+Bluetooth: bluez, bluez-utils\
+Brightness: brightnessctl\
+Network: networkmanager\
+Device configuration: xorg-xinput\
+Screen: xorg-xrandr\
+Clipboard manager: xorg-xclipboard
+# Display
+Window manager: bspwm\
+Hotkey daemon: sxhkd\
+Compositor: picom\
+Status monitor: tint2\
 Font: ttf-hack-nerd\
-Menu: bemenu\
-Status: i3status\
-Screenshot: slurp, grim\
-Clipboard: wl-clipboard\
-Wallpaper: swaybg\
-Compatiblity layer: xorg-xwayland\
-Application sandboxing: xdg-desktop-portal
-## IO settings
-Processor: amd-ucode\
-Display: brightnessctl\
-Bluetooth: bluez, bluez-utils
-## Terminal
-Shell: zsh\
-Terminal: foot\
-Fuzzy finder: fzf\
-Terminal multiplexer: tmux
-### Modern Unix
-cd: zoxide\
-grep: ripgrep\
-find: fd\
-top: btop
-### ZSH plugins
+Emoji fonts: noto-fonts-emoji
+# Terminal
+Emulator: rxvt-unicode\
+Multiplexer: tmux\
+Shell: zsh
+## ZSH plugins
 zsh-autosuggestions\
-zhs-completions\
-zhs-history-substring-search\
-zhs-syntax-highlighting
-## Development
-Editor: neovim\
+zsh-completions\
+zsh-history-substring-search\
+zsh-syntax-highlighting
+# Apps
+## GUI
+Launcher: dmenu\
+Browser: firefox\
+Chatting: discord\
+Office suite: libreoffice-fresh\
+Gaming: lutris\
+Document viewer: zathura, zathura-pdf-mupdf\
+Image viewer: feh\
+Image editor: gimp\
+Media player: ffplay
+## CLI/TUI
+Windows compatibility layer: wine\
+Screenshot tool: maim\
+Screen recorder: ffmpeg\
+BitTorrent client: rtorrent\
+Markdown parser: md4c\
+Remote login: openssh\
 Paginator: less\
+Archive manager: atool\
+Archivers: unrar, zip\
+System resource monitor: btop\
+Fuzzy finder: fzf\
+Find alternative: fd\
+Search tool: ripgrep\
+Smarter cd: zoxide\
+Pacman scripts: pacman-contrib\
+Pacman mirror retriever: reflector
+# Development
+Editor: neovim\
 Version control: git\
-Memory checker: valgrind\
-Virtualization: docker
-### Tools
-#### Database
-mariadb\
-postgresql
-#### C
-clang\
-gdb
-#### C#
+Memory management checker: valgrind\
+Container packer: docker\
+Debugger: gdb
+## C/C++
+clang
+## C#
 dotnet-runtime\
 dotnet-sdk\
 csharpier (dotnet)
-#### Go
+## Go
 go\
 staticcheck (go)\
 pkgsite (go)
-#### JavaScript
+## JavaScript
 npm\
 nodejs\
 eslint (npm)\
 prettier (npm)\
 bun (official site)
-#### PHP
+## PHP
 php\
 composer
-#### Rust
+## Rust
 rustup
-#### Python
+## Python
 python\
 python-pylint\
 yapf
-#### Ocaml
+## Ocaml
 opam
-#### Haskell
+## Haskell
 ghcup (official site)\
 hlint (cabal)\
 ormolu (cabal)
-## Apps
-Browser: firefox\
-Office suite: libreoffice-fresh\
-Archives: atool, zip, unrar\
-PDF viewer: zathura, zathura-pdf-mupdf\
-Image viewer: imv\
-Video player: mpv\
-Screen recording tool: wf-recorder\
-BitTorrent client: qbittorrent\
-SSH: openssh
-## Other stuff
-Gaming: heroic-games-launcher (AUR)\
-Emoji font: noto-fonts-emoji\
-Compatibility: wine\
-Pacman utilities: pacman-contrib\
-Pacman mirror helper: reflector\
-Qt compatibility: qt6-wayland
-# Manual setup  
-## Commands
-sudo grub-mkconfig -o /boot/grub/grub.cfg\
-mkinitcpio -P linux\
-chsh -s /bin/zsh\
-mkdir ~/.aur\
-mkdir ~/Downloads\
-mkdir ~/Documents\
-mkdir ~/Projects\
-mkdir ~/Pictures\
-mkdir ~/University\
-mkdir ~/Videos\
-mkdir ~/Work\
-mkdir ~/.path\
-sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql\
-sudo systemctl start mariadb.service\
-sudo mariadb -u root -p\
-sudo mariadb-secure-installation\
-sudo systemctl enable paccache.timer\
-sudo systemctl enable reflector.timer
-## Apps
-discord: login, font size\
-firefox: login, customize toolbar, login to every site\
-libreoffice-fresh: disable tips, icons: colibre dark, scheme: dark\
-wine: wine mono
+## Database
+mariadb\
+postgresql
