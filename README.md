@@ -1,5 +1,5 @@
 Operating System: Arch Linux\
-Packages: 620
+Packages: 600
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -34,11 +34,7 @@ zsh-syntax-highlighting
 ## GUI
 Launcher: bemenu\
 Browser: firefox\
-Chatting: discord\
-Office suite: libreoffice-fresh\
-Document viewer: zathura, zathura-pdf-mupdf\
-Image viewer: imv\
-Media player: ffplay
+Office suite: libreoffice-fresh
 ## CLI/TUI
 Windows compatibility layer: wine\
 Area selector: slurp\
