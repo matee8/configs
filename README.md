@@ -1,5 +1,5 @@
 Operating System: Arch Linux\
-Packages: 622
+Packages: 674
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -7,22 +7,29 @@ Bootloader: grub\
 Processor microcode: amd-ucode\
 Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
 Digital signal processor: sof-firmware\
-Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr\
+Application sandboxing: xdg-desktop-portal\
 Tools: base, base-devel
 # I/O
-Display server: wayland\
+Display server: xorg-server\
 Bluetooth: bluez, bluez-utils\
 Brightness: brightnessctl\
 Network: networkmanager\
-Clipboard manager: wl-clipboard
+Graphics driver: xf86-video-amdgpu\
+OpenGL: mesa\
+Vulkan: vulkan-radeon
+## X11
+xorg-xinit\
+xorg-xrandr\
+xorg-xinput\
+xclip
 # Display
-Compositor: sway\
-Layout manager: autotiling\
-Status monitor: i3status\
+Window manager: dwm (official site)\
+Compositor: picom\
+Status bar generator: slstatus\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
 # Terminal
-Emulator: foot\
+Emulator: st (official site)\
 Multiplexer: tmux\
 Shell: zsh
 ## ZSH plugins
@@ -32,17 +39,19 @@ zsh-history-substring-search\
 zsh-syntax-highlighting
 # Apps
 ## GUI
-Launcher: bemenu\
+Launcher: dmenu (official site)\
 Browser: firefox\
+Chat: discord\
+Gaming: lutris\
 Office suite: libreoffice-fresh\
 PDF viewer: mupdf\
-Image viewer: imv\
-Media player: mpv\
+Image viewer: feh\
+Image editor: gimp\
+Media player: ffplay\
+Screenshot taker: maim
 ## CLI/TUI
 Windows compatibility layer: wine\
-Area selector: slurp\
-Screenshot tool: grim\
-Screen recorder: wf-recorder\
+Screen recorder: ffmpeg\
 BitTorrent client: rtorrent\
 Markdown renderer: glow\
 Remote login: openssh\
