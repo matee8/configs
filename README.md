@@ -1,5 +1,5 @@
 Operating System: Arch Linux\
-Packages: 600
+Packages: 622
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -34,14 +34,17 @@ zsh-syntax-highlighting
 ## GUI
 Launcher: bemenu\
 Browser: firefox\
-Office suite: libreoffice-fresh
+Office suite: libreoffice-fresh\
+PDF viewer: mupdf\
+Image viewer: imv\
+Media player: mpv\
 ## CLI/TUI
 Windows compatibility layer: wine\
 Area selector: slurp\
 Screenshot tool: grim\
 Screen recorder: wf-recorder\
 BitTorrent client: rtorrent\
-Markdown parser: md4c\
+Markdown renderer: glow\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
