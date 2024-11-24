@@ -35,8 +35,8 @@ alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
-alias df="df -H"
-alias di="du -shc"
+alias df="df -h"
+alias du="du -shc"
 
 bindkey -s "^[s" 'tmux-sessionizer\n'
 
