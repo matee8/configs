@@ -36,6 +36,7 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias df="df -h"
 alias du="du -shc"
+export BEMENU_BACKEND="wayland"
 
 bindkey -s "^[s" 'tmux-sessionizer\n'
 

@@ -1,0 +1,146 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term footclient
+set $browser firefox
+set $menu bemenu-run -i  -p "run:" -C --fn "Hack Nerd Font 13" --nb "#11111b" --tb "#11111b" --hb "#f5c2e7" --fb "#11111b" --tf "#f5c2e7" --hf "#11111b" --ab "#11111b" --hp 10
+
+output * bg /home/mate/.wallpapers/ocean.png fill
+output "eDP-1" mode 1920x1080 position 1920 0
+
+input type:keyboard {
+    xkb_layout "hu"
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+bindsym $mod+q kill
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+period exec --no-startup-id systemctl suspend
+
+bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+b exec --no-startup-id $browser
+bindsym $mod+r exec --no-startup-id pkill bemenu-run || $menu
+
+floating_modifier $mod
+focus_follows_mouse no
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Ctrl+H resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+J resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+K resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+L resize grow width 10 px or 10 ppt
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+bindsym --locked XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id wpctl set-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym Print exec --no-startup-id pkill slurp || slurp | grim -g - - | wl-copy
+
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
+
+gaps inner 0
+gaps outer 0
+default_border pixel 3
+default_floating_border pixel 3
+client.focused          #83A8EC $base $text $pink $pink
+client.focused_inactive #D4D7FF $base $text $crust $crust
+client.unfocused        #D0D3FF $base $text $crust $crust
+client.urgent           #DE688A $base $text $overlay2 $overlay2
+client.placeholder      #12121F $base $text $crust $crust
+client.background       #12121F
+
+bar {
+    swaybar_command swaybar
+    status_command i3status
+
+    mode hide
+    separator_symbol " "
+    modifier $mod
+
+    font Hack Nerd Font 12
+
+    colors {
+        background $crust
+        statusline $pink
+        separator $pink
+
+        focused_workspace $pink $pink $crust
+        active_workspace $crust $crust $text
+        inactive_workspace $crust $crust $text
+    }
+}
+
+include /etc/sway/config.d/*
+
+exec --no-startup-id autotiling -o eDP-1
+exec --no-startup-id foot -s
+
+for_window [shell="xwayland"] title_format "[XWayland] %title"

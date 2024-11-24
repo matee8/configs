@@ -1,5 +1,5 @@
 Operating System: Arch Linux\
-Packages: 677
+Packages: 606
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -7,29 +7,22 @@ Bootloader: grub\
 Processor microcode: amd-ucode\
 Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
 Digital signal processor: sof-firmware\
-Application sandboxing: xdg-desktop-portal\
+Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr\
 Tools: base, base-devel
 # I/O
-Display server: xorg-server\
+Display server: wayland\
 Bluetooth: bluez, bluez-utils\
 Brightness: brightnessctl\
 Network: networkmanager\
-Graphics driver: xf86-video-amdgpu\
 OpenGL: mesa\
 Vulkan: vulkan-radeon
-## X11
-xorg-xinit\
-xorg-xrandr\
-xorg-xinput\
-xclip
 # Display
-Window manager: dwm (official site)\
-Compositor: picom\
-Status bar generator: slstatus\
+Compositor: sway\
+Status bar generator: i3status\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
 # Terminal
-Emulator: st (official site)\
+Emulator: foot\
 Multiplexer: tmux\
 Shell: zsh
 ## ZSH plugins
@@ -39,16 +32,14 @@ zsh-history-substring-search\
 zsh-syntax-highlighting
 # Apps
 ## GUI
-Launcher: dmenu (official site)\
+Launcher: bemenu\
 Browser: firefox\
-Chat: discord\
-Gaming: lutris\
 Office suite: libreoffice-fresh\
-PDF viewer: mupdf\
-Image viewer: feh\
-Image editor: gimp\
+PDF viewer: zathura, zathura-pdf-mupdf\
+Image viewer: imv\
 Media player: ffplay\
-Screenshot taker: maim
+Area selector: slurp\
+Screenshot utility: grim
 ## CLI/TUI
 Windows compatibility layer: wine\
 Screen recorder: ffmpeg\
