@@ -1,5 +1,5 @@
 Operating System: Arch Linux\
-Packages: 674
+Packages: 677
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
