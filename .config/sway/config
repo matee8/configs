@@ -140,7 +140,7 @@ bar {
 
 include /etc/sway/config.d/*
 
-exec --no-startup-id autotiling -o eDP-1
+exec --no-startup-id i3-autolayout autolayout
 exec --no-startup-id foot -s
 
 xwayland disable
