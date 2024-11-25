@@ -1,4 +1,5 @@
 # .config files
+---
 Operating System: Arch Linux\
 Packages: 606
 # Core
