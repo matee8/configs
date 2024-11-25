@@ -45,9 +45,10 @@ Area selector: slurp\
 Screenshot utility: grim
 ## CLI/TUI
 Windows compatibility layer: wine\
-Screen recorder: ffmpeg\
+Screen recorder: wf-recorder\
 BitTorrent client: rtorrent\
 Markdown renderer: glow\
+File manager: nnn\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
