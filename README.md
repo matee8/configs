@@ -18,7 +18,7 @@ OpenGL: mesa\
 Vulkan: vulkan-radeon
 # Display
 Compositor: sway\
-Status bar generator: i3status\
+Status bar generator: i3blocks\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
 # Terminal
@@ -68,31 +68,32 @@ clang
 dotnet-runtime\
 dotnet-sdk\
 csharpier (dotnet)
+## Database
+mariadb\
+postgresql
 ## Go
 go\
 staticcheck (go)\
 pkgsite (go)
+## Haskell
+ghcup (official site)\
+hlint (cabal)\
+ormolu (cabal)
 ## JavaScript
 npm\
 nodejs\
 eslint (npm)\
 prettier (npm)\
+nodemon (npm)\
 bun (official site)
+## Ocaml
+opam
 ## PHP
 php\
 composer
-## Rust
-rustup
 ## Python
 python\
 python-pylint\
 yapf
-## Ocaml
-opam
-## Haskell
-ghcup (official site)\
-hlint (cabal)\
-ormolu (cabal)
-## Database
-mariadb\
-postgresql
+## Rust
+rustup

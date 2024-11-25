@@ -119,13 +119,13 @@ client.background       #12121F
 
 bar {
     swaybar_command swaybar
-    status_command i3status
+    status_command i3blocks
 
     mode hide
     separator_symbol " "
     modifier $mod
 
-    font Hack Nerd Font 12
+    font pango:Hack Nerd Font 12
 
     colors {
         background $crust
@@ -143,4 +143,4 @@ include /etc/sway/config.d/*
 exec --no-startup-id autotiling -o eDP-1
 exec --no-startup-id foot -s
 
-for_window [shell="xwayland"] title_format "[XWayland] %title"
+xwayland disable
