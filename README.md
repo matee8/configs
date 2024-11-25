@@ -42,7 +42,8 @@ PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
 Media player: ffplay\
 Area selector: slurp\
-Screenshot utility: grim
+Screenshot utility: grim\
+Screen mirroring: wf-mirror
 ## CLI/TUI
 Windows compatibility layer: wine\
 Screen recorder: wf-recorder\
