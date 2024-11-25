@@ -18,7 +18,7 @@ OpenGL: mesa\
 Vulkan: vulkan-radeon
 # Display
 Compositor: sway\
-Layout manager: i3-autolayout (AUR)\
+Layout manager: autotiling\
 Status bar generator: i3blocks\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
