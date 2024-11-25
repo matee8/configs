@@ -1,0 +1,31 @@
+[cpu]
+command=echo "  $(mpstat 1 1 | awk '/Average:/ {printf("%s\n", $(NF-9))}')%"
+interval=1
+
+[memory]
+command=echo "  $(free -h | awk '/Mem:/ { printf("%5s", $3) }')"
+interval=1
+
+[disk]
+command=echo "  $(df -h | grep "/$" | awk '{print $3 "/" $2}')"
+interval=30
+
+[wifi]
+command=echo " 󰤨 $(nmcli -t -f active,ssid dev wifi | awk -F: '/^yes:/ {print $2; found=1} END {if (!found) print "Not connected"}')"
+interval=1
+
+[volume]
+command=echo " 󰕾 $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '/MUTED/ {print "MUTE"; exit} {print $2 * 100 "%"}')"
+interval=1
+
+[backlight]
+command=echo " 󰃠 $(brightnessctl | rg -oP '\d+%')"
+interval=1
+
+[date]
+command=echo "  $(date '+%Y.%m.%d.')"
+interval=3600
+
+[time]
+command=echo "  $(date '+%H:%M')"
+interval=1
