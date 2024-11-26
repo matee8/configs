@@ -1,7 +1,7 @@
 # .config files
 ---
 Operating System: Arch Linux\
-Packages: 555
+Packages: 556
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -49,6 +49,7 @@ Screen recorder: wf-recorder\
 BitTorrent client: rtorrent\
 Markdown renderer: glow\
 File manager: nnn\
+File sync: rclone\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
