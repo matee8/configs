@@ -1,7 +1,7 @@
 # .config files
 ---
 Operating System: Arch Linux\
-Packages: 607
+Packages: 555
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -45,7 +45,6 @@ Area selector: slurp\
 Screenshot utility: grim\
 Screen mirroring: wf-mirror
 ## CLI/TUI
-Windows compatibility layer: wine\
 Screen recorder: wf-recorder\
 BitTorrent client: rtorrent\
 Markdown renderer: glow\
@@ -54,6 +53,7 @@ Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
 Archivers: unrar, zip\
+Document format converter: pandoc-bin (AUR)\
 System resource monitor: btop\
 Fuzzy finder: fzf\
 Find alternative: fd\
