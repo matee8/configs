@@ -82,8 +82,8 @@ staticcheck (go)\
 pkgsite (go)
 ## Haskell
 ghcup (official site)\
-hlint (cabal)\
-ormolu (cabal)
+hlint (stack)\
+ormolu (stack)
 ## JavaScript
 npm\
 nodejs\
