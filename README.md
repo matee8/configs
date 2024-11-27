@@ -1,7 +1,7 @@
 # .config files
 ---
 Operating System: Arch Linux\
-Packages: 556
+Packages: 559
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
@@ -79,7 +79,7 @@ mariadb\
 postgresql
 ## Go
 go\
-staticcheck (go)\
+staticcheck\
 pkgsite (go)
 ## Haskell
 ghcup (official site)\
@@ -91,7 +91,7 @@ nodejs\
 eslint (npm)\
 prettier (npm)\
 nodemon (npm)\
-bun (official site)
+bun-bir (AUR)
 ## Ocaml
 opam
 ## PHP

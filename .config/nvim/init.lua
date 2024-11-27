@@ -24,8 +24,7 @@ local servers = {
     },
     gopls = {},
     intelephense = {},
-    hls = {},
-    ocamllsp = {}
+    hls = {}
 } 
 
 -- Cursorline
