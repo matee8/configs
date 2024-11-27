@@ -1,0 +1,2 @@
+[server.sentinelpi.hu]:443 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBFqUbP+6/97Yn1HyhfMR4dRblI3EAEYTZ1Wf8pzLzMp
+[server.sentinelpi.hu]:443 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOIF72zexjIKqhRyGrVKv3QW9IOy/aXGfX+cqLi+6Ssb85NIk1GmsxZIh0F6nWGCsHhOn4RQxOlYzMHmNIVv5cw=

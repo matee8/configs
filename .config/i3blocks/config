@@ -22,6 +22,10 @@ interval=1
 command=echo " 󰃠 $(brightnessctl | rg -oP '\d+%')"
 interval=1
 
+[battery]
+command=echo "  $(cat /sys/class/power_supply/BAT0/capacity)%"
+interval=30
+
 [date]
 command=echo "  $(date '+%Y.%m.%d.')"
 interval=3600

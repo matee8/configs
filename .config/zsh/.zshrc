@@ -1,4 +1,3 @@
-HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt extendedglob
@@ -10,17 +9,24 @@ zstyle :compinstall filename "/home/mate/.zshrc"
 autoload -Uz compinit
 compinit
 
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/.config/zsh/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export PATH="/home/mate/.path:/home/mate/.cargo/bin:/home/mate/go/bin:/home/mate/.fly/bin:/home/mate/.dotnet/tools:$PATH"
+export PATH="/home/mate/.path:/home/mate/.cargo/bin:/home/mate/go/bin:/home/mate/.fly/bin:/home/mate/.dotnet/tools:/home/mate/.local/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export DOTNET_PATH="/usr/bin/dotnet"
 NEWLINE=$'\n'
 export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
+export XDG_DATA_HOME="${HOME}"/.local/share
+export XDG_CONFIG_HOME="${HOME}"/.config
+export XDG_STATE_HOME="${HOME}"/.local/state
+export XDG_CACHE_HOME="${HOME}"/.cache
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 alias claer="clear"
 alias ls="ls --color=auto -h"
@@ -37,13 +43,13 @@ alias chgrp='chgrp --preserve-root'
 alias df="df -h"
 alias du="du -shc"
 
-bindkey -s "^[s" 'tmux-sessionizer\n'
+bindkey -s "^[s" 'tmux_sessionizer\n'
 
 eval "$(zoxide init zsh --cmd cd)"
 
 export BEMENU_BACKEND="wayland"
 
-n ()
+n()
 {
     # Block nesting of nnn in subshells
     [ "${NNNLVL:-0}" -eq 0 ] || {
@@ -91,11 +97,8 @@ bindkey "^[[1;5C" forward-word
 
 # haskell
 [[ -z "$GHCUP_INSTALL_BASE_PREFIX" ]] && export GHCUP_INSTALL_BASE_PREFIX="$HOME"
-export PATH="$HOME/.cabal/bin:/home/mate/.ghcup/bin:$PATH"
-
-
-# ocaml
-[[ ! -r '/home/mate/.opam/opam-init/init.zsh' ]] || source '/home/mate/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
+export CABAL_DIR="$XDG_DATA_HOME"/cabal
 
 # bun completions
 [ -s "/home/mate/.bun/_bun" ] && source "/home/mate/.bun/_bun"
@@ -103,3 +106,31 @@ export PATH="$HOME/.cabal/bin:/home/mate/.ghcup/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+
+export GHCUP_USE_XDG_DIRS=true
+
+export GOPATH="$XDG_DATA_HOME"/go
+
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+
+export PYTHONSTARTUP="$HOME"/python/pythonrc
+
+export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
+
+export STACK_ROOT="$XDG_DATA_HOME"/stack
+
+export STACK_XDG=1
+
+export _ZO_DATA_DIR="$XDG_DATA_HOME"/zoxide
+
+export MYSQL_HISTFILE="$XDG_STATE_HOME"/mariadb/.mariadb_history
+
+export SSH_HOME="$XDG_CONFIG_HOME"/ssh
+export SSH_CONFIG="$XDG_CONFIG_HOME"/ssh/config
