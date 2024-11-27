@@ -72,8 +72,7 @@ Debugger: gdb
 clang
 ## C#
 dotnet-runtime\
-dotnet-sdk\
-csharpier (dotnet)
+dotnet-sdk
 ## Database
 mariadb\
 postgresql
@@ -92,8 +91,6 @@ eslint (npm)\
 prettier (npm)\
 nodemon (npm)\
 bun (official site)
-## Ocaml
-opam
 ## PHP
 php\
 composer
