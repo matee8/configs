@@ -42,6 +42,15 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias df="df -h"
 alias du="du -shc"
+jd()
+{
+    dir=$(fd --max-depth 3 --min-depth 1 --type d '' ~/Work/2024 ~/Projects ~/ ~/University/Harmadik-felev/ | fzf)
+    if [[ -n $dir ]]; then
+        cd "$(dirname $dir)" || return
+    else
+        echo "No selection made" >&2
+    fi
+}
 
 bindkey -s "^[s" 'tmux_sessionizer\n'
 
@@ -97,6 +106,7 @@ bindkey "^[[1;5C" forward-word
 
 # haskell
 [[ -z "$GHCUP_INSTALL_BASE_PREFIX" ]] && export GHCUP_INSTALL_BASE_PREFIX="$HOME"
+export PATH="$HOME/cabal/bin:/home/mate/.ghcup/bin:$PATH"
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export CABAL_DIR="$XDG_DATA_HOME"/cabal
 

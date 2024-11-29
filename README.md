@@ -1,7 +1,7 @@
 # .config files
 ---
 Operating System: Arch Linux\
-Packages: 559
+Packages: 558
 # Core
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
