@@ -42,11 +42,9 @@ PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
 Media player: ffplay\
 Area selector: slurp\
-Screenshot utility: grim\
-Screen mirroring: wf-mirror
+Screenshot utility: grim
 ## CLI/TUI
 Screen recorder: wf-recorder\
-BitTorrent client: rtorrent\
 Markdown renderer: glow\
 File manager: nnn\
 File sync: rclone\
@@ -90,13 +88,7 @@ nodejs\
 eslint (npm)\
 prettier (npm)\
 nodemon (npm)\
-<<<<<<< HEAD
 bun-bir (AUR)
-## Ocaml
-opam
-=======
-bun (official site)
->>>>>>> 43ceb07c3b3ffd3926040048f39b6d2f367c6e38
 ## PHP
 php\
 composer
