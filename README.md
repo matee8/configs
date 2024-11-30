@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 568
+Packages: 569
 
 # Core
 
@@ -42,7 +42,8 @@ Compositor: picom\
 Status bar: polybar\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji\
-Cursor: catppuccin-cursors-mocha (AUR)
+Cursor: catppuccin-cursors-mocha (AUR)\
+Cursor hiding: unclutter
 
 # Terminal
 
@@ -61,7 +62,6 @@ zsh-syntax-highlighting
 
 ## GUI
 
-Launcher: dmenu\
 Browser: firefox\
 Office suite: libreoffice-fresh\
 PDF viewer: mupdf\
