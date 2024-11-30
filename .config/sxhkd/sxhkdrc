@@ -23,7 +23,7 @@ super + b
     firefox
 
 super + r
-	dmenu_run -p "run: " -fn "Hack Nerd Font:style=Bold" -nb "#11111B" -nf "#F5C2E7" -sb "#F5C2E7" -sf "#11111B"
+	dmenu_run -p "run:" -fn "Hack Nerd Font:style=Bold" -nb "#11111B" -nf "#F5C2E7" -sb "#F5C2E7" -sf "#11111B"
 
 super + q
 	bspc node -c
