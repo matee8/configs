@@ -1,50 +1,78 @@
 # .config files
+
 ---
+
 Operating System: Arch Linux\
-Packages: 558
+Packages: 567
+
 # Core
+
 Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
 Bootloader: grub\
 Processor microcode: amd-ucode\
-Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
-Digital signal processor: sof-firmware\
-Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr\
+Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-gtk\
 Tools: base, base-devel
+
 # I/O
-Display server: wayland\
+
+Display server: xorg-server\
 Bluetooth: bluez, bluez-utils\
 Brightness: brightnessctl\
 Network: networkmanager\
+GPU driver: xf86-video-amdgpu\
 OpenGL: mesa\
-Vulkan: vulkan-radeon
+Vulkan: vulkan-radeon\
+Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire, 
+pipewire-pulse\
+Digital signal processor: sof-firmware\
+
+## Xorg
+
+xorg-xinit\
+xorg-xinput\
+xorg-xrandr\
+xclip
+
 # Display
-Compositor: sway\
+
+Window manager: bspwm\
+Hotkey daemon: sxhkd\
+Compositor: picom\
+Status bar: polybar\
 Layout manager: autotiling\
 Status bar generator: i3blocks\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
+
 # Terminal
-Emulator: foot\
+
+Emulator: alacritty\
 Multiplexer: tmux\
 Shell: zsh
+
 ## ZSH plugins
+
 zsh-autosuggestions\
 zsh-completions\
 zsh-history-substring-search\
 zsh-syntax-highlighting
+
 # Apps
+
 ## GUI
-Launcher: bemenu\
+
+Launcher: dmenu\
 Browser: firefox\
 Office suite: libreoffice-fresh\
-PDF viewer: zathura, zathura-pdf-mupdf\
-Image viewer: imv\
+PDF viewer: mupdf\
+Image viewer: feh\
 Media player: ffplay\
-Area selector: slurp\
-Screenshot utility: grim
+Screenshot utility: maim
+
 ## CLI/TUI
-Screen recorder: wf-recorder\
+
+Screen recorder: ffmpeg\
 Markdown renderer: glow\
 File manager: nnn\
 File sync: rclone\
@@ -60,41 +88,61 @@ Search tool: ripgrep\
 Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
 Pacman mirror retriever: reflector
+
 # Development
+
 Editor: neovim\
 Version control: git\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb
+
 ## C/C++
+
 clang
+
 ## C#
+
 dotnet-runtime\
 dotnet-sdk
+
 ## Database
+
 mariadb\
 postgresql
+
 ## Go
+
 go\
 staticcheck\
 pkgsite (go)
+
 ## Haskell
+
 ghcup (official site)\
 hlint (stack)\
 ormolu (stack)
+
 ## JavaScript
+
 npm\
 nodejs\
 eslint (npm)\
 prettier (npm)\
 nodemon (npm)\
 bun-bir (AUR)
+
 ## PHP
+
 php\
 composer
+
 ## Python
+
 python\
 python-pylint\
 yapf
+
 ## Rust
+
 rustup

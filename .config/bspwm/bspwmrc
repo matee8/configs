@@ -1,0 +1,14 @@
+#! /bin/sh
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc automatic_scheme longest_side
+bspc swallow_first_click true
+bspc pointer_follows_focus false
+
+bpsc config top_padding 20
+bpsc config normal_border_color "#11111B"
+bpsc config active_border_color "#11111B"
+bspc config focused_border_color "#F5C2E7"
+bspc config window_gap 0
+bspc config border_width 3
