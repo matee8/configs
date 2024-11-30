@@ -22,6 +22,9 @@ super + Return
 super + b
     firefox
 
+super + period
+    systemctl suspend
+
 super + q
 	bspc node -c
 
