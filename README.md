@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 567
+Packages: 568
 
 # Core
 
@@ -40,10 +40,9 @@ Window manager: bspwm\
 Hotkey daemon: sxhkd\
 Compositor: picom\
 Status bar: polybar\
-Layout manager: autotiling\
-Status bar generator: i3blocks\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji
+Emoji fonts: noto-fonts-emoji\
+Cursor: catppuccin-cursors-mocha (AUR)
 
 # Terminal
 
