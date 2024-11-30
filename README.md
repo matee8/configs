@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 569
+Packages: 566
 
 # Core
 
@@ -54,7 +54,6 @@ Shell: zsh
 ## ZSH plugins
 
 zsh-autosuggestions\
-zsh-completions\
 zsh-history-substring-search\
 zsh-syntax-highlighting
 
