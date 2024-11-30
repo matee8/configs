@@ -4,6 +4,7 @@ xinput set-prop "ELAN0001:00 04F3:3140 Touchpad" "libinput Natural Scrolling Ena
 xrandr --output eDP-1 --auto --primary
 xrdb ~/.Xresources
 sxhkd &
+unclutter &
 picom -b
 pipewire-pulse &
 polybar -q &
