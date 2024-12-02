@@ -39,16 +39,6 @@ alias chgrp='chgrp --preserve-root'
 alias df="df -h"
 alias du="du -shc"
 
-jd()
-{
-    dir=$(fd --max-depth 3 --min-depth 1 --type d '' ~/Work/2024 ~/Projects ~/ ~/University/Harmadik-felev/ | fzf)
-    if [[ -n $dir ]]; then
-        cd "$(dirname $dir)" || return
-    else
-        echo "No selection made" >&2
-    fi
-}
-
 n()
 {
     # Block nesting of nnn in subshells
@@ -82,3 +72,7 @@ n()
 
 alias nnn="n -exoQ"
 alias n="n -exoQ"
+
+eval "$(zoxide init zsh --cmd cd)"
+
+source <(fzf --zsh)
