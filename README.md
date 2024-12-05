@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 566
+Packages: 559
 
 # Core
 
@@ -11,43 +11,33 @@ Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
 Bootloader: grub\
 Processor microcode: amd-ucode\
-Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-gtk\
+Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr, 
+xdg-desktop-portal-gtk\
 Tools: base, base-devel
 
 # I/O
 
-Display server: xorg-server\
+Display server: wayland\
 Bluetooth: bluez, bluez-utils\
 Brightness: brightnessctl\
 Network: networkmanager\
-GPU driver: xf86-video-amdgpu\
 OpenGL: mesa\
 Vulkan: vulkan-radeon\
-Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire, 
-pipewire-pulse\
+Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
 Digital signal processor: sof-firmware\
-
-## Xorg
-
-xorg-xinit\
-xorg-xinput\
-xorg-xrandr\
-xclip
 
 # Display
 
-Window manager: bspwm\
-Hotkey daemon: sxhkd\
-Compositor: picom\
-Status bar: polybar\
+Compositor: river\
+Status bar: yambar-git (AUR)\
+Launcher: bemenu\
+Wallpaper tool: swaybg\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji\
-Cursor: catppuccin-cursors-mocha (AUR)\
-Cursor hiding: unclutter
+Emoji fonts: noto-fonts-emoji
 
 # Terminal
 
-Emulator: alacritty\
+Emulator: foot\
 Multiplexer: tmux\
 Shell: zsh
 
@@ -63,16 +53,17 @@ zsh-syntax-highlighting
 
 Browser: firefox\
 Office suite: libreoffice-fresh\
-PDF viewer: mupdf\
-Image viewer: feh\
-Media player: ffplay\
-Screenshot utility: maim
+PDF viewer: zathura, zathura-pdf-mupdf\
+Image viewer: imv\
+Media player: ffplay (ffmpeg)\
+Area selector: slurp
 
 ## CLI/TUI
 
-Screen recorder: ffmpeg\
+Screen recorder: wf-recorder\
+Screenshot utility: grim\
+Clipboard utilities: wl-clipboard\
 Markdown renderer: glow\
-File manager: nnn\
 File sync: rclone\
 Remote login: openssh\
 Paginator: less\
@@ -85,7 +76,8 @@ Find alternative: fd\
 Search tool: ripgrep\
 Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
-Pacman mirror retriever: reflector
+Pacman mirror retriever: reflector\
+Manuals: man-db
 
 # Development
 
@@ -101,25 +93,12 @@ clang
 
 ## C#
 
-dotnet-runtime\
 dotnet-sdk
 
 ## Database
 
 mariadb\
 postgresql
-
-## Go
-
-go\
-staticcheck\
-pkgsite (go)
-
-## Haskell
-
-ghcup (official site)\
-hlint (stack)\
-ormolu (stack)
 
 ## JavaScript
 
@@ -129,11 +108,6 @@ eslint (npm)\
 prettier (npm)\
 nodemon (npm)\
 bun-bir (AUR)
-
-## PHP
-
-php\
-composer
 
 ## Python
 

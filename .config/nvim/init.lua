@@ -6,7 +6,6 @@ local servers = {
     },
     csharp_ls = {},
     pyright = {},
-    bashls = {},
     html = {},
     cssls = {},
     ts_ls = {},
@@ -21,10 +20,7 @@ local servers = {
                 }
             }
         }
-    },
-    gopls = {},
-    intelephense = {},
-    hls = {}
+    }
 } 
 
 -- Cursorline
@@ -301,9 +297,9 @@ require('lazy').setup(
                     })
                 end
             },
-            { 'nvim-tree/nvim-web-devicons', lazy = false },
             { 
                 'nvim-treesitter/nvim-treesitter', 
+                event = 'VeryLazy',
                 run = ':TSUpdate',
                 config = function()
                     require('nvim-treesitter.configs').setup {
@@ -315,13 +311,11 @@ require('lazy').setup(
                             'query',
                             'c_sharp',
                             'javascript',
-                            'php',
                             'python',
                             'bash',
                             'html',
                             'css',
                             'sql',
-                            'go',
                             'rust'
                         },
                         sync_install = false,
@@ -337,7 +331,7 @@ require('lazy').setup(
             },
             { 
                 'lukas-reineke/indent-blankline.nvim', 
-                lazy = false,
+                event = 'VeryLazy',
                 config = function()
                     require('ibl').setup({
                         indent = { char = '.' },
@@ -370,7 +364,7 @@ require('lazy').setup(
             },
             { 
                 'windwp/nvim-ts-autotag', 
-                event = 'BufReadPre',
+                event = 'VeryLazy',
                 ft = { 'html', 'javascript', 'markdown', 'typescript', 'php' },
             }
         },
@@ -385,6 +379,8 @@ require('lazy').setup(
                     end
                 }
             },
+            ft = {'c', 'cpp', 'cs', 'python', 'bash', 'html', 'css', 
+                'javascript', 'typescript', 'rust', 'go', 'php'},
             config = function()
                 require('mason-lspconfig').setup({ 
                     ensure_installed = vim.tbl_keys(servers),
@@ -398,7 +394,7 @@ require('lazy').setup(
         },
         { 
             'hrsh7th/nvim-cmp',
-            event = 'InsertEnter',
+            event = { 'InsertEnter', 'CmdlineEnter' },
             dependencies = {
                 'L3MON4D3/LuaSnip',
                 'hrsh7th/cmp-nvim-lsp',
@@ -462,6 +458,11 @@ require('lazy').setup(
         {
             { 
                 'nvim-telescope/telescope.nvim', 
+                lazy = false,
+                dependencies = { 
+                    'nvim-telescope/telescope-file-browser.nvim',
+                    'nvim-tree/nvim-web-devicons', 
+                },
                 config = function()
                     require('telescope').setup({
                         extensions = {
@@ -498,10 +499,11 @@ require('lazy').setup(
                     })
                 end
             },
-            'nvim-telescope/telescope-file-browser.nvim',
             { 
                 'ThePrimeagen/harpoon', 
-                event = 'BufReadPre',
+                event = 'VeryLazy',
+                ft = {'c', 'cpp', 'cs', 'python', 'bash', 'html', 'css', 
+                    'javascript', 'typescript', 'rust', 'go', 'php'},
                 config = function()
                     require('harpoon').setup({
                         global_settings = {
@@ -561,7 +563,7 @@ require('lazy').setup(
         {
             { 
                 'folke/flash.nvim', 
-                event = 'BufReadPre',
+                event = 'VeryLazy',
                 config = function()
                     vim.keymap.set({'n', 'x', 'o'}, 's', 
                         function() require('flash').jump() end, {
@@ -599,7 +601,7 @@ require('lazy').setup(
             },
             { 
                 'numToStr/Comment.nvim', 
-                event = 'BufReadPre',
+                event = 'VeryLazy',
                 config = function()
                     require('Comment').setup()
                     require('Comment.ft').set('plsql', '--%s')
@@ -607,6 +609,7 @@ require('lazy').setup(
             },
             { 
                 'lewis6991/gitsigns.nvim',
+                event = 'VeryLazy',
                 config = function()
                     require('gitsigns').setup({
                         auto_attach = true
@@ -637,17 +640,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
             border = 'rounded'
         })
+
+        vim.diagnostic.config({
+            virtual_text = false,
+            update_in_insert = true,
+            float = { border = 'rounded' }
+        })
     end
 })
 
-vim.diagnostic.config({
-    virtual_text = false,
-    update_in_insert = true,
-    float = { border = 'rounded' }
-})
-
 -- Code runner
-vim.api.nvim_create_autocmd('BufEnter', {
+vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(opts)
         if vim.bo[opts.buf].filetype == 'c' then
             vim.keymap.set('n', '<leader>rr', 
