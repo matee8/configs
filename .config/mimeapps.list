@@ -8,4 +8,4 @@ image/tiff=imv.desktop
 video/mp4=ffplay.desktop
 video/x-matroska=ffplay.desktop
 audio/mpeg=ffplay.desktop
-application/pdf=mupdf.desktop
+application/pdf=org.pwmt.zathura.desktop
