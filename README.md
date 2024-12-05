@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 559
+Packages: 560
 
 # Core
 
@@ -104,10 +104,9 @@ postgresql
 
 npm\
 nodejs\
-eslint (npm)\
-prettier (npm)\
-nodemon (npm)\
-bun-bir (AUR)
+eslint\
+prettier\
+nodemon (npm)
 
 ## Python
 
