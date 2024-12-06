@@ -62,8 +62,6 @@ riverctl rule-add -app-id 'firefox*' ssd
 riverctl default-layout rivertile
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
 
-riverctl spawn "foot -s"
-riverctl spawn "wlr-randr --output eDP-1 --preferred --mode 1920x1080"
 riverctl spawn "swaybg -i ~/Pictures/Wallpapers/ocean.png -o eDP-1"
 riverctl spawn "yambar"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
