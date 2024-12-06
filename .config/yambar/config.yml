@@ -47,13 +47,13 @@ bar:
           map:
             conditions:
               id == 5:
-                - string: {text: " {id}", foreground: *primary}
+                - string: {text: "{id}:", foreground: *primary}
                 - string: {text: "{cpu}%"}
               id < 0:
                 - string: {text: " ", foreground: *primary}
                 - string: {text: "{cpu}% "}
               id > 0:
-                - string: {text: " {id}", foreground: *primary}
+                - string: {text: "{id}:", foreground: *primary}
                 - string: {text: "{cpu}% "}
     - mem:
         poll-interval: 1000
@@ -67,7 +67,7 @@ bar:
             conditions:
               name == "wlp1s0" && state == "up":
                 - string: {text: "󰖩 ", foreground: *primary}
-                - string: {text: "{ssid} {quality}% DL {dl-speed} UL {ul-speed}"}
+                - string: {text: "{quality}% DL {dl-speed:mb} MB/s UL {ul-speed:mb} MB/s"}
               name == "wlp1s0":
                 - string: {text: "󰖩 ", foreground: *primary}
                 - string: {text: "{state}"}
