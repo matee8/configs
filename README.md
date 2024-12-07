@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 560
+Packages: 558
 
 # Core
 
@@ -11,8 +11,7 @@ Kernel: linux, linux-firmware\
 Service configuration and init system: systemd (base)\
 Bootloader: grub\
 Processor microcode: amd-ucode\
-Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr, 
-xdg-desktop-portal-gtk\
+Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr\
 Tools: base, base-devel
 
 # I/O
