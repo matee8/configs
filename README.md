@@ -36,7 +36,7 @@ Emoji fonts: noto-fonts-emoji
 
 # Terminal
 
-Emulator: foot\
+Emulator: alacritty\
 Multiplexer: tmux\
 Shell: zsh
 
