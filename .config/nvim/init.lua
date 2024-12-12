@@ -4,7 +4,6 @@ local servers = {
             'clangd', '--offset-encoding=utf-16', '--header-insertion=never' 
         } 
     },
-    csharp_ls = {},
     pyright = {},
     html = {},
     cssls = {},
@@ -311,7 +310,6 @@ require('lazy').setup(
                             'vim',
                             'vimdoc',
                             'query',
-                            'c_sharp',
                             'javascript',
                             'python',
                             'bash',
