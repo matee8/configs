@@ -10,7 +10,7 @@ riverctl keyboard-layout -model "keyboard*" hu
 riverctl input "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad" natural-scroll enabled
 riverctl input "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad" tap enabled
 
-riverctl map normal Super Return spawn footclient
+riverctl map normal Super Return spawn alacritty
 riverctl map normal Super B spawn firefox
 riverctl map normal Super R spawn 'bemenu-run -i  -p "run:" -C --fn "Hack Nerd Font 13" --nb "#11111b" --tb "#11111b" --hb "#f5c2e7" --fb "#11111b" --tf "#f5c2e7" --hf "#11111b" --ab "#11111b" --hp 10'
 riverctl map normal None Print spawn "pkill slurp || slurp | grim -g - - | wl-copy"

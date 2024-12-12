@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 558
+Packages: 559
 
 # Core
 
@@ -23,7 +23,7 @@ Network: networkmanager\
 OpenGL: mesa\
 Vulkan: vulkan-radeon\
 Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
-Digital signal processor: sof-firmware\
+Digital signal processor: sof-firmware
 
 # Display
 
@@ -67,7 +67,7 @@ File sync: rclone\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
-Archivers: unrar, zip\
+Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
 System resource monitor: btop\
 Fuzzy finder: fzf\

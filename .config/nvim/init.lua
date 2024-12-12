@@ -46,6 +46,9 @@ vim.o.smartcase = true
 -- Border column
 vim.o.colorcolumn = '80'
 
+-- Command line
+vim.o.cmdheight = 0
+
 -- Update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 250
@@ -274,7 +277,6 @@ require('lazy').setup(
                                 enabled = true
                             },
                             harpoon = true,
-                            flash = true
                         },
                         custom_highlights = function(colors)
                             return {
@@ -361,11 +363,6 @@ require('lazy').setup(
                         desc = 'Zen mode'
                     })
                 end
-            },
-            { 
-                'windwp/nvim-ts-autotag', 
-                event = 'VeryLazy',
-                ft = { 'html', 'javascript', 'markdown', 'typescript', 'php' },
             }
         },
         {
@@ -493,10 +490,6 @@ require('lazy').setup(
                             silent = true,
                             desc = 'Fuzzy find string under cursor in current directory'
                     })
-                    vim.keymap.set('n', '<leader>fh', 
-                        function() require('telescope.builtin').search_history() end, {
-                        silent = true
-                    })
                 end
             },
             { 
@@ -562,49 +555,10 @@ require('lazy').setup(
         },
         {
             { 
-                'folke/flash.nvim', 
-                event = 'VeryLazy',
-                config = function()
-                    vim.keymap.set({'n', 'x', 'o'}, 's', 
-                        function() require('flash').jump() end, {
-                            silent = true,
-                            desc = 'Flash'
-                    })
-                    vim.keymap.set({'n', 'x', 'o'}, 'S', 
-                        function() require('flash').treesitter() end, {
-                            silent = true,
-                            desc = 'Flash Treesitter'
-                    })
-                    vim.keymap.set('o', 'r', 
-                        function() require('flash').remote() end, {
-                            silent = true,
-                            desc = 'Remote Flash'
-                    })
-                    vim.keymap.set({'o', 'x'}, 'R', 
-                        function() require('flash').treesitter_search() end, {
-                            silent = true,
-                            desc = 'Treesitter Search'
-                    })
-                    vim.keymap.set('c', '<C-s>',
-                        function() require('flash').toggle() end, {
-                            silent = true,
-                            desc = 'Toggle Flash Search'
-                    })
-                end
-            },
-            { 
                 'windwp/nvim-autopairs', 
                 event = 'InsertEnter',
                 config = function()
                     require('nvim-autopairs').setup()
-                end
-            },
-            { 
-                'numToStr/Comment.nvim', 
-                event = 'VeryLazy',
-                config = function()
-                    require('Comment').setup()
-                    require('Comment.ft').set('plsql', '--%s')
                 end
             },
             { 
