@@ -1,7 +1,7 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 NEWLINE=$'\n'
-export PROMPT="%F{blue}%n@%zsh.zshm %F{magenta}%~${NEWLINE}%F{red}$ "
+export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
 export XDG_DATA_HOME="${HOME}"/.local/share
 export XDG_CONFIG_HOME="${HOME}"/.config
 export XDG_STATE_HOME="${HOME}"/.local/state
