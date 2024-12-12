@@ -11,17 +11,13 @@ export XDG_CACHE_HOME="${HOME}"/.cache
 
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
-export PATH="/home/mate/.local/share/cargo/bin:/home/mate/.local/share/dotnet/tools:/home/mate/.local/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PS1='\[\033[01;34m\]\u@\h \[\033[00;35m\]\W\n\[\033[01;31m\]\$ \[\033[00m\]'
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-
-export DOTNET_PATH="/usr/bin/dotnet"
-export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
-export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export PATH="/home/mate/.local/share/cargo/bin:$PATH"
 
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export npm_config_prefix="$HOME/.local"

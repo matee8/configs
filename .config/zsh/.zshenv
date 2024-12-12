@@ -1,8 +1,7 @@
-export PATH="/home/mate/.local/share/cargo/bin:/home/mate/.local/share/dotnet/tools:/home/mate/.local/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 NEWLINE=$'\n'
-export PROMPT="%F{blue}%n@%m %F{magenta}%~${NEWLINE}%F{red}$ "
+export PROMPT="%F{blue}%n@%zsh.zshm %F{magenta}%~${NEWLINE}%F{red}$ "
 export XDG_DATA_HOME="${HOME}"/.local/share
 export XDG_CONFIG_HOME="${HOME}"/.config
 export XDG_STATE_HOME="${HOME}"/.local/state
@@ -11,10 +10,7 @@ export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-
-export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
-export DOTNET_PATH="/usr/bin/dotnet"
-export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export PATH="/home/mate/.local/share/cargo/bin:$PATH"
 
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export npm_config_prefix="$HOME/.local"
