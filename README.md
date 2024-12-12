@@ -3,7 +3,7 @@
 ---
 
 Operating System: Arch Linux\
-Packages: 559
+Packages: 554
 
 # Core
 
