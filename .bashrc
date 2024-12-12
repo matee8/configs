@@ -1,4 +1,7 @@
 [[ $- != *i* ]] && return
+
+export PS1='\[\033[01;34m\]\u@\h \[\033[00;35m\]\W\n\[\033[01;31m\]\$ \[\033[00m\]'
+
 alias claer="clear"
 alias ls="ls --color=auto -h"
 alias grep="grep --color=auto -i"
