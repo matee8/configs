@@ -90,10 +90,6 @@ Debugger: gdb
 
 clang
 
-## C#
-
-dotnet-sdk
-
 ## Database
 
 mariadb\
