@@ -72,7 +72,6 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Appearance 
-vim.g.netrw_banner = 0
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.o.signcolumn = 'yes'
@@ -81,6 +80,20 @@ vim.o.splitbelow = true
 vim.o.showmode = false
 vim.o.hlsearch = false
 vim.o.background = 'dark'
+vim.o.pumheight = 10
+vim.o.pumwidth = 30
+
+
+-- File explorer
+vim.g.netrw_banner = 0
+vim.g.netrw_list_hide = '^\\./\\?$,^\\.\\./\\?$'
+vim.g.netrw_keepdir = 1
+vim.g.netrw_sort_sequence = [[[\/]$,*]]
+vim.g.netrw_sizestyle = "H"
+vim.g.netrw_liststyle = 3
+vim.g.netrw_localcopydircmd = "cp -r"
+vim.g.netrw_localmkdir = "mkdir -p"
+vim.g.netrw_localrmdir = "rm -r"
 
 -- Beeping
 vim.opt.vb = true
@@ -145,6 +158,11 @@ vim.keymap.set('n', 'L', '$')
 vim.keymap.set('n', 'n', 'nzz', { silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 
+vim.keymap.set('n', '<leader>ee', "<CMD>Explore<CR>", {
+    silent = true,
+    desc = 'Open file browser'
+})
+
 -- LSP Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
@@ -173,25 +191,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 silent = true,
                 desc = 'Quick fixes'
         })
-        vim.keymap.set('n', '<leader>ld', 
-            function() require('telescope.builtin').lsp_definitions() end, {
+        vim.keymap.set('n', '<leader>ld', '<CMD>FzfLua lsp_definitions<CR>', {
                 silent = true,
                 desc = 'Go to definitions'
         })
-        vim.keymap.set('n', '<leader>lr', 
-            function() require('telescope.builtin').lsp_references() end, {
+        vim.keymap.set('n', '<leader>lr', '<CMD>FzfLua lsp_references<CR>', {
                 silent = true,
                 desc = 'Go to references'
         })
-        vim.keymap.set('n', '<leader>lt', 
-            function() require('telescope.builtin').lsp_type_definitions() end, {
+        vim.keymap.set('n', '<leader>lt', '<CMD>FzfLua lsp_typedefs', {
                 silent = true,
                 desc = 'Go to type definitions'
         })
-        vim.keymap.set('n', '<leader>lld',
-            function() require('telescope.builtin').diagnostics() end, {
-                silent = true,
-                desc = 'List diagnostics for all buffers'
+        vim.keymap.set('n', '<leader>lld', 
+            '<CMD>FzfLufa diagnostics_workspace<CR>', {
+                    silent = true,
+                    desc = 'List diagnostics for all buffers'
         })
         vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, {
             silent = true,
@@ -237,7 +252,18 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup(
     {
         {
-            'nvim-lua/plenary.nvim'
+            {
+                'nvim-lua/plenary.nvim',
+                lazy = false,
+            },
+            {
+                'nvim-tree/nvim-web-devicons',
+                lazy = true,
+                event = 'VeryLazy',
+                opts = {
+                    variant = "dark"
+                }
+            },
         },
         { 
             { 
@@ -253,6 +279,9 @@ require('lazy').setup(
                         term_colors = true,
                         integrations = {
                             mason = true,
+                            cmp = true,
+                            fzf = true,
+                            harpoon = true,
                             native_lsp = {
                                 enabled = true,
                                 virtual_text = {
@@ -271,302 +300,227 @@ require('lazy').setup(
                                     background = true
                                 }
                             },
-                            cmp = true,
-                            telescope = {
-                                enabled = true
-                            },
-                            harpoon = true,
-                        },
-                        custom_highlights = function(colors)
-                            return {
-                                WinSeparator = { fg = '#1e1e2e' }
-                            }
-                        end
+                        }
                     })
-                    vim.cmd.colorscheme('catppuccin')
                 end
             },
             { 
                 'nvim-lualine/lualine.nvim',
                 lazy = false,
-                config = function()
-                    require('lualine').setup({
-                        options = {
-                            theme = 'catppuccin',
-                            globalstatus = true
-                        }
-                    })
-                end
+                opts = {
+                    options = {
+                        theme = 'auto',
+                        globalstatus = true
+                    }
+                }
+            },
+        },
+        {
+            {
+                'williamboman/mason-lspconfig.nvim',
+                run = { ':MasonUpdate' },
+                dependencies = {
+                    'neovim/nvim-lspconfig',
+                    { 
+                        'williamboman/mason.nvim',
+                        config = function()
+                            require('mason').setup({ ui = { border = 'rounded' } })
+                        end
+                    }
+                },
+                ft = {'c', 'cpp', 'cs', 'python', 'bash', 'html', 'css', 
+                    'javascript', 'typescript', 'rust', 'go', 'php'},
+                cmd = { 'Mason' },
+                opts = {
+                    ensure_installed = vim.tbl_keys(servers),
+                    handlers = { 
+                        function(server)
+                            local opts = servers[server] or {}
+                            opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
+                            require('lspconfig')[server].setup(opts)
+                        end 
+                    }
+                }
             },
             { 
                 'nvim-treesitter/nvim-treesitter', 
                 event = 'VeryLazy',
                 run = ':TSUpdate',
-                config = function()
-                    require('nvim-treesitter.configs').setup {
-                        ensure_installed = {
-                            'c',
-                            'lua',
-                            'vim',
-                            'vimdoc',
-                            'query',
-                            'javascript',
-                            'python',
-                            'bash',
-                            'html',
-                            'css',
-                            'sql',
-                            'rust'
-                        },
-                        sync_install = false,
-                        auto_install = true,
-                        indent = { enable = true },
-                        autotag = { enable = true },
-                        highlight = {
-                            enable = true,
-                            additional_vim_regex_highlighting = false
-                        },
-                    }
-                end
-            },
-            { 
-                'lukas-reineke/indent-blankline.nvim', 
-                event = 'VeryLazy',
-                config = function()
-                    require('ibl').setup({
-                        indent = { char = '.' },
-                        scope = { enabled = false }
-                    })
-                end
-            },
-            { 
-                'shortcuts/no-neck-pain.nvim',
-                lazy = false,
-                config = function()
-                    require('no-neck-pain').setup({
-                        width = 90,
-                        autocmds = {
-                            enableOnVimEnter = true,
-                            skipEnteringNoNeckPainBuffer = true
-                        },
-                        buffers = {
-                            right = {
-                                enabled = false
-                            }
-                        }
-                    })
-
-                    vim.keymap.set('n', '<leader>zz', '<CMD>NoNeckPain<CR>', {
-                        silent = true,
-                        desc = 'Zen mode'
-                    })
-                end
-            }
-        },
-        {
-            'williamboman/mason-lspconfig.nvim',
-            dependencies = {
-                'neovim/nvim-lspconfig',
-                { 
-                    'williamboman/mason.nvim',
-                    config = function()
-                        require('mason').setup({ ui = { border = 'rounded' } })
-                    end
+                opts = {
+                    ensure_installed = {
+                        'c',
+                        'lua',
+                        'vim',
+                        'vimdoc',
+                        'query',
+                        'javascript',
+                        'python',
+                        'bash',
+                        'html',
+                        'css',
+                        'sql',
+                        'rust'
+                    },
+                    sync_install = false,
+                    auto_install = true,
+                    indent = { enable = true },
+                    autotag = { enable = true },
+                    highlight = {
+                        enable = true,
+                        additional_vim_regex_highlighting = false
+                    },
                 }
             },
-            ft = {'c', 'cpp', 'cs', 'python', 'bash', 'html', 'css', 
-                'javascript', 'typescript', 'rust', 'go', 'php'},
-            config = function()
-                require('mason-lspconfig').setup({ 
-                    ensure_installed = vim.tbl_keys(servers),
-                    handlers = { function(server)
-                        local opts = servers[server] or {}
-                        opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
-                        require('lspconfig')[server].setup(opts)
-                    end }
-                })
-            end
-        },
-        { 
-            'hrsh7th/nvim-cmp',
-            event = { 'InsertEnter', 'CmdlineEnter' },
-            dependencies = {
-                'L3MON4D3/LuaSnip',
-                'hrsh7th/cmp-nvim-lsp',
-                'dcampos/cmp-emmet-vim',
-                'hrsh7th/cmp-buffer',
-                'hrsh7th/cmp-cmdline',
-                'hrsh7th/cmp-path'
-            },
-            config = function() 
-                require('cmp').setup({
-                    snippet = {
-                        expand = function(args)
-                            require('luasnip').lsp_expand(args.body)
-                        end
-                    },
-                    sources = {
-                        { name = 'nvim_lsp' },
-                        { name = 'nvim_lsp_signature_help' },
-                        { name = 'emmet_vim', option = { filetypes = { 'html', 'css', 'php' } } },
-                        { name = 'vim-dadbod-completion' },
-                        { name = 'luasnip' },
-                        { name = 'buffer' },
-                        { name = 'path' }
-                    },
-                    mapping = {
-                        ['<C-K>'] = require('cmp').mapping.select_prev_item(),
-                        ['<C-J>'] = require('cmp').mapping.select_next_item(),
-                        ['<C-f>'] = require('cmp').mapping.confirm({select = true}),
-                        ['<C-e>'] = require('cmp').mapping.abort(),
-                        ['<A-K>'] = require('cmp').mapping.scroll_docs(-4),
-                        ['<A-J>'] = require('cmp').mapping.scroll_docs(4)
-                    },
-                    window = {
-                        completion = require('cmp').config.window.bordered(),
-                        documentation = require('cmp').config.window.bordered()
-                    },
-                    formatting = {
-                        format = function(entry, vim_item)
-                            vim_item.menu = nil
-                            return vim_item
-                        end
+            { 
+                'hrsh7th/nvim-cmp',
+                event = { 'InsertEnter', 'CmdlineEnter' },
+                dependencies = {
+                    'hrsh7th/cmp-nvim-lsp',
+                    'hrsh7th/cmp-buffer',
+                    'hrsh7th/cmp-cmdline',
+                    'hrsh7th/cmp-path'
+                },
+                opts = function() 
+                    local cmp = require('cmp')
+                    local defaults = require('cmp.config.default')()
+
+                    cmp.setup.cmdline(':', {
+                        sources = {{name = 'cmdline', name = 'path'}},
+                    })
+
+                    cmp.setup.cmdline({'/', '?'}, {
+                        sources = {{name = 'buffer'}},
+                    })
+
+                    cmp.setup.cmdline('!', {
+                        sources = {{name = 'path'}},
+                    })
+
+                    return {
+                        snippet = {
+                            expand = function(args)
+                                vim.snippet.expand(args.body)
+                            end
+                        },
+                        mapping = cmp.mapping.preset.insert({
+                            ['<C-K>'] = require('cmp').mapping.select_prev_item(),
+                            ['<C-J>'] = require('cmp').mapping.select_next_item(),
+                            ['<C-f>'] = require('cmp').mapping.confirm({select = true}),
+                            ['<C-e>'] = require('cmp').mapping.abort(),
+                            ['<A-K>'] = require('cmp').mapping.scroll_docs(-4),
+                            ['<A-J>'] = require('cmp').mapping.scroll_docs(4)
+                        }),
+                        sources = cmp.config.sources({
+                            { name = 'nvim_lsp' },
+                            { name = 'nvim_lsp_signature_help' },
+                            { name = 'buffer' },
+                            { name = 'path' }
+                        }),
+                        window = {
+                            completion = require('cmp').config.window.bordered(),
+                            documentation = require('cmp').config.window.bordered()
+                        },
+                        sorting = defaults.sorting,
+                        formatting = {
+                            format = function(entry, vim_item)
+                                vim_item.menu = nil
+                                return vim_item
+                            end
+                        }
                     }
-                })
-
-                require('cmp').setup.cmdline(':', {
-                    sources = {{name = 'cmdline', name = 'path'}},
-                })
-
-                require('cmp').setup.cmdline({'/', '?'}, {
-                    sources = {{name = 'buffer'}},
-                })
-
-                require('cmp').setup.cmdline('!', {
-                    sources = {{name = 'path'}},
-                })
-
-                vim.o.pumheight = 10
-                vim.o.pumwidth = 30
-            end
+                end
+            },
         },
         {
-            { 
-                'nvim-telescope/telescope.nvim', 
-                lazy = false,
-                dependencies = { 
-                    'nvim-telescope/telescope-file-browser.nvim',
-                    'nvim-tree/nvim-web-devicons', 
+            {
+                'ibhagwan/fzf-lua',
+                event = 'VeryLazy',
+                opts = { 
+                    "default-title",
+                    defaults = {
+                        formatter = 'path.dirname_first'
+                    },
+                    files = {
+                        cwd_prompt = false,
+                    },
                 },
-                config = function()
-                    require('telescope').setup({
-                        extensions = {
-                            file_browser = {
-                                hijack_netrw = true
-                            }
-                        }
-                    })
-
-                    require('telescope').load_extension('file_browser')
-
-                    vim.keymap.set('n', '<leader>ee', 
-                        function() require('telescope').extensions.file_browser.file_browser() end, {
-                            silent = true,
-                            desc = 'Open file browser'
-                    })
-                    vim.keymap.set('n', '<leader>ff',
-                        function() require('telescope.builtin').find_files() end, {
-                            silent = true,
-                            desc = 'Fuzzy find files in current directory'
-                    })
-                    vim.keymap.set('n', '<leader>fs', 
-                        function() require('telescope.builtin').live_grep() end, {
-                            desc = 'Fuzzy find string in current directory'
-                    })
-                    vim.keymap.set('n', '<leader>fc', 
-                        function() require('telescope.builtin').grep_string() end, {
-                            silent = true,
-                            desc = 'Fuzzy find string under cursor in current directory'
-                    })
-                end
+                keys = {
+                    {
+                        "<leader>ff",
+                        "<CMD>FzfLua files<CR>",
+                        silent = true
+                    },
+                    {
+                        '<leader>fs',
+                        '<CMD>FzfLua grep_project<CR>',
+                        silent = true
+                    }
+                }
             },
             { 
                 'ThePrimeagen/harpoon', 
+                branch = 'harpoon2',
                 event = 'VeryLazy',
                 ft = {'c', 'cpp', 'cs', 'python', 'bash', 'html', 'css', 
                     'javascript', 'typescript', 'rust', 'go', 'php'},
-                config = function()
-                    require('harpoon').setup({
-                        global_settings = {
-                            save_on_toggle = true
+                opts = {
+                    global_settings = {
+                        save_on_toggle = true,
+                        save_on_ui_close = true,
+                    }
+                },
+                keys = function()
+                    local keys = {
+                        {
+                            '<leader>ha', 
+                            function() require('harpoon'):list():add() end,
+                            silent = true,
+                        },
+                        {
+                            '<leader>hm',
+                            function() 
+                                local harpoon = require('harpoon')
+                                harpoon.ui:toggle_quick_menu(harpoon:list()) 
+                            end,
+                            silent = true,
                         }
-                    })
+                    }
 
-                    vim.keymap.set('n', '<leader>ha', 
-                        function() require('harpoon.mark').add_file() end, {
+                    for i = 1, 9 do
+                        table.insert(keys, {
+                            '<A-' .. i .. '>',
+                            function()
+                                require('harpoon'):list():select(i)
+                            end,
                             silent = true,
-                            desc = 'Mark file to harpoon'
                         })
-                    vim.keymap.set('n', '<leader>hm', 
-                        function() require('harpoon.ui').toggle_quick_menu() end, {
-                            silent = true,
-                            desc = 'Show harpoon marked files' 
-                        })
-                    vim.keymap.set('n', '<A-1>', function() require('harpoon.ui').nav_file(1) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 1' 
-                    })
-                    vim.keymap.set('n', '<A-2>', function() require('harpoon.ui').nav_file(2) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 2' 
-                    })
-                    vim.keymap.set('n', '<A-3>', function() require('harpoon.ui').nav_file(3) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 3' 
-                    })
-                    vim.keymap.set('n', '<A-4>', function() require('harpoon.ui').nav_file(4) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 4' 
-                    })
-                    vim.keymap.set('n', '<A-5>', function() require('harpoon.ui').nav_file(5) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 5' 
-                    })
-                    vim.keymap.set('n', '<A-6>', function() require('harpoon.ui').nav_file(6) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 6' 
-                    })
-                    vim.keymap.set('n', '<A-7>', function() require('harpoon.ui').nav_file(7) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 7' 
-                    })
-                    vim.keymap.set('n', '<A-8>', function() require('harpoon.ui').nav_file(8) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 8' 
-                    })
-                    vim.keymap.set('n', '<A-9>', function() require('harpoon.ui').nav_file(9) end, {
-                        silent = true,
-                        desc = 'Go to harpoon 9' 
-                    })
+                    end
+
+                    return keys
                 end
+            },
+            {
+                'prichrd/netrw.nvim',
+                lazy = false,
+                opts = { }
             }
         },
         {
             { 
-                'windwp/nvim-autopairs', 
-                event = 'InsertEnter',
-                config = function()
-                    require('nvim-autopairs').setup()
-                end
-            },
-            { 
                 'lewis6991/gitsigns.nvim',
                 event = 'VeryLazy',
-                config = function()
-                    require('gitsigns').setup({
-                        auto_attach = true
-                    })
-                end
+                opts = {
+                    auto_attach = true
+                }
+            },
+            {
+                'windwp/nvim-autopairs',
+                event = 'InsertEnter',
+                config = true,
+                opts = {
+                    disable_in_macro = false,
+                    disable_in_replace_mode = false
+                }
             }
         },
     },
@@ -574,6 +528,9 @@ require('lazy').setup(
         ui = { border = 'rounded' }
     }
 )
+
+-- Colorscheme
+vim.cmd.colorscheme('catppuccin')
 
 -- Fix LSP floating window
 vim.api.nvim_create_autocmd('LspAttach', {
