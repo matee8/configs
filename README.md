@@ -1,65 +1,63 @@
 # .config files
 
----
-
 Operating System: Arch Linux\
-Packages: 439
+Packages: 555
 
-# Core
+# Packages
+
+## Core
 
 Kernel: linux, linux-firmware\
-Service configuration and init system: systemd (base)\
-Bootloader: grub\
 Processor microcode: amd-ucode\
 Application sandboxing: xdg-desktop-portal, xdg-desktop-portal-wlr\
 Tools: base, base-devel
 
-# I/O
+## I/O
 
-Display server: wayland\
+Display server protocol: wayland\
 Bluetooth: bluez, bluez-utils\
-Brightness: brightnessctl\
+Backlight: brightnessctl\
 Network: networkmanager\
-OpenGL: mesa\
-Vulkan: vulkan-radeon\
 Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
-Digital signal processor: sof-firmware
+Digital signal processor: sof-firmware\
+OpenGL: mesa\
+Vulkan: vulkan-radeon
 
-# Display
+## Display
 
 Compositor: river\
-Status bar: yambar-git (AUR)\
+Status bar: yambar (AUR)\
 Launcher: bemenu\
-Wallpaper tool: swaybg\
+Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji
 
-# Terminal
+## Terminal
 
-Emulator: alacritty\
+Emulator: foot\
 Multiplexer: tmux\
 Shell: zsh
 
-## ZSH plugins
+### ZSH plugins
 
 zsh-autosuggestions\
 zsh-history-substring-search\
 zsh-syntax-highlighting
 
-# Apps
+## Applications
 
-## GUI
+### Graphical
 
-Browser: firefox\
+Browser: firefox-developer-edition\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
 Area selector: slurp
 
-## CLI/TUI
+## Console
 
-Screen recorder: wf-recorder\
+Screen recorder: wl-screenrec (AUR)\
 Screenshot utility: grim\
 Clipboard utilities: wl-clipboard\
 Markdown renderer: glow\
@@ -76,7 +74,8 @@ Search tool: ripgrep\
 Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
 Pacman mirror retriever: reflector\
-Manuals: man-db
+Manuals: man-db, man-pages\
+User directory manager: xdg-user-dirs
 
 # Development
 
