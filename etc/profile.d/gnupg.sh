@@ -1,0 +1,1 @@
+export GNUPGHOME="$XDG_STATE_HOME"/gnupg
