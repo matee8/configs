@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 555
+Packages: 571
 
 # Packages
 
@@ -30,7 +30,8 @@ Status bar: yambar (AUR)\
 Launcher: bemenu\
 Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji
+Emoji fonts: noto-fonts-emoji\
+QT compatibility: qt5-wayland
 
 ## Terminal
 
@@ -53,7 +54,8 @@ Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
-Area selector: slurp
+Area selector: slurp\
+Minecraft client: pollymc (AUR)
 
 ## Console
 
@@ -93,6 +95,10 @@ clang
 
 mariadb\
 postgresql
+
+## Java
+
+jdk21-openjdk
 
 ## JavaScript
 

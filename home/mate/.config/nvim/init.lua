@@ -20,7 +20,7 @@ local servers = {
             },
         },
     },
-} 
+}
 
 -- Cursorline
 vim.o.cursorline = true
@@ -87,18 +87,6 @@ vim.o.pumwidth = 30
 vim.o.conceallevel = 2
 vim.o.list = true
 
-
--- File explorer
-vim.g.netrw_banner = 0
-vim.g.netrw_list_hide = '^\\./\\?$,^\\.\\./\\?$'
-vim.g.netrw_keepdir = 1
-vim.g.netrw_sort_sequence = [[[\/]$,*]]
-vim.g.netrw_sizestyle = "H"
-vim.g.netrw_liststyle = 3
-vim.g.netrw_localcopydircmd = "cp -r"
-vim.g.netrw_localmkdir = "mkdir -p"
-vim.g.netrw_localrmdir = "rm -r"
-
 -- Beeping
 vim.opt.vb = true
 
@@ -164,7 +152,9 @@ vim.keymap.set('n', 'n', 'nzz', { silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 
 -- Open file explorer
-vim.keymap.set('n', '<leader>ee', "<CMD>Explore<CR>", {
+vim.keymap.set('n', '<leader>ee', function()
+        require('oil').open_float()
+    end , {
     silent = true,
     desc = 'Open file browser'
 })
@@ -459,9 +449,14 @@ require('lazy').setup(
         },
         {
             {
-                'prichrd/netrw.nvim',
+                'stevearc/oil.nvim',
                 lazy = false,
-                opts = { },
+                opts = {
+                    default_file_explorer = true,
+                    view_options = {
+                        show_hidden = true,
+                    }
+                },
             },
             {
                 'ibhagwan/fzf-lua',
@@ -572,12 +567,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
                     desc = 'Run 󰙱 '
             })
             vim.keymap.set('n', '<leader>rf',
-                '<CMD>!clang-format -i %<CR>', {
+                '<CMD>!clang-format -i **/*.c **/*.hCR>', {
                     silent = true,
                     desc = 'Run clang-format'
             })
             vim.keymap.set('n', '<leader>rl',
-                '<CMD>terminal clang-tidy *.c<CR>', {
+                '<CMD>terminal clang-tidy **/*.c **/*.h<CR>', {
                     silent = true,
                     desc = 'Run clang-tidy'
             })
