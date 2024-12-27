@@ -84,8 +84,6 @@ vim.o.hlsearch = false
 vim.o.background = 'dark'
 vim.o.pumheight = 10
 vim.o.pumwidth = 30
-vim.o.conceallevel = 2
-vim.o.list = true
 
 -- Beeping
 vim.opt.vb = true
@@ -206,7 +204,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'Go to type definitions',
         })
         vim.keymap.set('n', '<leader>lld', 
-            '<CMD>FzfLufa diagnostics_workspace<CR>', {
+            '<CMD>FzfLua diagnostics_workspace<CR>', {
                     silent = true,
                     desc = 'List diagnostics for all buffers',
         })
@@ -230,7 +228,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.handlers['textDocument/hover'] = 
             vim.lsp.with(vim.lsp.handlers.hover, {
                 border = 'rounded',
-        })
+            })
+
+        vim.lsp.handlers['textDocument/publishDiagnostics'] =
+            vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+                underline = false
+            })
+        
 
         vim.diagnostic.config({
             virtual_text = false,
@@ -287,15 +291,6 @@ require('lazy').setup(
                                     hints = { 'italic' },
                                     warnings = { 'italic' },
                                     information = { 'italic' },
-                                },
-                                underlines = {
-                                    errors = { 'underline' },
-                                    hints = { 'underline' },
-                                    warnings = { 'underline' },
-                                    information = { 'underline' },
-                                },
-                                inlay_hints = {
-                                    background = true,
                                 },
                             },
                         },
@@ -434,6 +429,8 @@ require('lazy').setup(
                         }),
                         window = {
                             completion = 
+                                require('cmp').config.window.bordered(),
+                            documentation =
                                 require('cmp').config.window.bordered(),
                         },
                         sorting = defaults.sorting,
