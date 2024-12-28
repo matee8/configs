@@ -27,6 +27,7 @@ vim.o.cursorline = true
 
 -- Center cursorline
 vim.o.scrolloff = 30
+vim.o.sidescrolloff = 30
 
 -- Line numbers
 vim.o.number = true
@@ -74,6 +75,7 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 -- Appearance 
+vim.o.list = true
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.o.signcolumn = 'yes'
@@ -152,14 +154,13 @@ vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 -- Open file explorer
 vim.keymap.set('n', '<leader>ee', function()
         require('oil').open_float()
-    end , {
+    end, {
     silent = true,
     desc = 'Open file browser'
 })
 
 -- Close floating window
-vim.keymap.set('n', '<leader>q', 
-    function() 
+vim.keymap.set('n', '<leader>q', function() 
         if vim.api.nvim_get_current_win() ~= 1000 then
             vim.api.nvim_win_close(vim.api.nvim_get_current_win(), {}) 
         end
@@ -187,10 +188,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
             silent = true, 
             desc = 'Format file',
         })
-        vim.keymap.set('n', '<leader>lqf', '<CMD>FzfLua quickfix<CR>', {
-                silent = true,
-                desc = 'Quick fixes',
-        })
         vim.keymap.set('n', '<leader>ld', '<CMD>FzfLua lsp_definitions<CR>', {
                 silent = true,
                 desc = 'Go to definitions',
@@ -198,10 +195,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>lr', '<CMD>FzfLua lsp_references<CR>', {
                 silent = true,
                 desc = 'Go to references',
-        })
-        vim.keymap.set('n', '<leader>lt', '<CMD>FzfLua lsp_typedefs', {
-                silent = true,
-                desc = 'Go to type definitions',
         })
         vim.keymap.set('n', '<leader>lld', 
             '<CMD>FzfLua diagnostics_workspace<CR>', {
@@ -212,7 +205,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             silent = true,
             desc = 'Rename',
         })
-        
+
         -- Fix LSP floating window
         local orig_util_open_floating_preview = 
             vim.lsp.util.open_floating_preview
@@ -223,22 +216,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
             opts.max_height = opts.max_height or 15
             return orig_util_open_floating_preview(contents, syntax, opts, ...)
         end
-        
+
         -- Diagnostic
         vim.lsp.handlers['textDocument/hover'] = 
             vim.lsp.with(vim.lsp.handlers.hover, {
                 border = 'rounded',
             })
 
-        vim.lsp.handlers['textDocument/publishDiagnostics'] =
-            vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                underline = false
-            })
-        
 
         vim.diagnostic.config({
             virtual_text = false,
             update_in_insert = true,
+            underline = false,
             float = { border = 'rounded' }
         })
     end,
@@ -286,22 +275,16 @@ require('lazy').setup(
                             harpoon = true,
                             native_lsp = {
                                 enabled = true,
-                                virtual_text = {
-                                    errors = { 'italic' },
-                                    hints = { 'italic' },
-                                    warnings = { 'italic' },
-                                    information = { 'italic' },
-                                },
-                            },
+                            }
                         },
                     })
                 end,
             },
             {
-                'nvim-tree/nvim-web-devicons',
+                'echasnovski/mini.icons',
                 lazy = false,
                 opts = {
-                    variant = "dark",
+                    style = 'glyph',
                 },
             },
             { 
@@ -359,10 +342,11 @@ require('lazy').setup(
             { 
                 'nvim-treesitter/nvim-treesitter', 
                 event = 'VeryLazy',
-                run = '<CMD>TSUpdate<CR>',
+                build = '<CMD>TSUpdate<CR>',
                 opts = {
                     ensure_installed = {
                         'c',
+                        'printf',
                         'lua',
                         'vimdoc',
                         'javascript',
@@ -376,8 +360,10 @@ require('lazy').setup(
                     sync_install = false,
                     auto_install = true,
                     indent = { enable = true },
-                    highlight = { enable = true },
-                    textobjects = { move = { enable = true } },
+                    highlight = { 
+                        enable = true,
+                        additional_vim_regex_highlighting = false,
+                    },
                 },
             },
             { 
@@ -535,13 +521,24 @@ require('lazy').setup(
                 },
             },
             {
-                'windwp/nvim-autopairs',
-                event = 'InsertEnter',
-                config = true,
-                opts = {
-                    disable_in_macro = false,
-                    disable_in_replace_mode = false,
+                "folke/flash.nvim",
+                event = "VeryLazy",
+                opts = {},
+                keys = {
+                    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+                    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
                 },
+            },
+            {
+                'echasnovski/mini.pairs',
+                event = { 'InsertEnter', 'CmdlineEnter' },
+                opts = {
+                    modes = { insert = true, command = true },
+                    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+                    skip_ts = { 'string' },
+                    skip_unbalanced = true,
+                    markdown = true
+                }
             },
         },
     },
