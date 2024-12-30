@@ -18,7 +18,6 @@ riverctl map normal None Print spawn "pkill slurp || slurp | grim -g - - | wl-co
 riverctl map normal Super Q close
 
 riverctl map normal Super+Shift E exit
-riverctl map normal Super period spawn "systemctl suspend"
 
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
@@ -59,11 +58,13 @@ riverctl border-color-unfocused 0x11111b
 riverctl border-width 3
 riverctl rule-add -app-id 'firefox*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
+riverctl rule-add -app-id 'zathura*' ssd
 
 riverctl default-layout rivertile
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
 
 # riverctl spawn "swaybg -i ~/Pictures/Wallpapers/ocean.png -o eDP-1"
+riverctl spawn "wbg Pictures/wallpapers/ocean.png"
 riverctl spawn "yambar"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river:wlroots"
