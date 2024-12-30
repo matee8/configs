@@ -3,6 +3,7 @@ return {
     as = "catppuccin",
     lazy = false,
     priority = 10000,
+    opts = {},
     config = function()
         require("catppuccin").setup({
             flavour = "mocha",
@@ -19,5 +20,6 @@ return {
                 },
             },
         })
+        vim.cmd.colorscheme("catppuccin")
     end,
 }

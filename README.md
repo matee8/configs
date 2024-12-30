@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 571
+Packages: 572
 
 # Packages
 
@@ -107,6 +107,10 @@ nodejs\
 eslint\
 prettier\
 nodemon (npm)
+
+## Lua
+
+stylua
 
 ## Python
 

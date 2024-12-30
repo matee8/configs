@@ -6,12 +6,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
 
         vim.diagnostic.config({
-            underline = false,
             update_in_insert = false,
-            virtual_text = false,
             severity_sort = true,
+            underline = true,
+            virtual_text = {
+                prefix = "●",
+                source = "if_many",
+                spacing = 4,
+            },
             float = {
+                focusable = false,
+                style = "minimal",
                 border = "rounded",
+                source = "always",
+                header = "",
+                prefix = "",
             },
         })
     end,
