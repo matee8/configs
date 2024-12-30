@@ -8,24 +8,7 @@ return {
         "hrsh7th/cmp-path",
     },
     opts = function()
-        vim.api.nvim_set_hl(0, "CmpGhostText", {
-            link = "Comment",
-            default = true,
-        })
         local cmp = require("cmp")
-        local defaults = require("cmp.config.default")()
-
-        cmp.setup.cmdline(":", {
-            sources = { { name = "cmdline", name = "path" } },
-        })
-
-        cmp.setup.cmdline({ "/", "?" }, {
-            sources = { { name = "buffer" } },
-        })
-
-        cmp.setup.cmdline("!", {
-            sources = { { name = "path" } },
-        })
 
         return {
             completion = {
@@ -43,7 +26,7 @@ return {
                 ["<A-k>"] = cmp.mapping.scroll_docs(-4),
                 ["<A-j>"] = cmp.mapping.scroll_docs(4),
                 ["<C-f>"] = cmp.mapping.confirm({
-                    select = true,
+                    select = false,
                 }),
             }),
             sources = cmp.config.sources({
@@ -53,10 +36,9 @@ return {
                 { name = "path" },
             }),
             window = {
-                completion = require("cmp").config.window.bordered(),
-                documentation = require("cmp").config.window.bordered(),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
-            sorting = defaults.sorting,
             formatting = {
                 format = function(entry, vim_item)
                     vim_item.menu = nil
@@ -64,5 +46,36 @@ return {
                 end,
             },
         }
+    end,
+    config = function(_, opts)
+        local cmp = require("cmp")
+
+        cmp.setup.cmdline({ "/", "?" }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = { { name = "buffer" } },
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
+
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = { { name = "cmdline" }, { name = "path" } },
+            matching = {
+                disallow_symbol_non_prefix_matching = false,
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
+
+        cmp.setup.cmdline("!", {
+            sources = { { name = "path" } },
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
+
+        cmp.setup(opts)
     end,
 }

@@ -39,7 +39,9 @@ set_keymap("n", "<leader>d", '"_dd', {
 })
 
 -- Open file explorer
-set_keymap("n", "<leader>ee", "<CMD>Oil<CR>", {
+set_keymap("n", "<leader>ee", function()
+    require("oil").open_float()
+end, {
     silent = true,
     desc = "Open file browser",
 })
@@ -57,11 +59,6 @@ end, {
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
-        set_keymap("n", "<leader>le", vim.diagnostic.open_float, {
-            silent = true,
-            desc = "Show diagnostic for line",
-        })
-
         set_keymap("n", "<leader>ln", vim.lsp.buf.rename, {
             silent = true,
             desc = "Rename",

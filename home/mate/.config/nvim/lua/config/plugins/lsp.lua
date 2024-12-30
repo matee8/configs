@@ -40,25 +40,18 @@ return {
             end,
         },
     },
-    ft = {
-        "c",
-        "cpp",
-        "python",
-        "bash",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "rust",
-    },
-    cmd = { "Mason" },
     opts = {
         ensure_installed = vim.tbl_keys(servers),
         handlers = {
             function(server)
                 local opts = servers[server] or {}
-                opts.capabilities =
+                local capabilities = vim.tbl_deep_extend(
+                    "force",
+                    {},
+                    vim.lsp.protocol.make_client_capabilities(),
                     require("cmp_nvim_lsp").default_capabilities()
+                )
+                opts.capabilities = capabilities
                 require("lspconfig")[server].setup(opts)
             end,
         },
