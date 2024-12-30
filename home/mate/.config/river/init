@@ -63,7 +63,6 @@ riverctl rule-add -app-id 'zathura*' ssd
 riverctl default-layout rivertile
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
 
-# riverctl spawn "swaybg -i ~/Pictures/Wallpapers/ocean.png -o eDP-1"
 riverctl spawn "wbg Pictures/wallpapers/ocean.png"
 riverctl spawn "yambar"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
