@@ -6,12 +6,9 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-path",
-        "zbirenbaum/copilot-cmp",
     },
     opts = function()
         local cmp = require("cmp")
-        local copilot_cmp = require("copilot_cmp")
-        copilot_cmp.setup({})
 
         return {
             completion = {
@@ -34,7 +31,6 @@ return {
                 }),
             }),
             sources = cmp.config.sources({
-                { name = "copilot" },
                 { name = "nvim_lsp" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "buffer" },
