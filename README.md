@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 572
+Packages: 633
 
 # Packages
 
@@ -52,10 +52,12 @@ zsh-syntax-highlighting
 Browser: firefox-developer-edition\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
+BitTorrent client: qbittorrent\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
 Area selector: slurp\
-Minecraft client: pollymc (AUR)
+Minecraft client: pollymc-qt5-bin (AUR)\
+Epic Games Launcher: heroic-games-launcher-bin
 
 ## Console
 
@@ -69,6 +71,8 @@ Paginator: less\
 Archive manager: atool\
 Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
+Game optimizations: gamemode\
+Windows emulator: wine\
 System resource monitor: btop\
 Fuzzy finder: fzf\
 Find alternative: fd\
@@ -85,7 +89,8 @@ Editor: neovim\
 Version control: git\
 Memory management checker: valgrind\
 Container packer: docker\
-Debugger: gdb
+Debugger: gdb\
+LLM runner: ollama
 
 ## C/C++
 
@@ -94,7 +99,8 @@ clang
 ## Database
 
 mariadb\
-postgresql
+postgresql\
+sqlite
 
 ## Java
 
