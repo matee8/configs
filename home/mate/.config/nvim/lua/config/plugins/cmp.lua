@@ -21,7 +21,7 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-c>"] = cmp.mapping.abort(),
+                ["<C-d>"] = cmp.mapping.abort(),
                 ["<C-K>"] = cmp.mapping.select_prev_item(),
                 ["<C-J>"] = cmp.mapping.select_next_item(),
                 ["<A-k>"] = cmp.mapping.scroll_docs(-4),
@@ -45,11 +45,6 @@ return {
                     vim_item.menu = nil
                     return vim_item
                 end,
-            },
-            experimental = {
-                ghost_text = {
-                    hl_group = "Comment",
-                },
             },
         }
     end,
