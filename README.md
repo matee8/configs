@@ -87,6 +87,7 @@ User directory manager: xdg-user-dirs
 
 Editor: neovim\
 Version control: git\
+Commit helper: opencommit (npm)\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb\
