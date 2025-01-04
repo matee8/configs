@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 633
+Packages: 634
 
 # Packages
 
@@ -49,7 +49,7 @@ zsh-syntax-highlighting
 
 ### Graphical
 
-Browser: firefox-developer-edition\
+Browser: brave-bin (AUR)\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
 BitTorrent client: qbittorrent\
