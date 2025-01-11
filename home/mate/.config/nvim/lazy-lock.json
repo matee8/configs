@@ -9,6 +9,7 @@
   "fzf-lua": { "branch": "main", "commit": "3d7e5db8fa56cfc2b92a38999016a51abe9e1d23" },
   "gitsigns.nvim": { "branch": "main", "commit": "2eaa30537365f6889c850bd46ef6f18ddf8fac70" },
   "harpoon": { "branch": "harpoon2", "commit": "a84ab829eaf3678b586609888ef52f7779102263" },
+  "jupytext.nvim": { "branch": "master", "commit": "2e86acfa4345f611c86f57116db0c06ffecb721d" },
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
   "lualine.nvim": { "branch": "master", "commit": "2a5bae925481f999263d6f5ed8361baef8df4f83" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "97d9f1d3ad205dece6bcafd1d71cf1507608f3c7" },
@@ -21,6 +22,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "8ca76960ae75e0a3bb231402558eb50e79433161" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595" },
   "oil.nvim": { "branch": "master", "commit": "7041528bdedb350ad66e650684deec8456e053cc" },
+  "otter.nvim": { "branch": "main", "commit": "3ff6c154d55528fbde475b2a722f91389421e873" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "render-markdown.nvim": { "branch": "main", "commit": "786d643ac7a691515d401930b8850f596992725d" }
 }
