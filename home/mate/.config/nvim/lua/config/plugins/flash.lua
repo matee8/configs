@@ -5,25 +5,42 @@ return {
     keys = {
         {
             "s",
-            mode = { "n", "x", "o" },
+            mode = {
+                "n",
+                "x",
+                "o",
+            },
             function()
-                require("flash").jump()
+                require(
+                    "flash"
+                ).jump()
             end,
             desc = "Flash",
         },
         {
             "S",
-            mode = { "n", "x", "o" },
+            mode = {
+                "n",
+                "x",
+                "o",
+            },
             function()
-                require("flash").treesitter()
+                require(
+                    "flash"
+                ).treesitter()
             end,
             desc = "Flash Treesitter",
         },
         {
             "r",
-            mode = { "o", "x" },
+            mode = {
+                "o",
+                "x",
+            },
             function()
-                require("flash").treesitter_search()
+                require(
+                    "flash"
+                ).treesitter_search()
             end,
             desc = "Treesitter Search",
         },

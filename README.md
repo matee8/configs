@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 634
+Packages: 610
 
 # Packages
 
@@ -30,8 +30,7 @@ Status bar: yambar (AUR)\
 Launcher: bemenu\
 Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji\
-QT compatibility: qt5-wayland
+Emoji fonts: noto-fonts-emoji
 
 ## Terminal
 
@@ -49,14 +48,12 @@ zsh-syntax-highlighting
 
 ### Graphical
 
-Browser: brave-bin (AUR)\
+Browser: firefox-developer-edition\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
-BitTorrent client: qbittorrent\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
 Area selector: slurp\
-Minecraft client: pollymc-qt5-bin (AUR)\
 Epic Games Launcher: heroic-games-launcher-bin
 
 ## Console
@@ -102,10 +99,6 @@ clang
 mariadb\
 postgresql\
 sqlite
-
-## Java
-
-jdk21-openjdk
 
 ## JavaScript
 
