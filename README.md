@@ -58,7 +58,6 @@ Epic Games Launcher: heroic-games-launcher-bin
 
 ## Console
 
-Screen recorder: wl-screenrec (AUR)\
 Screenshot utility: grim\
 Clipboard utilities: wl-clipboard\
 Markdown renderer: glow\
@@ -84,7 +83,6 @@ User directory manager: xdg-user-dirs
 
 Editor: neovim\
 Version control: git\
-Commit helper: opencommit (npm)\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb\
@@ -103,7 +101,6 @@ sqlite
 ## JavaScript
 
 npm\
-nodejs\
 eslint\
 prettier\
 nodemon (npm)
