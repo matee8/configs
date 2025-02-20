@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 610
+Packages: 646
 
 # Packages
 
@@ -86,7 +86,8 @@ Version control: git\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb\
-LLM runner: ollama
+LLM runner: ollama\
+Visual simulation tool: packettracer (AUR)
 
 ## C/C++
 
@@ -97,6 +98,11 @@ clang
 mariadb\
 postgresql\
 sqlite
+
+## Java
+
+jdk-openjdk\
+maven
 
 ## JavaScript
 
