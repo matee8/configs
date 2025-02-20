@@ -18,11 +18,12 @@ local servers =
                         allFeatures = true,
                     },
                     checkOnSave = {
-                        allTargets = false,
+                        command = "clippy",
                     },
                 },
             },
         },
+        jdtls = {},
     }
 
 return {
