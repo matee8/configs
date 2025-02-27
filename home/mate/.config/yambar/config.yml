@@ -5,7 +5,7 @@ bar:
   spacing: 10
   margin: 5
   location: top
-  font: Hack Nerd Font:style=Bold:size=14:antialiasing=true
+  font: Hack Nerd Font:style=Bold:size=14
   foreground: CDD6F4FF
   background: 11111BFF
   left:
@@ -18,7 +18,7 @@ bar:
                 - map:
                     conditions:
                       state == "focused":
-                        string: {text: "{id}", foreground: *primary, margin: 5, font: Hack Nerd Font:style=Bold:size=16:antialiasing=true}
+                        string: {text: "{id}", foreground: *primary, margin: 5, font: Hack Nerd Font:style=Bold:size=16}
                       state == "invisible":
                         string: {text: "{id}", margin: 5}
                       id == "default":
@@ -31,16 +31,6 @@ bar:
               activated:
                 - string: {text: "{app-id}"}
   right:
-    - disk-io:
-        poll-interval: 1000
-        content:
-          map:
-            conditions:
-              device == Total:
-                - string: {text: "󱛟 ", foreground: *primary}
-                - string: {text: "I: {read_speed:mb} MB/s, "}
-                - string: {text: "O: {write_speed:mb} MB/s "}
-                - string: {text: "I/Os: {ios_in_progress}"}
     - cpu:
         poll-interval: 1000
         content:

@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 646
+Packages: 649
 
 # Packages
 
@@ -30,7 +30,8 @@ Status bar: yambar (AUR)\
 Launcher: bemenu\
 Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji
+Emoji fonts: noto-fonts-emoji\
+Wayland compatibility API: qt5-wayland
 
 ## Terminal
 
@@ -92,6 +93,10 @@ Visual simulation tool: packettracer (AUR)
 ## C/C++
 
 clang
+
+## C#
+
+dotnet-sdk
 
 ## Database
 
