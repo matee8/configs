@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 649
+Packages: 653
 
 # Packages
 
@@ -49,7 +49,7 @@ zsh-syntax-highlighting
 
 ### Graphical
 
-Browser: firefox-developer-edition\
+Browser: librewolf (AUR)\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
 Image viewer: imv\
