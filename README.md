@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 653
+Packages: 650
 
 # Packages
 
