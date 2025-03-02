@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 650
+Packages: 651
 
 # Packages
 
@@ -18,7 +18,8 @@ Display server protocol: wayland\
 Bluetooth: bluez, bluez-utils\
 Backlight: brightnessctl\
 Network: networkmanager\
-Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire\
+Multimedia processor: pipewire, wireplumber, gst-plugin-pipewire,
+pipewire-pulse\
 Digital signal processor: sof-firmware\
 OpenGL: mesa\
 Vulkan: vulkan-radeon
