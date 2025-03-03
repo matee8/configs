@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 651
+Packages: 654
 
 # Packages
 
@@ -103,7 +103,8 @@ dotnet-sdk
 
 mariadb\
 postgresql\
-sqlite
+sqlite\
+mongodb-bin (AUR), mongodb-tools (AUR), mongosh-bin (AUR)
 
 ## Java
 
