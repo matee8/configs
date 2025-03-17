@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 654
+Packages: 610
 
 # Packages
 
@@ -50,13 +50,13 @@ zsh-syntax-highlighting
 
 ### Graphical
 
-Browser: librewolf (AUR)\
+Browser: librewolf-bin (AUR)\
 Office suite: libreoffice-fresh\
 PDF viewer: zathura, zathura-pdf-mupdf\
+Mail client: thunderbird\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
-Area selector: slurp\
-Epic Games Launcher: heroic-games-launcher-bin
+Area selector: slurp
 
 ## Console
 
@@ -69,8 +69,6 @@ Paginator: less\
 Archive manager: atool\
 Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
-Game optimizations: gamemode\
-Windows emulator: wine\
 System resource monitor: btop\
 Fuzzy finder: fzf\
 Find alternative: fd\
@@ -88,7 +86,6 @@ Version control: git\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb\
-LLM runner: ollama\
 Visual simulation tool: packettracer (AUR)
 
 ## C/C++
