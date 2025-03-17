@@ -67,6 +67,7 @@ File sync: rclone\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
+File retriever: wget\
 Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
 System resource monitor: btop\
@@ -86,6 +87,7 @@ Version control: git\
 Memory management checker: valgrind\
 Container packer: docker\
 Debugger: gdb\
+LLM inference: llama.cpp-bin (AUR)\
 Visual simulation tool: packettracer (AUR)
 
 ## C/C++
