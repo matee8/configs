@@ -1,30 +1,30 @@
-local servers =
-    {
-        clangd = {
-            cmd = {
-                "clangd",
-                "--offset-encoding=utf-16",
-                "--header-insertion=never",
-            },
+local servers = {
+    clangd = {
+        cmd = {
+            "clangd",
+            "--offset-encoding=utf-16",
+            "--header-insertion=never",
         },
-        pyright = {},
-        html = {},
-        cssls = {},
-        ts_ls = {},
-        rust_analyzer = {
-            settings = {
-                ["rust-analyzer"] = {
-                    cargo = {
-                        allFeatures = true,
-                    },
-                    checkOnSave = {
-                        command = "clippy",
-                    },
+    },
+    pyright = {},
+    html = {},
+    cssls = {},
+    ts_ls = {},
+    rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    allFeatures = true,
+                },
+                checkOnSave = {
+                    command = "clippy",
                 },
             },
         },
-        jdtls = {},
-    }
+    },
+    jdtls = {},
+    omnisharp = {},
+}
 
 return {
     "williamboman/mason-lspconfig.nvim",
@@ -36,9 +36,7 @@ return {
                 "<CMD>MasonUpdate<CR>",
             },
             config = function()
-                require(
-                    "mason"
-                ).setup({
+                require("mason").setup({
                     ui = {
                         border = "rounded",
                     },
@@ -47,31 +45,18 @@ return {
         },
     },
     opts = {
-        ensure_installed = vim.tbl_keys(
-            servers
-        ),
+        ensure_installed = vim.tbl_keys(servers),
         handlers = {
-            function(
-                server
-            )
-                local opts = servers[server]
-                    or {}
-                local capabilities =
-                    vim.tbl_deep_extend(
-                        "force",
-                        {},
-                        vim.lsp.protocol.make_client_capabilities(),
-                        require(
-                            "cmp_nvim_lsp"
-                        ).default_capabilities()
-                    )
-                opts.capabilities =
-                    capabilities
-                require(
-                    "lspconfig"
-                )[server].setup(
-                    opts
+            function(server)
+                local opts = servers[server] or {}
+                local capabilities = vim.tbl_deep_extend(
+                    "force",
+                    {},
+                    vim.lsp.protocol.make_client_capabilities(),
+                    require("cmp_nvim_lsp").default_capabilities()
                 )
+                opts.capabilities = capabilities
+                require("lspconfig")[server].setup(opts)
             end,
         },
     },

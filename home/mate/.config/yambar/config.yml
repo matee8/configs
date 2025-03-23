@@ -61,19 +61,15 @@ bar:
               name == "wlp1s0":
                 - string: {text: "󰖩 ", foreground: *primary}
                 - string: {text: "{state}"}
-    - pipewire:
+    - pulse:
         content:
-          map:
-            conditions:
-              type == "sink":
-                - string: {text: " ", foreground: *primary}
-                - string: {text: "{form_factor}"}
-                - map:
-                    conditions:
-                      ~muted:
-                        string: {text: "{cubic_volume}%"}
-                      muted:
-                        string: {text: "mute"}
+          - string: {text: " ", foreground: *primary}
+          - map:
+              conditions:
+                ~sink_muted:
+                  string: {text: "{sink_percent}%"}
+                sink_muted:
+                  string: {text: "mute"}
     - backlight:
         name: amdgpu_bl1
         content:

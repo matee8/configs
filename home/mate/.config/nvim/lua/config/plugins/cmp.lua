@@ -11,10 +11,7 @@ return {
         "hrsh7th/cmp-path",
     },
     opts = function()
-        local cmp =
-            require(
-                "cmp"
-            )
+        local cmp = require("cmp")
 
         return {
             completion = {
@@ -22,24 +19,16 @@ return {
             },
             preselect = cmp.PreselectMode.Item,
             snippet = {
-                expand = function(
-                    args
-                )
-                    vim.snippet.expand(
-                        args.body
-                    )
+                expand = function(args)
+                    vim.snippet.expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-d>"] = cmp.mapping.abort(),
                 ["<C-K>"] = cmp.mapping.select_prev_item(),
                 ["<C-J>"] = cmp.mapping.select_next_item(),
-                ["<A-k>"] = cmp.mapping.scroll_docs(
-                    -4
-                ),
-                ["<A-j>"] = cmp.mapping.scroll_docs(
-                    4
-                ),
+                ["<A-k>"] = cmp.mapping.scroll_docs(-4),
+                ["<A-j>"] = cmp.mapping.scroll_docs(4),
                 ["<C-f>"] = cmp.mapping.confirm({
                     select = false,
                 }),
@@ -50,9 +39,6 @@ return {
                 },
                 {
                     name = "nvim_lsp_signature_help",
-                },
-                {
-                    name = "render-markdown",
                 },
                 {
                     name = "buffer",
@@ -66,81 +52,84 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             formatting = {
-                format = function(
-                    entry,
-                    vim_item
-                )
-                    vim_item.menu =
-                        nil
+                format = function(entry, vim_item)
+                    vim_item.menu = nil
                     return vim_item
                 end,
             },
         }
     end,
-    config = function(
-        _,
-        opts
-    )
-        local cmp =
-            require(
-                "cmp"
-            )
+    config = function(_, opts)
+        local cmp = require("cmp")
 
-        cmp.setup.cmdline(
-            {
-                "/",
-                "?",
+        cmp.setup.cmdline({
+            "/",
+            "?",
+        }, {
+            mapping = cmp.mapping.preset.cmdline({
+                ["<C-k>"] = {
+                    c = cmp.mapping.select_prev_item(),
+                },
+                ["<C-j>"] = {
+                    c = cmp.mapping.select_next_item(),
+                },
+                ["<C-f>"] = {
+                    c = cmp.mapping.confirm({
+                        select = false,
+                    }),
+                },
+            }),
+            sources = {
+                {
+                    name = "buffer",
+                },
             },
-            {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    {
-                        name = "buffer",
-                    },
-                },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                },
-            }
-        )
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
 
-        cmp.setup.cmdline(
-            ":",
-            {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    {
-                        name = "cmdline",
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline({
+                ["<C-k>"] = {
+                    c = cmp.mapping.select_prev_item(),
+                },
+                ["<C-j>"] = {
+                    c = cmp.mapping.select_next_item(),
+                },
+                ["<C-f>"] = {
+                    c = cmp.mapping.confirm({
+                        select = false,
+                    }),
+                },
+            }),
+            sources = {
+                {
+                    name = "cmdline",
+                    option = {
+                        ignore_cmds = {},
                     },
-                    {
-                        name = "path",
-                    },
                 },
-                matching = {
-                    disallow_symbol_non_prefix_matching = false,
+                {
+                    name = "path",
                 },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                },
-            }
-        )
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
 
-        cmp.setup.cmdline(
-            "!",
-            {
-                sources = {
-                    {
-                        name = "path",
-                    },
+        cmp.setup.cmdline("!", {
+            sources = {
+                {
+                    name = "path",
                 },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                },
-            }
-        )
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+            },
+        })
 
-        cmp.setup(
-            opts
-        )
+        cmp.setup(opts)
     end,
 }

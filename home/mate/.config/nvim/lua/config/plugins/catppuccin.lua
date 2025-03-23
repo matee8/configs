@@ -5,9 +5,7 @@ return {
     priority = 10000,
     opts = {},
     config = function()
-        require(
-            "catppuccin"
-        ).setup({
+        require("catppuccin").setup({
             flavour = "mocha",
             transparent_background = true,
             show_end_of_buffer = false,
@@ -22,8 +20,6 @@ return {
                 },
             },
         })
-        vim.cmd.colorscheme(
-            "catppuccin"
-        )
+        vim.cmd.colorscheme("catppuccin")
     end,
 }

@@ -13,10 +13,10 @@ x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
-x-scheme-handler/mailto=userapp-Thunderbird-MYVI22.desktop
-message/rfc822=userapp-Thunderbird-MYVI22.desktop
-x-scheme-handler/mid=userapp-Thunderbird-MYVI22.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-JIWA32.desktop
+message/rfc822=userapp-Thunderbird-JIWA32.desktop
+x-scheme-handler/mid=userapp-Thunderbird-JIWA32.desktop
 
 [Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-MYVI22.desktop;
-x-scheme-handler/mid=userapp-Thunderbird-MYVI22.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-JIWA32.desktop;userapp-Thunderbird-MYVI22.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-JIWA32.desktop;userapp-Thunderbird-MYVI22.desktop;

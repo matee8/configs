@@ -9,57 +9,35 @@ return {
         },
     },
     keys = function()
-        local keys =
+        local keys = {
             {
-                {
-                    "<leader>ha",
-                    function()
-                        require(
-                                "harpoon"
-                            )
-                            :list()
-                            :add()
-                    end,
-                    desc = "Add to harpoon list",
-                    silent = true,
-                },
-                {
-                    "<leader>hm",
-                    function()
-                        local harpoon =
-                            require(
-                                "harpoon"
-                            )
-                        harpoon.ui:toggle_quick_menu(
-                            harpoon:list()
-                        )
-                    end,
-                    desc = "Show harpoon list",
-                    silent = true,
-                },
-            }
+                "<leader>ha",
+                function()
+                    require("harpoon"):list():add()
+                end,
+                desc = "Add to harpoon list",
+                silent = true,
+            },
+            {
+                "<leader>hm",
+                function()
+                    local harpoon = require("harpoon")
+                    harpoon.ui:toggle_quick_menu(harpoon:list())
+                end,
+                desc = "Show harpoon list",
+                silent = true,
+            },
+        }
 
         for i = 1, 9 do
-            table.insert(
-                keys,
-                {
-                    "<A-"
-                        .. i
-                        .. ">",
-                    function()
-                        require(
-                                "harpoon"
-                            )
-                            :list()
-                            :select(
-                                i
-                            )
-                    end,
-                    desc = "Go to harpoon "
-                        .. i,
-                    silent = true,
-                }
-            )
+            table.insert(keys, {
+                "<A-" .. i .. ">",
+                function()
+                    require("harpoon"):list():select(i)
+                end,
+                desc = "Go to harpoon " .. i,
+                silent = true,
+            })
         end
 
         return keys
