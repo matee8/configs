@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 611
+Packages: 609
 
 # Packages
 
@@ -28,7 +28,6 @@ Vulkan: vulkan-radeon
 
 Compositor: river\
 Status bar: yambar (AUR)\
-Launcher: bemenu\
 Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
 Emoji fonts: noto-fonts-emoji\
@@ -62,18 +61,14 @@ Area selector: slurp
 
 Screenshot utility: grim\
 Clipboard utilities: wl-clipboard\
-Markdown renderer: glow\
 File sync: rclone\
 Remote login: openssh\
 Paginator: less\
 Archive manager: atool\
-File retriever: wget\
 Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
 System resource monitor: btop\
 Fuzzy finder: fzf\
-Find alternative: fd\
-Search tool: ripgrep\
 Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
 Pacman mirror retriever: reflector\
@@ -85,7 +80,6 @@ User directory manager: xdg-user-dirs
 Editor: neovim\
 Version control: git\
 Memory management checker: valgrind\
-Container packer: docker\
 Debugger: gdb\
 LLM inference: llama.cpp-bin (AUR)\
 Visual simulation tool: packettracer (AUR)
@@ -96,7 +90,12 @@ clang
 
 ## C#
 
-dotnet-sdk
+dotnet-sdk\
+omnisharp-roslyn (AUR)
+
+## CSS
+
+vscode-css-languageserver
 
 ## Database
 
@@ -105,17 +104,23 @@ postgresql\
 sqlite\
 mongodb-bin (AUR), mongodb-tools (AUR), mongosh-bin (AUR)
 
+## HTML
+
+vscode-html-language-server
+
 ## Java
 
 jdk-openjdk\
-maven
+maven\
+jdtls (AUR)
 
 ## JavaScript
 
 npm\
 eslint\
 prettier\
-nodemon (npm)
+nodemon (npm)\
+typescript-language-server
 
 ## Lua
 
@@ -125,7 +130,8 @@ stylua
 
 python\
 python-pylint\
-yapf
+yapf\
+pyright
 
 ## Rust
 

@@ -2,7 +2,6 @@ return {
     "ibhagwan/fzf-lua",
     event = "VeryLazy",
     opts = {
-        "default-title",
         defaults = {
             formatter = "path.dirname_first",
         },
@@ -13,13 +12,13 @@ return {
     keys = {
         {
             "<leader>ff",
-            "<CMD>FzfLua files<CR>",
+            "<Cmd>FzfLua files<Cr>",
             desc = "Fuzzy find files",
             silent = true,
         },
         {
             "<leader>fs",
-            "<CMD>FzfLua grep_project<CR>",
+            "<Cmd>FzfLua grep_project<Cr>",
             desc = "Fuzzy grep over files in project",
             silent = true,
         },

@@ -1,13 +1,16 @@
--- Leader
-vim.g.mapleader = " "
-
 local set_keymap = vim.keymap.set
 
--- General keymaps
-set_keymap({
-    "i",
-    "t",
-}, "<C-c>", "<Esc>")
+set_keymap(
+    {
+        "i",
+        "t",
+    },
+    "<C-c>",
+    "<Esc>",
+    {
+        silent = true,
+    }
+)
 
 set_keymap("i", "<C-h>", "<Left>", {
     silent = true,
@@ -19,13 +22,6 @@ set_keymap("i", "<C-k>", "<Up>", {
     silent = true,
 })
 set_keymap("i", "<C-l>", "<Right>", {
-    silent = true,
-})
-
-set_keymap("n", "H", "^", {
-    silent = true,
-})
-set_keymap("n", "L", "$", {
     silent = true,
 })
 
@@ -50,20 +46,14 @@ set_keymap("n", "<leader>d", '"_dd', {
     desc = "Delete without yank",
 })
 
-set_keymap("n", "<leader>ee", function()
-    require("oil").open_float()
-end, {
+set_keymap("n", "<leader>ee", "<CMD>Expl<Cr>", {
     silent = true,
     desc = "Open file browser",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function()
-        set_keymap("n", "<leader>ln", vim.lsp.buf.rename, {
-            silent = true,
-            desc = "Rename",
-        })
-
+    group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),
+    callback = function(ev)
         set_keymap("n", "<leader>la", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, {
@@ -71,17 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             desc = "Show argument names",
         })
 
-        set_keymap("n", "<leader>ld", vim.lsp.buf.definition, {
-            silent = true,
-            desc = "Go to definitions",
-        })
-
-        set_keymap("n", "<leader>lr", "<CMD>FzfLua lsp_references<CR>", {
-            silent = true,
-            desc = "Go to references",
-        })
-
-        set_keymap("n", "<leader>lld", "<CMD>FzfLua diagnostics_workspace<CR>", {
+        set_keymap("n", "<leader>ld", "<CMD>FzfLua diagnostics_workspace<Cr>", {
             silent = true,
             desc = "List diagnostics for all buffers",
         })
