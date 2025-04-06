@@ -51,6 +51,10 @@ set_keymap("n", "<leader>ee", "<CMD>Expl<Cr>", {
     desc = "Open file browser",
 })
 
+set_keymap("i", "<C-f>", "<C-y>", {
+    silent = true,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),
     callback = function(ev)

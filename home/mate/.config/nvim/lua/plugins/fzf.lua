@@ -12,7 +12,7 @@ return {
     keys = {
         {
             "<leader>ff",
-            "<Cmd>FzfLua files<Cr>",
+            "<Cmd>FzfLua git_files<Cr>",
             desc = "Fuzzy find files",
             silent = true,
         },
