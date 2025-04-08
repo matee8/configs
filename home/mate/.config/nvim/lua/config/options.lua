@@ -29,7 +29,7 @@ opt.shiftwidth = 0
 opt.tabstop = 4
 
 -- Completion
-opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
+-- opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
 
 -- Time
 opt.updatetime = 200
