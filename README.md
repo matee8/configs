@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 609
+Packages: 606
 
 # Packages
 
@@ -101,8 +101,7 @@ vscode-css-languageserver
 
 mariadb\
 postgresql\
-sqlite\
-mongodb-bin (AUR), mongodb-tools (AUR), mongosh-bin (AUR)
+sqlite
 
 ## HTML
 
