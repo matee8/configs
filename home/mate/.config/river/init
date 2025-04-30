@@ -59,7 +59,7 @@ riverctl border-color-unfocused 0x11111b
 riverctl border-width 3
 riverctl rule-add -app-id 'LibreWolf*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
-riverctl rule-add -app-id 'zathura*' ssd
+riverctl rule-add -app-id '*zathura*' ssd
 
 riverctl default-layout rivertile
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
