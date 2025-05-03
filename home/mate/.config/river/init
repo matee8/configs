@@ -57,7 +57,7 @@ riverctl background-color 0xF5C2E7
 riverctl border-color-focused 0xF5C2E7
 riverctl border-color-unfocused 0x11111b
 riverctl border-width 3
-riverctl rule-add -app-id 'LibreWolf*' ssd
+riverctl rule-add -app-id 'librewolf*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
 riverctl rule-add -app-id '*zathura*' ssd
 
