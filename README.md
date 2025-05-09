@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 606
+Packages: 593
 
 # Packages
 
@@ -30,8 +30,7 @@ Compositor: river\
 Status bar: yambar (AUR)\
 Wallpaper tool: wbg (AUR)\
 Font: ttf-hack-nerd\
-Emoji fonts: noto-fonts-emoji\
-Wayland compatibility API: qt5-wayland
+Emoji fonts: noto-fonts-emoji
 
 ## Terminal
 
@@ -82,7 +81,7 @@ Version control: git\
 Memory management checker: valgrind\
 Debugger: gdb\
 LLM inference: llama.cpp-bin (AUR)\
-Visual simulation tool: packettracer (AUR)
+LLM API client: aichat (official repository)
 
 ## C/C++
 
@@ -110,7 +109,7 @@ vscode-html-language-server
 ## Java
 
 jdk-openjdk\
-maven\
+gradle\
 jdtls (AUR)
 
 ## JavaScript

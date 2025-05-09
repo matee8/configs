@@ -1,5 +1,5 @@
 return {
-    cmd = { "omnisharp" },
+    cmd = { "omnisharp", "-lsp" },
     filetypes = { "cs" },
     root_markers = {
         "Program.cs",
