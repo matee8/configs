@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 593
+Packages: 639
 
 # Packages
 
@@ -54,7 +54,8 @@ PDF viewer: zathura, zathura-pdf-mupdf\
 Mail client: thunderbird\
 Image viewer: imv\
 Media player: ffplay (ffmpeg)\
-Area selector: slurp
+Area selector: slurp\
+Epic Games Launcher: heroic-games-launcher-bin (AUR)
 
 ## Console
 
@@ -72,7 +73,9 @@ Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
 Pacman mirror retriever: reflector\
 Manuals: man-db, man-pages\
-User directory manager: xdg-user-dirs
+User directory manager: xdg-user-dirs\
+Windows compatibility layer: wine\
+Game optimisations: gamemode
 
 # Development
 
