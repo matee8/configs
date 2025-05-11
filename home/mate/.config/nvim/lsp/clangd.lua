@@ -21,10 +21,5 @@ return {
             "utf-16",
         },
         headerInsertion = "never",
-    },
-    on_attach = function(client, bufnr)
-        vim.lsp.completion.enable(true, client.id, bufnr, {
-            autotrigger = true,
-        })
-    end,
+    }
 }

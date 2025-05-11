@@ -14,6 +14,9 @@ return {
             analysis = {
                 diagnosticMode = "openFilesOnly",
                 logLevel = "Warning",
+                diagnosticSeverityOverrides = {
+                    reportPrivateImportUsage = "none",
+                }
             },
         },
     },

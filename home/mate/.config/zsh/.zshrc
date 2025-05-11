@@ -21,6 +21,7 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 NEWLINE=$'\n'
 export PROMPT="%B%F{}%F{blue}%n@%m%b %F{green}(%?) %F{magenta}%~ ${NEWLINE}%F{red}$ "
 export PATH="$PATH:$HOME/.local/bin"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore-vcs -g "!{.git}"'
 
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down

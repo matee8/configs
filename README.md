@@ -69,6 +69,7 @@ Archivers: unrar, zip, unzip\
 Document format converter: pandoc-bin (AUR)\
 System resource monitor: btop\
 Fuzzy finder: fzf\
+Search tool: ripgrep\
 Smarter cd: zoxide\
 Pacman scripts: pacman-contrib\
 Pacman mirror retriever: reflector\

@@ -46,14 +46,14 @@ set_keymap("n", "<leader>d", '"_dd', {
     desc = "Delete without yank",
 })
 
-set_keymap("n", "<leader>ee", "<CMD>Expl<Cr>", {
+set_keymap("n", "<leader>ee", function() MiniFiles.open() end, {
     silent = true,
     desc = "Open file browser",
 })
 
--- set_keymap("i", "<C-f>", "<C-y>", {
---     silent = true,
--- })
+set_keymap("i", "<C-f>", "<C-y>", {
+    silent = true,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),

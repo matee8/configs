@@ -28,7 +28,6 @@ return {
         end
     end,
     settings = {
-        autoformat = true,
         ["rust-analyzer"] = {
             cargo = {
                 allFeatures = true,
