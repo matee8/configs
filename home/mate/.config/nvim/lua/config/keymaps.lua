@@ -55,6 +55,10 @@ set_keymap("i", "<C-f>", "<C-y>", {
     silent = true,
 })
 
+set_keymap("i", "<C-Space>", "<Nop>", {
+    silent = true,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),
     callback = function(ev)
