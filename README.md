@@ -113,7 +113,7 @@ vscode-html-language-server
 ## Java
 
 jdk-openjdk\
-gradle\
+maven\
 jdtls (AUR)
 
 ## JavaScript
