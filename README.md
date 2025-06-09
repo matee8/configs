@@ -1,7 +1,7 @@
 # .config files
 
 Operating System: Arch Linux\
-Packages: 639
+Packages: 779
 
 # Packages
 
@@ -123,6 +123,17 @@ eslint\
 prettier\
 nodemon (npm)\
 typescript-language-server
+
+## LaTeX
+
+biber\
+texlab\
+texlive-bibtexextra\
+texlive-bibtexextra\
+texlive-fontsrecommended\
+texlive-langeuropean\
+texlive-latexextra\
+texlive-mathscience
 
 ## Lua
 
