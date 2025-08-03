@@ -22,6 +22,7 @@
         brightnessctl
         heroic
         glow
+        qbittorrent
     ];
 
     programs = {
