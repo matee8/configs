@@ -1,8 +1,9 @@
 # NixOS & Home-Manager Configuration
 
-This repository contains my NixOS and Home-Manager configuration. It sets up
-a personalized, tiling-based desktop environment on Wayland, tailored for my
-personal workflow and thus might be opinionated and might not generalize well.
+This repository contains my personal NixOS and Home-Manager configuration.
+It uses Nix Flakes to declaratively manage a tailored, tiling-based Wayland
+desktop environment. The setup is designed to be modular and portable across
+different machines.
 
 # Quick links
 
@@ -14,87 +15,89 @@ personal workflow and thus might be opinionated and might not generalize well.
 
 # Overview
 
-This NixOS configuration uses Nix Flakes to ensure that the entire system
-can be reproduced and declaratively managed from a single repository.
-
-The `settings.nix` file is used for customization of personal data, hardware
-details and theme preferences.
+This configuration is fully managed by Nix Flakes, ensuring reproducible builds.
+The structure separates system configuration (`nixos/`), user dotfiles
+(`home-manager/`), and machine-specific definitions (`hosts/`). All personal
+data, and theme preferences are centralized in `settings.nix` for easy
+customization.
 
 The desktop environment is built as follows:
 
--   **Window Manager**: River, a dynamic tiling Wayland compositor that uses
-    a main-stack layout.
+-   **Window Manager**: River, a dynamic tiling Wayland compositor that uses a
+    main-stack layout.
 -   **Status Bar**: Yambar, a heavily configurable bar for Wayland. The current
-    configuration provides information about workspaces, the focused
+    configuration provides information about workspaces, the focused 
     application, system resources, network status, audio volume, battery, and
     date/time.
--   **Terminal Emulator**: Foot, a lightweight and Wayland-native terminal.
-    Themed to match the overall aesthetic.
--   **Shell**: Zsh, enhanced with autosuggestions, syntax highlighting and
-    history substring search.
+-   **Terminal Emulator**: Foot, a lightweight and fast Wayland-native terminal.
+-   **Shell**: Zsh, enhanced with autosuggestions, syntax highlighting, history
+    substring search, and useful aliases.
 -   **Web Browser**: Librewolf, a privacy-focused Firefox fork; configured with
-    essential extensions like a password manager and a content blocker.
+    uBlock Origin, Privacy Badger, and Bitwarden.
 -   **Text Editor**: Neovim, enabled via Nix and configured separately in Lua.
-    The editor is used with a minimal configuration, and mostly uses
-    native features.
--   **Theming**: Catppuccin is used across all components, however, this can
-    be changed very easily in the `settings.nix` file.
-
-The entire setup is designed to be portable by modifying the `settings.nix`
-file.
+-   **Theming**: A custom dark theme with pink accents is used across all
+    components. Colors and fonts are easily changed in `settings.nix`.
 
 # Getting Started
 
 ## Prerequisites
 
 -   A running NixOS installation.
--   Nix with Flakes enabled. This is configured in `nixos/configuration.nix`
-    but needs to be enabled in the base system first.
+-   Nix with Flakes enabled.
 
 ## Installation
 
 1.  Clone the repository to your local machine.
 
     ```bash
-    git clone https://github.com/matee8/config.git
-    cd configs
+    git clone <your-repo-url>
+    cd <repo-name>
     ```
 
-2.  **Crucially, customize `settings.nix`**. This file contains all the personal
-    and machine-specific variables. You **must** review and edit it to match
-    your own setup.
-
+2.  Customize the configuration. You **must** review and edit these files:
+    -   `settings.nix`: Update user details, hostnames, and theme preferences.
+    -   `hosts/`: Create a new directory for your machine (e.g., `my-pc/`) or
+        modify the existing `laptop/` directory. Update the hardware-specific
+        options in `hosts/your-machine/home.nix` and
+        `hosts/your-machine/configuration.nix`.
+    -   `flake.nix`: Add an option for your host.
 
 3.  Build and apply the configuration. From the root of the repository, run the
-    `nixos-rebuild` command. The flake output name (e.g., `matelaptop`) must
-    match the `hostName` you defined in `settings.nix`.
+    following commands. Replace `yourHostName` with the one you defined in
+    `settings.nix` and `yourUserName` with your username.
 
+    First, apply the system-wide NixOS configuration:
     ```bash
     sudo nixos-rebuild switch --flake .#yourHostName
     ```
 
+    Next, apply the user-specific Home-Manager configuration:
+    ```bash
+    home-manager switch --flake .#yourUserName@yourHostName
+    ```
+
 # Key Features & Bindings
 
-This configuration is heavily reliant on keyboard shortcuts for an efficient
-workflow. The `Super` key (Windows/Command key) is the primary modifier.
+This configuration is heavily reliant on keyboard shortcuts. The `Super` key
+(Windows/Command key) is the primary modifier.
 
 ### Global (River WM)
 
-| Binding                 | Action                                    |
-| ----------------------- | ----------------------------------------- |
-| `Super` + `Return`      | Spawn a new terminal (`foot`)             |
-| `Super` + `B`           | Spawn the web browser (`librewolf`)       |
-| `Super` + `Q`           | Close the focused view (window)           |
-| `Super` + `Shift` + `E` | Exit the River session                    |
-| `Super` + `J` / `K`     | Focus the next/previous view              |
-| `Super` + `Shift`+`J`/`K`| Swap the focused view with the next/previous |
-| `Super` + `H` / `L`     | Decrease/increase the main-ratio          |
-| `Super` + `I` / `D`     | Increase/decrease the main-count          |
-| `Super` + `F`           | Toggle fullscreen for the focused view    |
+| Binding                  | Action                                    |
+| ------------------------ | ----------------------------------------- |
+| `Super` + `Return`       | Spawn a new terminal (`foot`)             |
+| `Super` + `B`            | Spawn the web browser (`librewolf`)       |
+| `Super` + `Q`            | Close the focused view (window)           |
+| `Super` + `Shift` + `E`  | Exit the River session                    |
+| `Super` + `J` / `K`      | Focus the next/previous view              |
+| `Super` + `Shift`+`J`/`K`| Swap the focused view with the next/prev  |
+| `Super` + `H` / `L`      | Decrease/increase the main-ratio          |
+| `Super` + `I` / `D`      | Increase/decrease the main-count          |
+| `Super` + `F`            | Toggle fullscreen for the focused view    |
 | `Super` + `Shift`+`Space`| Toggle floating for the focused view      |
-| `Super` + `[1-9]`       | Switch to the specified tag (workspace)   |
-| `Super` + `Shift`+`[1-9]`| Move the focused view to the specified tag |
-| `PrintScreen`           | Take a screenshot of a selected region    |
+| `Super` + `[1-9]`        | Switch to the specified tag (workspace)   |
+| `Super` + `Shift`+`[1-9]`| Move the focused view to a specified tag  |
+| `PrintScreen`            | Take a screenshot of a selected region    |
 
 ### System Controls
 
@@ -108,41 +111,42 @@ workflow. The `Super` key (Windows/Command key) is the primary modifier.
 
 ### System Updates
 
-To keep the system up-to-date, you can update the flake's inputs and rebuild.
+To keep the system up-to-date, update the flake's inputs and rebuild.
 
 ```bash
 nix flake update
 sudo nixos-rebuild switch --flake .#yourHostName
+home-manager switch --flake .#yourUserName@yourHostName
 ```
 
 # Code Structure
 
-The repository is organized to separate system-level concerns from user-level
-dotfiles.
+The repository is organized to separate concerns between the system, the user,
+and the machine.
 
 ```
 .
-├── flake.nix               # Flake entry point, defines nixos and home-manager outputs.
-├── flake.lock              # Pins exact versions of all flake inputs for reproducibility.
-├── settings.nix            # Centralized variables for user, system, theme, etc.
-├── LICENSE                 # Project license.
+├── flake.nix              # Flake entry point, defines outputs.
+├── flake.lock             # Pins exact versions of all inputs.
+├── settings.nix           # Centralized variables for user, system, theme.
+├── utils/                 # Helper functions for building configurations.
+├── hosts/
+│   └── laptop/            # Machine-specific configurations.
+│       ├── configuration.nix      # Main NixOS config for this host.
+│       ├── home.nix               # Main Home-Manager config for this host.
+│       └── hardware-configuration.nix # Auto-generated hardware profile.
 ├── nixos/
-│   ├── configuration.nix   # Main NixOS configuration file. Imports all other system modules.
-│   ├── hardware-configuration.nix # Auto-generated hardware profile.
-│   ├── services.nix        # System-level services (Pipewire, Bluetooth, etc.).
-│   └── system-packages.nix # System-wide packages, fonts, and Zsh prompt.
+│   ├── default.nix        # Imports all system modules.
+│   ├── profiles/          # System-level profiles (console, desktop).
+│   ├── features/          # Optional system-level features (development).
+│   └── users.nix          # System user management module.
 ├── home-manager/
-│   ├── home.nix            # Main Home-Manager entry point. Imports all user modules.
-│   └── apps/               # Contains one file per application for modular configuration.
-│       ├── river.nix       # River window manager and keybindings.
-│       ├── yambar.nix      # Yambar status bar configuration.
-│       ├── foot.nix        # Foot terminal configuration.
-│       ├── zsh.nix         # Zsh plugins, aliases, and settings.
-│       ├── neovim.nix      # Enables Neovim and points to its Lua config.
-│       ├── nvim/           # Native Neovim configuration in Lua.
-│       ├── librewolf.nix   # Librewolf settings, extensions, and search engines.
-│       └── ...             # And other application configs.
-└── assets/                 # Static assets like wallpapers and .desktop files.
+│   ├── default.nix        # Imports all user modules.
+│   ├── apps/              # One directory per category of app configs.
+│   │   ├── console/       # zsh, neovim, git, tmux configs.
+│   │   └── desktop/       # river, yambar, foot, librewolf configs.
+│   └── features/          # Optional user-level features.
+└── assets/                # Static assets like wallpapers.
 ```
 
 # License
