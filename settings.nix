@@ -1,7 +1,19 @@
 {
+    mainUser = {
+        name = "mate";
+        git = {
+            name = "matee8";
+            email = "graves-bluff-pesky@duck.com";
+        };
+    };
+
+    hostnames = {
+        laptop = "matelaptop";
+    };
+
     theme = {
         colors = {
-            main = "f5c2e7";
+            primary = "f5c2e7";
             secondary = "11111b";
 
             terminal = {
@@ -41,24 +53,5 @@
         };
 
         font = "Hack Nerd Font";
-    };
-    user = {
-        name = "mate";
-        git = {
-            name = "matee8";
-            email = "graves-bluff-pesky@duck.com";
-        };
-    };
-    system = {
-        arch = "x86_64-linux";
-        hostName = "matelaptop";
-        stateVersion = "25.05";
-
-        gpu = "amdgpu";
-        diskName = "nvme0n1";
-        touchpadName = "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad";
-        cpuCount = 5;
-        networkInterface = "wlp1s0";
-        batteryName = "BAT0";
     };
 }
