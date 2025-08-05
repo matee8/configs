@@ -36,5 +36,9 @@
 
     networking.hostName = settings.hosts.laptop.hostname;
 
+    custom = {
+        audio.enable = true;
+    };
+
     system.stateVersion = "25.05";
 }

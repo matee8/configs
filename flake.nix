@@ -23,6 +23,7 @@
                 ${settings.hosts.laptop.hostname} = inputs.nixpkgs.lib.nixosSystem {
                     modules = [
                         ./hosts/laptop/configuration.nix
+                        ./nixos
                     ];
                     specialArgs = {
                         inherit settings;
