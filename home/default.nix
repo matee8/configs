@@ -13,6 +13,7 @@
         ./programs/librewolf
 
         ./system/river
+        ./system/yambar
 
         ./themes
     ];
