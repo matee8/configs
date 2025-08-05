@@ -5,14 +5,19 @@
 }:
 {
     imports = [
-        ./programs/git.nix
-        ./programs/foot.nix
-        ./programs/librewolf.nix
+        ./programs/git
+        ./programs/foot
+        ./programs/librewolf
+
+        ./programs/zsh
 
         ./themes
     ];
 
-    custom.foot.enable = lib.mkDefault false;
+    custom = {
+        foot.enable = lib.mkDefault false;
+        librewolf.enable = lib.mkDefault false;
+    };
 
     home = {
         inherit (config.var) username;

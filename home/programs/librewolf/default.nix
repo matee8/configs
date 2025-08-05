@@ -12,6 +12,8 @@
         programs.librewolf = {
             enable = true;
 
+            configPath = config.xdg.configHome + "/.librewolf";
+
             settings = {
                 "network.http.referer.XOriginPolicy" = 2;
                 "identity.fxaccounts.enabled" = true;
@@ -140,5 +142,6 @@
                     };
                 };
             };
+        };
     };
 }
