@@ -5,7 +5,11 @@
 {
     imports = [
         ./audio.nix
+        ./bluetooth.nix
     ];
 
-    custom.audio.enable = lib.mkDefault false;
+    custom = {
+        audio.enable = lib.mkDefault false;
+        bluetooth.enable = lib.mkDefault false;
+    };
 }

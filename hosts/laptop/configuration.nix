@@ -38,6 +38,7 @@
 
     custom = {
         audio.enable = true;
+        bluetooth.enable = true;
     };
 
     system.stateVersion = "25.05";
