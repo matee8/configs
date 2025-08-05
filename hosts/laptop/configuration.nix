@@ -41,5 +41,7 @@
         fonts.enable = true;
     };
 
+    home-manager.users.${config.custom.username} = import ./home.nix;
+
     system.stateVersion = "25.05";
 }
