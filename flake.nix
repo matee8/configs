@@ -21,6 +21,9 @@
                     ./nixos
                     inputs.home-manager.nixosModules.home-manager
                 ];
+                specialArgs = {
+                    firefox-addons = inputs.firefox-addons.packages."x86_64-linux";
+                };
             };
         };
     };

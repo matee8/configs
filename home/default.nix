@@ -7,6 +7,7 @@
     imports = [
         ./programs/git.nix
         ./programs/foot.nix
+        ./programs/librewolf.nix
 
         ./themes
     ];
