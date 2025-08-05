@@ -6,10 +6,11 @@
 {
     imports = [
         ./programs/git
+        ./programs/zsh
+        ./programs/tmux
+
         ./programs/foot
         ./programs/librewolf
-
-        ./programs/zsh
 
         ./system/river
 
