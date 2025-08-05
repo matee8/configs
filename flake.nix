@@ -13,22 +13,14 @@
         };
     };
 
-    outputs =
-        inputs:
-        let
-            settings = import ./settings.nix;
-        in
-        {
-            nixosConfigurations = {
-                ${settings.hosts.laptop.hostname} = inputs.nixpkgs.lib.nixosSystem {
-                    modules = [
-                        ./hosts/laptop/configuration.nix
-                        ./nixos
-                    ];
-                    specialArgs = {
-                        inherit settings;
-                    };
-                };
+    outputs = inputs: {
+        nixosConfigurations = {
+            matelaptop = inputs.nixpkgs.lib.nixosSystem {
+                modules = [
+                    ./hosts/laptop/configuration.nix
+                    ./nixos
+                ];
             };
         };
+    };
 }

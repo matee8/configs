@@ -9,6 +9,7 @@
         ./fonts.nix
         ./nix.nix
         ./users.nix
+        ./misc.nix
     ];
 
     custom = {

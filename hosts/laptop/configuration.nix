@@ -1,6 +1,5 @@
 {
     pkgs,
-    settings,
     ...
 }:
 {
@@ -34,7 +33,7 @@
         };
     };
 
-    networking.hostName = settings.hosts.laptop.hostname;
+    networking.hostName = "matelaptop";
 
     custom = {
         audio.enable = true;
