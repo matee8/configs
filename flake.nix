@@ -18,12 +18,26 @@
             matelaptop = inputs.nixpkgs.lib.nixosSystem {
                 modules = [
                     ./hosts/laptop/configuration.nix
-                    ./nixos
-                    inputs.home-manager.nixosModules.home-manager
                 ];
                 specialArgs = {
                     firefox-addons = inputs.firefox-addons.packages."x86_64-linux";
                 };
+            };
+        };
+
+        homeConfigurations = {
+            "mate@matelaptop" = inputs.home-manager.lib.homeManagerConfiguration {
+                extraSpecialArgs = {
+                    firefox-addons = inputs.firefox-addons.packages."x86_64-linux";
+                };
+
+                pkgs = import inputs.nixpkgs {
+                    system = "x86_64-linux";
+                };
+
+                modules = [
+                    ./hosts/laptop/home.nix
+                ];
             };
         };
     };

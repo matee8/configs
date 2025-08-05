@@ -8,7 +8,7 @@
         custom.git.userName = lib.mkOption {
             type = lib.types.str;
         };
-        custom.git.email = lib.mkOption {
+        custom.git.userEmail = lib.mkOption {
             type = lib.types.str;
         };
     };

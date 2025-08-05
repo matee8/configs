@@ -1,11 +1,14 @@
 {
     config,
     pkgs,
+    home-manager,
     ...
 }:
 {
     imports = [
         ./hardware-configuration.nix
+
+        ../../nixos
     ];
 
     boot = {
@@ -46,8 +49,6 @@
         bluetooth.enable = true;
         fonts.enable = true;
     };
-
-    home-manager.users.${config.custom.username} = import ./home.nix;
 
     system.stateVersion = "25.05";
 }

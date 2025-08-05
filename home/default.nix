@@ -11,19 +11,28 @@
 
         ./programs/zsh
 
+        ./system/river
+
         ./themes
     ];
 
-    custom = {
-        foot.enable = lib.mkDefault false;
-        librewolf.enable = lib.mkDefault false;
+    options.custom.username = lib.mkOption {
+        type = lib.types.str;
     };
 
-    home = {
-        inherit (config.var) username;
-        homeDirectory = "/home/" + config.var.username;
-    };
+    config = {
+        custom = {
+            foot.enable = lib.mkDefault false;
+            librewolf.enable = lib.mkDefault false;
+            river.enable = lib.mkDefault false;
+        };
 
-    xdg.enable = true;
-    programs.home-manager.enable = true;
+        home = {
+            inherit (config.custom) username;
+            homeDirectory = "/home/" + config.custom.username;
+        };
+
+        xdg.enable = true;
+        programs.home-manager.enable = true;
+    };
 }
