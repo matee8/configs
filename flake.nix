@@ -23,32 +23,11 @@
                 ${settings.hosts.laptop.hostname} = inputs.nixpkgs.lib.nixosSystem {
                     modules = [
                         ./hosts/laptop/configuration.nix
-                        ./nixos
                     ];
                     specialArgs = {
                         inherit settings;
                     };
                 };
-            };
-
-            homeConfigurations = {
-                "${settings.mainUser.name}@${settings.hosts.laptop.hostname}" =
-                    inputs.home-manager.lib.homeManagerConfiguration
-                        {
-                            extraSpecialArgs = {
-                                inherit settings;
-                                firefox-addons = inputs.firefox-addons.packages.${settings.hosts.laptop.arch};
-                            };
-
-                            pkgs = import inputs.nixpkgs {
-                                system = "x86_64-linux";
-                            };
-
-                            modules = [
-                                ./hosts/laptop/home.nix
-                                ./home-manager
-                            ];
-                        };
             };
         };
 }

@@ -36,11 +36,5 @@
 
     networking.hostName = settings.hosts.laptop.hostname;
 
-    custom = {
-        users.${settings.mainUser.name}.sudo = true;
-        development.enable = true;
-        desktop.enable = true;
-    };
-
     system.stateVersion = "25.05";
 }
