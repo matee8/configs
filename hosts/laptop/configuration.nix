@@ -34,7 +34,7 @@
         };
     };
 
-    networking.hostName = settings.hostnames.laptop;
+    networking.hostName = settings.hosts.laptop.hostname;
 
     custom = {
         users.${settings.mainUser.name}.sudo = true;
