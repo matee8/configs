@@ -8,7 +8,6 @@
     options = {
         custom.username = lib.mkOption {
             type = lib.types.str;
-            default = "mate";
         };
     };
 

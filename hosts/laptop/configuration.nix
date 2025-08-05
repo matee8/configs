@@ -1,4 +1,5 @@
 {
+    config,
     pkgs,
     ...
 }:
@@ -36,6 +37,11 @@
     networking.hostName = "matelaptop";
 
     custom = {
+        locale = "en_US.UTF-8";
+        extraLocale = "hu_HU.UTF-8";
+        username = "mate";
+        timeZone = "Europe/Budapest";
+
         audio.enable = true;
         bluetooth.enable = true;
         fonts.enable = true;

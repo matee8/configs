@@ -7,15 +7,12 @@
     options = {
         custom.timeZone = lib.mkOption {
             type = lib.types.str;
-            default = "Europe/Budapest";
         };
         custom.locale = lib.mkOption {
             type = lib.types.str;
-            default = "en_US.UTF-8";
         };
         custom.extraLocale = lib.mkOption {
             type = lib.types.str;
-            default = "hu_HU.UTF-8";
         };
     };
 
