@@ -8,6 +8,7 @@
         ./bluetooth.nix
         ./fonts.nix
         ./nix.nix
+        ./users.nix
     ];
 
     custom = {

@@ -1,4 +1,8 @@
 {
+    mainUser = {
+        username = "mate";
+    };
+
     hosts = {
         laptop = {
             hostname = "matelaptop";
