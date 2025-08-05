@@ -5,9 +5,7 @@
     ...
 }:
 {
-    options = {
-        custom.fonts.enable = lib.mkEnableOption "enable custom fonts";
-    };
+    options.custom.fonts.enable = lib.mkEnableOption "enable custom fonts";
 
     config = lib.mkIf config.custom.fonts.enable {
         fonts.packages = with pkgs; [

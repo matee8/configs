@@ -10,6 +10,7 @@
             userName = "matee8";
             userEmail = "graves-bluff-pesky@duck.com";
         };
+        foot.enable = true;
     };
 
     home = {

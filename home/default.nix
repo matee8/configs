@@ -1,11 +1,17 @@
 {
     config,
+    lib,
     ...
 }:
 {
     imports = [
         ./programs/git.nix
+        ./programs/foot.nix
+
+        ./themes
     ];
+
+    custom.foot.enable = lib.mkDefault false;
 
     home = {
         inherit (config.var) username;

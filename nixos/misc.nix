@@ -4,14 +4,14 @@
     ...
 }:
 {
-    options = {
-        custom.timeZone = lib.mkOption {
+    options.custom = {
+        timeZone = lib.mkOption {
             type = lib.types.str;
         };
-        custom.locale = lib.mkOption {
+        locale = lib.mkOption {
             type = lib.types.str;
         };
-        custom.extraLocale = lib.mkOption {
+        extraLocale = lib.mkOption {
             type = lib.types.str;
         };
     };
