@@ -19,6 +19,7 @@
         ./programs/graphical/image/imv.nix
         ./programs/graphical/video/ffplay.nix
         ./programs/graphical/email/thunderbird.nix
+        ./programs/graphical/office/libreoffice.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -35,6 +36,7 @@
             imv.enable = lib.mkDefault false;
             ffplay.enable = lib.mkDefault false;
             thunderbird.enable = lib.mkDefault false;
+            libreoffice.enable = lib.mkDefault false;
         };
 
         home = {

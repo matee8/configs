@@ -29,6 +29,7 @@
         imv.enable = true;
         ffplay.enable = true;
         thunderbird.enable = true;
+        libreoffice.enable = true;
     };
 
     home = {
