@@ -9,6 +9,7 @@
         ./programs/terminal/tools/git.nix
         ./programs/terminal/tools/tmux.nix
         ./programs/terminal/tools/zoxide.nix
+        ./programs/terminal/tools/fastfetch.nix
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
