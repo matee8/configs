@@ -22,7 +22,7 @@
                 typescript-language-server
                 pyright
                 rustup
-                clang
+                clang-tools
                 texlab
             ];
 

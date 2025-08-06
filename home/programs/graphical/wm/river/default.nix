@@ -36,7 +36,7 @@
                 set-cursor-warp = "on-output-change";
                 set-repeat = "40 300";
                 keyboard-layout = "hu";
-                input."type:touchpad" = {
+                input."*Touchpad" = {
                     natural-scroll = true;
                     tap = true;
                 };
