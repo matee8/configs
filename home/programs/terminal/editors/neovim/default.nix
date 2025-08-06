@@ -80,8 +80,8 @@
             '';
         };
 
-        home.file.".config/nvim/lsp" = {
-            source = ./nvim/lsp;
-            recursive = true;
-        };
+    home.file.".config/nvim/lsp" = {
+        source = ./nvim/lsp;
+        recursive = true;
+    };
 }
