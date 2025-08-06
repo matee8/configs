@@ -20,6 +20,7 @@
         username = "mate";
         librewolf.enable = true;
         river.enable = true;
+        foot.enable = true;
     };
 
     home = {

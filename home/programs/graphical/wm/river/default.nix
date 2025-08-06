@@ -9,11 +9,7 @@
         ./rules.nix
     ];
 
-    options = {
-        custom.river = {
-            enable = lib.mkEnableOption "enable river configuration";
-        };
-    };
+    options.custom.river.enable = lib.mkEnableOption "enable river configuration";
 
     config = lib.mkIf config.custom.river.enable {
         home.file.".wallpaper".source = ../../../assets/images/wallpaper.png;

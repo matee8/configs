@@ -5,8 +5,12 @@
 }:
 {
     imports = [
+        ./programs/terminal/shells/zsh.nix
+        ./programs/terminal/tools/git.nix
+
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
+        ./programs/terminal/emulators/foot.nix
     ];
 
     options.custom.username = lib.mkOption {
@@ -17,6 +21,7 @@
         custom = {
             librewolf.enable = lib.mkDefault false;
             river.enable = lib.mkDefault false;
+            foot.enable = lib.mkDefault false;
         };
 
         home = {
