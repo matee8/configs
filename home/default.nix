@@ -11,6 +11,7 @@
         ./programs/terminal/tools/zoxide.nix
         ./programs/terminal/tools/fastfetch.nix
         ./programs/terminal/tools/pandoc.nix
+        ./programs/terminal/tools/fzf.nix
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
