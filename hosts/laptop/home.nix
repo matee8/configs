@@ -18,6 +18,10 @@
 
     custom = {
         username = "mate";
+        git = {
+            name = "matee8";
+            email = "graves-bluff-pesky@duck.com";
+        };
         librewolf.enable = true;
         river.enable = true;
         foot.enable = true;
