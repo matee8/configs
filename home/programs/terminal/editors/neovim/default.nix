@@ -23,9 +23,15 @@
                 pyright
                 rustup
                 clang
+                texlab
             ];
 
             plugins = with pkgs.vimPlugins; [
+                {
+                    plugin = catppuccin-nvim;
+                    config = toLuaFile ./nvim/plugins/catppuccin.lua;
+                }
+
                 {
                     plugin = mini-files;
                     config = toLuaFile ./nvim/plugins/files.lua;
@@ -72,5 +78,10 @@
                 ${builtins.readFile ./nvim/config/keymaps.lua}
                 ${builtins.readFile ./nvim/config/misc.lua}
             '';
+        };
+
+        home.file.".config/nvim/lsp" = {
+            source = ./nvim/lsp;
+            recursive = true;
         };
 }

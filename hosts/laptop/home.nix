@@ -19,6 +19,8 @@
             colorTheme.enable = true;
         };
 
+        targets.neovim.enable = false;
+
         fonts = {
             sizes = {
                 desktop = 14;
