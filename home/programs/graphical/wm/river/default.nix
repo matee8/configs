@@ -1,6 +1,7 @@
 {
     config,
     lib,
+    pkgs,
     ...
 }:
 {
@@ -12,6 +13,14 @@
     options.custom.river.enable = lib.mkEnableOption "enable river configuration";
 
     config = lib.mkIf config.custom.river.enable {
+        home.packages = with pkgs; [
+            wl-clipboard
+            wbg
+            slurp
+            grim
+            brightnessctl
+        ];
+
         home.file.".wallpaper".source = ../../../assets/images/wallpaper.png;
 
         wayland.windowManager.river = {
