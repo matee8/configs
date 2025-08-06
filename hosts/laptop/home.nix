@@ -26,6 +26,7 @@
         river.enable = true;
         foot.enable = true;
         zathura.enable = true;
+        imv.enable = true;
     };
 
     home = {
