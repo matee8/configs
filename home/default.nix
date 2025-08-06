@@ -13,6 +13,7 @@
         ./programs/terminal/tools/pandoc.nix
         ./programs/terminal/tools/fzf.nix
         ./programs/terminal/tools/archives.nix
+        ./programs/terminal/tools/glow.nix
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
