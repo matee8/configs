@@ -23,8 +23,8 @@
 
         fonts = {
             sizes = {
-                desktop = 14;
-                applications = 14;
+                desktop = 11;
+                applications = 11;
                 terminal = 13;
                 popups = 13;
             };

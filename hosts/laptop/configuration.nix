@@ -53,7 +53,28 @@
 
     stylix = {
         enable = true;
+        autoEnable = true;
+        polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+        fonts = {
+            sizes = {
+                desktop = 14;
+                applications = 14;
+                terminal = 13;
+                popups = 13;
+            };
+            sansSerif = {
+                package = pkgs.nerd-fonts.hack;
+                name = "Hack Nerd Font";
+            };
+            serif = config.stylix.fonts.sansSerif;
+            monospace = config.stylix.fonts.sansSerif;
+            emoji = {
+                package = pkgs.noto-fonts-emoji;
+                name = "Noto Color Emoji";
+            };
+        };
     };
 
     system.stateVersion = "25.05";
