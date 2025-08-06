@@ -8,7 +8,7 @@
 
         userDirs = {
             enable = true;
-            createDiectories = false;
+            createDirectories = true;
         };
     };
 }

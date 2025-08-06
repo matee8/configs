@@ -14,6 +14,7 @@
         ./programs/terminal/tools/fzf.nix
         ./programs/terminal/tools/archives.nix
         ./programs/terminal/tools/glow.nix
+        ./programs/terminal/tools/development.nix
         ./system/xdg.nix
 
         ./programs/graphical/browser/librewolf.nix
