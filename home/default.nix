@@ -12,6 +12,7 @@
         ./programs/terminal/tools/fastfetch.nix
         ./programs/terminal/tools/pandoc.nix
         ./programs/terminal/tools/fzf.nix
+        ./programs/terminal/tools/archives.nix
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
