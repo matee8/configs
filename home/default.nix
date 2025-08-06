@@ -6,6 +6,7 @@
 {
     imports = [
         ./programs/graphical/browser/librewolf.nix
+        ./programs/graphical/wm/river
     ];
 
     options.custom.username = lib.mkOption {
@@ -15,6 +16,7 @@
     config = {
         custom = {
             librewolf.enable = lib.mkDefault false;
+            river.enable = lib.mkDefault false;
         };
 
         home = {

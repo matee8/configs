@@ -19,6 +19,7 @@
     custom = {
         username = "mate";
         librewolf.enable = true;
+        river.enable = true;
     };
 
     home = {
