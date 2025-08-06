@@ -11,6 +11,11 @@
             url = "github:nix-community/NUR";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        stylix = {
+            url = "github:danth/stylix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs: {
@@ -18,6 +23,7 @@
             matelaptop = inputs.nixpkgs.lib.nixosSystem {
                 modules = [
                     ./hosts/laptop/configuration.nix
+                    inputs.stylix.nixosModules.stylix
                 ];
             };
         };
@@ -31,6 +37,7 @@
                 modules = [
                     ./hosts/laptop/home.nix
                     inputs.nur.modules.homeManager.default
+                    inputs.stylix.homeModules.stylix
                 ];
             };
         };

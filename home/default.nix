@@ -14,9 +14,7 @@
 
     config = {
         custom = {
-            # foot.enable = lib.mkDefault false;
             librewolf.enable = lib.mkDefault false;
-            river.enable = lib.mkDefault false;
         };
 
         home = {
