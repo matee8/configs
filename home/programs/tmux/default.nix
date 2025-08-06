@@ -22,11 +22,11 @@
 
             # Style
             set -g status-left ""
-            set -g status-right "#[fg=#${config.theme.colors.primary},bg=#${config.theme.colors.secondary}] session: #S "
+            set -g status-right "#[fg=#${config.custom.theme.colors.primary},bg=#${config.custom.theme.colors.secondary}] session: #S "
             set -g status-right-length 100
-            set -g window-status-current-format "#[bg=#${config.theme.colors.primary},fg=#${config.theme.colors.secondary}] #I #W "
-            set -g window-status-format "#[fg=#${config.theme.colors.primary},bg=#${config.theme.colors.secondary}] #I #W "
-            set -g status-style bg="#${config.theme.colors.secondary}",fg="#${config.theme.colors.primary}"
+            set -g window-status-current-format "#[bg=#${config.custom.theme.colors.primary},fg=#${config.custom.theme.colors.secondary}] #I #W "
+            set -g window-status-format "#[fg=#${config.custom.theme.colors.primary},bg=#${config.custom.theme.colors.secondary}] #I #W "
+            set -g status-style bg="#${config.custom.theme.colors.secondary}",fg="#${config.custom.theme.colors.primary}"
 
             # Misc
             set -g renumber-windows on

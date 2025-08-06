@@ -5,17 +5,7 @@
 }:
 {
     imports = [
-        ./programs/git
-        ./programs/zsh
-        ./programs/tmux
-
-        ./programs/foot
-        ./programs/librewolf
-
-        ./system/river
-        ./system/yambar
-
-        ./themes
+        ./programs/graphical/browser/librewolf.nix
     ];
 
     options.custom.username = lib.mkOption {
@@ -24,7 +14,7 @@
 
     config = {
         custom = {
-            foot.enable = lib.mkDefault false;
+            # foot.enable = lib.mkDefault false;
             librewolf.enable = lib.mkDefault false;
             river.enable = lib.mkDefault false;
         };
