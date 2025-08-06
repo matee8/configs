@@ -17,11 +17,6 @@
     };
 
     config = {
-        networking = {
-            networkmanager.enable = true;
-            firewall.enable = true;
-        };
-
         time.timeZone = config.custom.timeZone;
         i18n = {
             defaultLocale = config.custom.locale;

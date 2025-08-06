@@ -4,12 +4,15 @@
 }:
 {
     imports = [
-        ./audio.nix
-        ./bluetooth.nix
-        ./fonts.nix
-        ./nix.nix
-        ./users.nix
-        ./misc.nix
+        ./hardware/wireless.nix
+        ./system/locale.nix
+        ./system/nix.nix
+        ./services/systemd.nix
+        ./user.nix
+
+        ./hardware/audio.nix
+        ./hardware/bluetooth.nix
+        ./system/fonts.nix
     ];
 
     custom = {
