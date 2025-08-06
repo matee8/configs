@@ -12,6 +12,7 @@
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
+        ./programs/graphical/pdf/zathura.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -24,6 +25,7 @@
             librewolf.enable = lib.mkDefault false;
             river.enable = lib.mkDefault false;
             foot.enable = lib.mkDefault false;
+            zathura.enable = lib.mkDefault false;
         };
 
         home = {

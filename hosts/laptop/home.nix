@@ -25,6 +25,7 @@
         librewolf.enable = true;
         river.enable = true;
         foot.enable = true;
+        zathura.enable = true;
     };
 
     home = {
