@@ -42,6 +42,7 @@
     custom = {
         locale = "en_US.UTF-8";
         extraLocale = "hu_HU.UTF-8";
+        keyMap = "hu";
         username = "mate";
         timeZone = "Europe/Budapest";
 
@@ -49,6 +50,7 @@
         bluetooth.enable = true;
         fonts.enable = true;
         brightness.enable = true;
+        graphics.enable = true;
     };
 
     stylix = {

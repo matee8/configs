@@ -13,6 +13,7 @@
         ./hardware/audio.nix
         ./hardware/bluetooth.nix
         ./hardware/brightness.nix
+        ./hardware/graphics.nix
         ./system/fonts.nix
     ];
 
@@ -21,5 +22,6 @@
         bluetooth.enable = lib.mkDefault false;
         fonts.enable = lib.mkDefault false;
         brightness.enable = lib.mkDefault false;
+        graphics.enable = lib.mkDefault false;
     };
 }

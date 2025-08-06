@@ -14,6 +14,9 @@
         extraLocale = lib.mkOption {
             type = lib.types.str;
         };
+        keyMap = lib.mkOption {
+            type = lib.types.str;
+        };
     };
 
     config = {
@@ -31,6 +34,10 @@
                 LC_TELEPHONE = config.custom.extraLocale;
                 LC_TIME = config.custom.extraLocale;
             };
+        };
+        console = {
+            keyMap = config.custom.keyMap;
+            font = "Lat2-Terminus16";
         };
     };
 }
