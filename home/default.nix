@@ -23,6 +23,7 @@
         ./programs/graphical/email/thunderbird.nix
         ./programs/graphical/office/libreoffice.nix
         ./programs/graphical/torrent/qbittorrent.nix
+        ./programs/graphical/gaming/heroic.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -41,6 +42,7 @@
             thunderbird.enable = lib.mkDefault false;
             libreoffice.enable = lib.mkDefault false;
             qbittorrent.enable = lib.mkDefault false;
+            heroic.enable = lib.mkDefault false;
         };
 
         home = {

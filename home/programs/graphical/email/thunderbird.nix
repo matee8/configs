@@ -6,7 +6,7 @@
 {
     options.custom.thunderbird.enable = lib.mkEnableOption "enable thunderbird configuration";
 
-    config = lib.mkIf config.custom.imv.enable {
+    config = lib.mkIf config.custom.thunderbird.enable {
         programs.thunderbird = {
             enable = true;
             profiles.default = {

@@ -7,7 +7,7 @@
 {
     options.custom.ffplay.enable = lib.mkEnableOption "enable ffplay configuration";
 
-    config = lib.mkIf config.custom.imv.enable {
+    config = lib.mkIf config.custom.ffplay.enable {
         home.file.".local/share/applications/ffplay.desktop".source =
             ../../../../assets/applications/ffplay.desktop;
 

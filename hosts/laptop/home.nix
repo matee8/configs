@@ -31,6 +31,7 @@
         thunderbird.enable = true;
         libreoffice.enable = true;
         qbittorrent.enable = true;
+        heroic.enable = true;
     };
 
     home = {
