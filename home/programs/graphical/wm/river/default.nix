@@ -21,7 +21,7 @@
             brightnessctl
         ];
 
-        home.file.".wallpaper".source = ../../../assets/images/wallpaper.png;
+        home.file.".wallpaper".source = ../../../../../assets/images/wallpaper.png;
 
         wayland.windowManager.river = {
             enable = true;

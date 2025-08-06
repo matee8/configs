@@ -15,6 +15,7 @@
         ./programs/terminal/tools/archives.nix
         ./programs/terminal/tools/glow.nix
         ./programs/terminal/tools/development.nix
+        ./programs/terminal/editors/neovim
         ./system/xdg.nix
 
         ./programs/graphical/browser/librewolf.nix
