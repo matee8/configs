@@ -30,6 +30,7 @@
         ffplay.enable = true;
         thunderbird.enable = true;
         libreoffice.enable = true;
+        qbittorrent.enable = true;
     };
 
     home = {

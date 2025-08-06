@@ -22,6 +22,7 @@
         ./programs/graphical/video/ffplay.nix
         ./programs/graphical/email/thunderbird.nix
         ./programs/graphical/office/libreoffice.nix
+        ./programs/graphical/torrent/qbittorrent.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -39,6 +40,7 @@
             ffplay.enable = lib.mkDefault false;
             thunderbird.enable = lib.mkDefault false;
             libreoffice.enable = lib.mkDefault false;
+            qbittorrent.enable = lib.mkDefault false;
         };
 
         home = {
