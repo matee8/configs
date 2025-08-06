@@ -15,6 +15,7 @@
         ./programs/graphical/pdf/zathura.nix
         ./programs/graphical/image/imv.nix
         ./programs/graphical/video/ffplay.nix
+        ./programs/graphical/email/thunderbird.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -30,6 +31,7 @@
             zathura.enable = lib.mkDefault false;
             imv.enable = lib.mkDefault false;
             ffplay.enable = lib.mkDefault false;
+            thunderbird.enable = lib.mkDefault false;
         };
 
         home = {

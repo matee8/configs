@@ -28,6 +28,7 @@
         zathura.enable = true;
         imv.enable = true;
         ffplay.enable = true;
+        thunderbird.enable = true;
     };
 
     home = {
