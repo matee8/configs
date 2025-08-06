@@ -48,9 +48,13 @@
         audio.enable = true;
         bluetooth.enable = true;
         fonts.enable = true;
+        brightness.enable = true;
     };
 
-    stylix.enable = true;
+    stylix = {
+        enable = true;
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    };
 
     system.stateVersion = "25.05";
 }
