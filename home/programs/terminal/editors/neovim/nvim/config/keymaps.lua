@@ -59,6 +59,14 @@ set_keymap("i", "<C-Space>", "<Nop>", {
     silent = true,
 })
 
+set_keymap("n", "<leader>ff", "<Cmd>FzfLua git_files<Cr>", {
+    silent = true,
+})
+
+set_keymap("n", "<leader>fs", "<Cmd>FzfLua grep_project<Cr>", {
+    silent = true,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),
     callback = function(ev)

@@ -5,7 +5,8 @@ vim.lsp.enable({
     "pyright",
     "rust-analyzer",
     "tsls",
-    "texlab"
+    "texlab",
+    "nil"
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
