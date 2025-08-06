@@ -14,6 +14,7 @@
         ./programs/graphical/wm/river
         ./programs/graphical/pdf/zathura.nix
         ./programs/graphical/image/imv.nix
+        ./programs/graphical/video/ffplay.nix
         ./programs/terminal/emulators/foot.nix
     ];
 
@@ -28,6 +29,7 @@
             foot.enable = lib.mkDefault false;
             zathura.enable = lib.mkDefault false;
             imv.enable = lib.mkDefault false;
+            ffplay.enable = lib.mkDefault false;
         };
 
         home = {

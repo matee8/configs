@@ -27,6 +27,7 @@
         foot.enable = true;
         zathura.enable = true;
         imv.enable = true;
+        ffplay.enable = true;
     };
 
     home = {
