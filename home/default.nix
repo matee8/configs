@@ -14,6 +14,7 @@
         ./programs/terminal/tools/fzf.nix
         ./programs/terminal/tools/archives.nix
         ./programs/terminal/tools/glow.nix
+        ./system/xdg.nix
 
         ./programs/graphical/browser/librewolf.nix
         ./programs/graphical/wm/river
@@ -50,7 +51,6 @@
             homeDirectory = "/home/" + config.custom.username;
         };
 
-        xdg.enable = true;
         programs.home-manager.enable = true;
     };
 }

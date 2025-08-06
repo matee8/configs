@@ -1,7 +1,12 @@
 {
+    pkgs,
     ...
 }:
 {
+    environment.systemPackages = [
+        pkgs.nixfmt-rfc-style
+    ];
+
     nix = {
         settings = {
             auto-optimise-store = true;
