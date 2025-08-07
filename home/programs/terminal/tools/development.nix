@@ -1,31 +1,13 @@
 {
-    pkgs,
     ...
 }:
 {
-    home.packages = with pkgs; [
-        devenv
-        valgrind
-        gdb
-
-        clang
-
-        nodejs
-        eslint
-        prettier
-        nodemon
-
-        stylua
-
-        python3
-        yapf
-
-        rustup
-    ];
-
     programs = {
         aichat.enable = true;
-        pylint.enable = true;
-        texlive.enable = true;
+        direnv = {
+            enable = true;
+            enableZshIntegration = true;
+            silent = true;
+        };
     };
 }
