@@ -37,13 +37,13 @@
                 }
 
                 {
-                    plugin = gitsigns-nvim;
-                    config = toLuaFile ./nvim/plugins/gitsigns.lua;
+                    plugin = mini-diff;
+                    config = toLuaFile ./nvim/plugins/diff.lua;
                 }
 
                 {
-                    plugin = fzf-lua;
-                    config = toLuaFile ./nvim/plugins/fzf.lua;
+                    plugin = mini-pick;
+                    config = toLuaFile ./nvim/plugins/pick.lua;
                 }
 
                 {

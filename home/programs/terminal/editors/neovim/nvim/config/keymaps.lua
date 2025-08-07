@@ -59,11 +59,11 @@ set_keymap("i", "<C-Space>", "<Nop>", {
     silent = true,
 })
 
-set_keymap("n", "<leader>ff", "<Cmd>FzfLua git_files<Cr>", {
+set_keymap("n", "<leader>ff", function() MiniPick.builtin.files() end, {
     silent = true,
 })
 
-set_keymap("n", "<leader>fs", "<Cmd>FzfLua grep_project<Cr>", {
+set_keymap("n", "<leader>fs", function() MiniPick.builtin.grep_live() end, {
     silent = true,
 })
 

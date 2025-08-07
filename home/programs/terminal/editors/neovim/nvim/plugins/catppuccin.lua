@@ -12,5 +12,14 @@ require("catppuccin").setup({
             enabled = true,
         },
     },
+    highlight_overrides = {
+        all = function(colors)
+            return {
+                Pmenu = {
+                    bg = colors.base
+                },
+            }
+        end
+    }
 })
 vim.cmd.colorscheme("catppuccin")
