@@ -1,0 +1,20 @@
+[credential]
+    helper = store
+[user]
+    email = graves-bluff-pesky@duck.com
+    name = matee8
+	signingkey = 25642E44EC5609B3C8A504B2C9DFB90C454B46E8
+[pull]
+    rebase = false
+[init]
+    defaultBranch = main
+[ui "color"]
+    ui = always
+[color]
+    ui = true
+[alias]
+    c = commit
+    s = status
+    p = push
+[commit]
+	gpgSign = true

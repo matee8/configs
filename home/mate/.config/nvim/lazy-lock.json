@@ -1,0 +1,9 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "mini.diff": { "branch": "main", "commit": "f573bd2ae2eb225ea2f125126b8869e04bcaf231" },
+  "mini.files": { "branch": "main", "commit": "5b9431cf5c69b8e69e5a67d2d12338a3ac2e1541" },
+  "mini.pick": { "branch": "main", "commit": "82ec629ca108c7b96b8b9bb733d235b39e137690" },
+  "nvim": { "branch": "main", "commit": "76a8d0515024cc55d8bd26fc13f1af88faef3ebf" },
+  "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "71385f191ec06ffc60e80e6b0c9a9d5daed4824c" }
+}
