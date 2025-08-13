@@ -1,0 +1,5 @@
+style: "dark"
+width: 80
+all: false
+showLineNumbers: true
+tui: true

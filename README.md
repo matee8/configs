@@ -104,6 +104,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | gamemode        | Optimizations    |
 | plocate         | Locate db        |
 | ntfs-3g         | NTFS util        |
+| glow            | Markdown render  |
 
 ## Development
 
