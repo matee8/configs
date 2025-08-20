@@ -77,7 +77,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | ffmpeg                    | Media player        |
 | slurp                     | Area selector       |
 | heroic-games-launcher-bin | Epic Games Launcher |
-| qbittorrent               | Torrent client      |
 
 ### Console
 

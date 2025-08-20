@@ -61,3 +61,5 @@ opt.mouse = ""
 opt.vb = true
 opt.clipboard:append(vim.env.SSH_TTY and "" or "unnamedplus")
 vim.g.mapleader = vim.keycode("<space>")
+
+vim.cmd.colorscheme("vim")
