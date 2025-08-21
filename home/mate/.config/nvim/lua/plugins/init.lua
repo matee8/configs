@@ -1,0 +1,5 @@
+require('plugins.catppuccin')
+require('plugins.diff')
+require('plugins.files')
+require('plugins.pick')
+require('plugins.treesitter')
