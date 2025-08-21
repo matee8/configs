@@ -114,6 +114,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | valgrind        | Memory checker   |
 | gdb             | Debugger         |
 | perf            | Profiler         |
+| scc-bin         | Code counter     |
 
 ### C/C++
 
