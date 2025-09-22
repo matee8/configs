@@ -163,6 +163,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 - biber
 - texlive
+- texlive-langeuropean
 - texlab
 
 ### Lua
