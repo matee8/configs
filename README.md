@@ -115,6 +115,8 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | gdb             | Debugger         |
 | perf            | Profiler         |
 | scc-bin         | Code counter     |
+| rpi-imager      | Raspberry Pi     |
+| net-tools       | Networking       |
 
 ### C/C++
 
