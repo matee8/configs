@@ -121,6 +121,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### C/C++
 
 - clang
+- xmake
 
 ### CSS
 
