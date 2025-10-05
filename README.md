@@ -118,6 +118,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | rpi-imager      | Raspberry Pi     |
 | net-tools       | Networking       |
 | raylib          | Game engine      |
+| doxygen         | Documentation    |
 
 ### C/C++
 
