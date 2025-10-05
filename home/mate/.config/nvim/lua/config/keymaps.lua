@@ -53,10 +53,6 @@ end, {
     desc = "Open file browser",
 })
 
-set_keymap("i", "<C-f>", "<C-y>", {
-    silent = true,
-})
-
 set_keymap("i", "<C-Space>", "<Nop>", {
     silent = true,
 })
@@ -81,11 +77,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, {
             silent = true,
             desc = "Show argument names",
-        })
-
-        set_keymap("n", "<leader>ld", "<CMD>FzfLua diagnostics_workspace<Cr>", {
-            silent = true,
-            desc = "List diagnostics for all buffers",
         })
     end,
 })
