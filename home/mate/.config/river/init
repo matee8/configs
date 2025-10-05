@@ -13,7 +13,6 @@ riverctl input "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad" tap enabled
 riverctl map normal Super Return spawn foot
 riverctl map normal Super B spawn firefox
 riverctl map normal Super O spawn libreoffice
-riverctl map normal Super e spawn thunderbird
 riverctl map normal None Print spawn "pkill slurp || slurp | grim -g - - | wl-copy"
 
 riverctl map normal Super Q close
@@ -58,14 +57,11 @@ riverctl border-color-focused 0xF5C2E7
 riverctl border-color-unfocused 0x11111b
 riverctl border-width 3
 riverctl rule-add -app-id 'firefox*' ssd
-riverctl rule-add -app-id 'thunderbird*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
 riverctl rule-add -app-id '*zathura*' ssd
 
 riverctl default-layout rivertile
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
 
-riverctl spawn "wbg Pictures/wallpapers/ocean.png"
-riverctl spawn "yambar"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river:wlroots"
