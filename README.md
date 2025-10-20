@@ -43,10 +43,13 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | ---------------------- | ---------------------- |
 | river                  | Compositor             |
 | ttf-hack-nerd          | Font                   |
+| ttf-ms-win10-auto      | Win10 fonts            |
 | noto-fonts-emoji       | Emojis                 |
 | xdg-desktop-portal     | Application sandboxing |
 | xdg-desktop-portal-wlr | Portal implementation  |
+| qt5-wayland            | Compatibility layer    |
 | qt6-wayland            | Compatibility layer    |
+| wlr-randr              | Output manager         |
 
 ## Terminal
 
@@ -77,6 +80,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | ffmpeg                    | Media player        |
 | slurp                     | Area selector       |
 | heroic-games-launcher-bin | Epic Games Launcher |
+| pollymc-qt5-bin           | Minecraft           |
 
 ### Console
 
@@ -104,6 +108,11 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | plocate         | Locate db        |
 | ntfs-3g         | NTFS util        |
 | glow            | Markdown render  |
+| lftp            | FTP client       |
+| openresolv      | resolv.conf      |
+| wireguard-tools | VPN              |
+| nmap            | Network discover |
+| pandoc-bin      | Document conv    |
 
 ## Development
 
@@ -116,14 +125,17 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | perf            | Profiler         |
 | scc-bin         | Code counter     |
 | rpi-imager      | Raspberry Pi     |
-| net-tools       | Networking       |
-| raylib          | Game engine      |
 | doxygen         | Documentation    |
+| enchant         | Spell checking   |
+| icu66-bin       | Unicode          |
+| libffi7         | FFI              |
+| libwebp0.5      | WebP             |
+| libxml2-legacy  | XML parser       |
+| 
 
 ### C/C++
 
 - clang
-- xmake
 
 ### CSS
 
@@ -134,10 +146,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 - mariadb
 - postgresql
 - sqlite
-
-### FSTs
-
-- foma (AUR)
 
 ### Go
 
@@ -158,7 +166,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### JavaScript
 
 - nodejs
-- bun-bin (AUR)
 - npm
 - typescript-language-server
 
