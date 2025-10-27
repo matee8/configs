@@ -131,7 +131,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | libffi7         | FFI              |
 | libwebp0.5      | WebP             |
 | libxml2-legacy  | XML parser       |
-| 
+| docker          | Containers       |
 
 ### C/C++
 
@@ -201,6 +201,7 @@ rustup
 - paccache.timer
 - reflector.timer
 - fstrim.timer
+- docker.socket
 
 # Setup commands
 
