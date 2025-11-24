@@ -80,6 +80,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | ffmpeg                    | Media player        |
 | slurp                     | Area selector       |
 | heroic-games-launcher-bin | Epic Games Launcher |
+| steam                     | Steam               |
 | pollymc-qt5-bin           | Minecraft           |
 
 ### Console
@@ -89,6 +90,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | grim            | Screenshot util  |
 | wl-clipboard    | Clipboard util   |
 | openssh         | SSH              |
+| sshpass         | SSH passwords    |
 | atool           | Archive manager  |
 | unrar           | Archiver         |
 | zip             | Archiver         |
@@ -104,6 +106,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | wine            | Windows layer    |
 | wine-mono       | Windows layer    |
 | wine-gecko      | Windows layer    |
+| winetricks      | Windows layer    |
 | gamemode        | Optimizations    |
 | plocate         | Locate db        |
 | ntfs-3g         | NTFS util        |
@@ -132,6 +135,8 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | libwebp0.5      | WebP             |
 | libxml2-legacy  | XML parser       |
 | docker          | Containers       |
+| docker-compose  | Containers       |
+| aichat          | LLM client       |
 
 ### C/C++
 
@@ -160,6 +165,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### Java
 
 - jdk-openjdk
+- jdk21-openjdk
 - maven
 - jdtls (AUR)
 
