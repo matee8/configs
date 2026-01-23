@@ -43,11 +43,9 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | ---------------------- | ---------------------- |
 | river                  | Compositor             |
 | ttf-hack-nerd          | Font                   |
-| ttf-ms-win10-auto      | Win10 fonts            |
 | noto-fonts-emoji       | Emojis                 |
 | xdg-desktop-portal     | Application sandboxing |
 | xdg-desktop-portal-wlr | Portal implementation  |
-| qt5-wayland            | Compatibility layer    |
 | qt6-wayland            | Compatibility layer    |
 | wlr-randr              | Output manager         |
 
@@ -79,9 +77,8 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | imv                       | Image viewer        |
 | ffmpeg                    | Media player        |
 | slurp                     | Area selector       |
-| heroic-games-launcher-bin | Epic Games Launcher |
 | steam                     | Steam               |
-| pollymc-qt5-bin           | Minecraft           |
+| prismlauncher             | Minecraft           |
 
 ### Console
 
@@ -107,14 +104,14 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | wine-mono       | Windows layer    |
 | wine-gecko      | Windows layer    |
 | winetricks      | Windows layer    |
+| protontricks    | Windows layer    |
+| python-vdf      | Windows layer    |
 | gamemode        | Optimizations    |
 | plocate         | Locate db        |
 | ntfs-3g         | NTFS util        |
-| glow            | Markdown render  |
 | lftp            | FTP client       |
 | openresolv      | resolv.conf      |
 | wireguard-tools | VPN              |
-| nmap            | Network discover |
 | pandoc-bin      | Document conv    |
 
 ## Development
@@ -195,7 +192,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 ### Rust
 
-rustup
+- rustup
 
 # Enabled services
 
