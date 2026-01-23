@@ -96,6 +96,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | fzf             | Fuzzy finder     |
 | zoxide          | Smarter cd       |
 | pacman-contrib  | Pacman scripts   |
+| pacutils        | Pacman utils     |
 | reflector       | Mirror retriever |
 | man-db          | Manuals          |
 | man-pages       | Manuals          |
