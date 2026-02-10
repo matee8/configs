@@ -3,7 +3,7 @@
 [user]
     email = graves-bluff-pesky@duck.com
     name = matee8
-	signingkey = 25642E44EC5609B3C8A504B2C9DFB90C454B46E8
+	signingkey = B9434417EBD798D1
 [pull]
     rebase = false
 [init]
@@ -17,4 +17,6 @@
     s = status
     p = push
 [commit]
-	gpgSign = true
+	gpgsign = true
+[tag]
+	gpgsign = true

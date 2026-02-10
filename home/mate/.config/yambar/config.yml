@@ -1,0 +1,127 @@
+primary: &primary F5C2E7FF
+
+bar:
+  height: 30
+  spacing: 10
+  margin: 7
+  location: top
+  font: Hack Nerd Font:style=Bold:size=14
+  foreground: CDD6F4FF
+  background: 11111BFF
+  left:
+    - river:
+        content:
+          map:
+            conditions:
+              ~occupied: {empty: {}}
+              occupied:
+                - map:
+                    conditions:
+                      state == "focused":
+                        string: {text: "{id}", foreground: *primary, margin: 5, font: Hack Nerd Font:style=Bold:size=16}
+                      state == "invisible":
+                        string: {text: "{id}", margin: 5}
+                      id == "default":
+                        string: {text: ""}
+  right:
+    - cpu:
+        poll-interval: 1000
+        content:
+          map:
+            conditions:
+              id < 0:
+                - string: {text: " ", foreground: *primary}
+                - string: {text: "{cpu}% "}
+    - script:
+        path: /home/mate/.local/bin/yambar-temperature
+        content:
+          - string: {text: " ", foreground: *primary}
+          - string: {text: "{temperature} °C"}
+    - mem:
+        poll-interval: 1000
+        content:
+          - string: {text: " ", foreground: *primary}
+          - string: {text: "{used:mb} MB / {total:gb} GB ({free:gb} GB)"}
+    - disk-io:
+        poll-interval: 1000
+        content:
+          map:
+            conditions:
+              device == Total:
+                list:
+                  items:
+                    - string: {text: " ", foreground: *primary}
+                    - string: {text: "R: "}
+                    - map:
+                        default: {string: {text: "{read_speed} B/s"}}
+                        conditions:
+                          read_speed > 1073741824:
+                            string: {text: "{read_speed:gib} GB/s"}
+                          read_speed > 1048576:
+                            string: {text: "{read_speed:mib} MB/s"}
+                          read_speed > 1024:
+                            string: {text: "{read_speed:kib} KB/s"}
+                    - string: {text: " W: "}
+                    - map:
+                        default: {string: {text: "{write_speed} B/s"}}
+                        conditions:
+                          write_speed > 1073741824:
+                            string: {text: "{write_speed:gib} GB/s"}
+                          write_speed > 1048576:
+                            string: {text: "{write_speed:mib} MB/s"}
+                          write_speed > 1024:
+                            string: {text: "{write_speed:kib} KB/s"}
+    - network:
+        poll-interval: 1000
+        content:
+          map:
+            conditions:
+              name == "wlan0" && state == "up":
+                - string: {text: "󰖩 ", foreground: *primary}
+                - string: {text: "{quality}% DL {dl-speed:mb} MB/s UL {ul-speed:mb} MB/s"}
+              name == "wlan0":
+                - string: {text: "󰖩 ", foreground: *primary}
+                - string: {text: "{state}"}
+    - pipewire:
+        content:
+          - map:
+              conditions:
+                type == "sink":
+                  map:
+                    conditions:
+                      ~muted:
+                        - string: {text: " ", foreground: *primary}
+                        - string: {text: "{linear_volume}%"}
+                      muted:
+                        - string: {text: " ", foreground: *primary}
+                        - string: {text: "mute"}
+                type == "source":
+                  map:
+                    conditions:
+                      ~muted:
+                        - string: {text: "  ", foreground: *primary}
+                        - string: {text: "{linear_volume}%"}
+                      muted:
+                        - string: {text: "  ", foreground: *primary}
+                        - string: {text: "mute"}
+    - backlight:
+        name: amdgpu_bl1
+        content:
+          - string: {text: "󰃠 ", foreground: *primary}
+          - string: {text: "{percent}%"}
+    - battery:
+        name: BAT0
+        poll-interval: 30000
+        content:
+          - string: {text: " ", foreground: *primary}
+          - string: {text: "{capacity}% ({estimate}) "}
+    - clock:
+        date-format: "%Y.%m.%d"
+        content:
+          - string: {text: " ", foreground: *primary}
+          - string: {text: "{date}"}
+    - clock:
+        time-format: "%H:%M"
+        content:
+          - string: {text: "󰥔 ", foreground: *primary}
+          - string: {text: "{time}"}

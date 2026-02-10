@@ -6,6 +6,8 @@ HISTFILE="$XDG_STATE_HOME"/zsh/history
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
+export GPG_TTY=$(tty)
+
 prompt_custom_setup() {
     PS1=$'%B%F{}%F{blue}%n@%m%b %F{green}(%?) %F{magenta}%~\n%F{red}$ '
 }
@@ -54,7 +56,10 @@ alias chgrp="chgrp --preserve-root"
 alias df="df -h"
 alias du="du -shc"
 alias dmesg="dmesg -HL"
+alias clear="clear && fastfetch"
 export LESS='-R --use-color -Dd+r$Du+b$'
 
 source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
+
+fastfetch

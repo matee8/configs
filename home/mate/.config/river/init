@@ -6,13 +6,17 @@ riverctl hide-cursor timeout 1000
 riverctl set-cursor-warp on-output-change
 riverctl set-repeat 40 300
 
-riverctl keyboard-layout -model "keyboard*" hu
-riverctl input "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad" natural-scroll enabled
-riverctl input "pointer-1267-12608-ELAN0001:00_04F3:3140_Touchpad" tap enabled
+riverctl keyboard-layout -model "keyboard*" -options "grp:win_space_toggle" us,hu
+riverctl input "*TouchPad" natural-scroll enabled
+riverctl input "pointer*" tap enabled
+riverctl input "*TouchPad" pointer-accel 0.5
+riverctl input "*TrackPoint" pointer-accel -0.4
 
 riverctl map normal Super Return spawn foot
 riverctl map normal Super B spawn firefox
 riverctl map normal Super O spawn libreoffice
+riverctl map normal Super R spawn fuzzel
+riverctl map normal Super Escape spawn power-menu
 riverctl map normal None Print spawn "pkill slurp || slurp | grim -g - - | wl-copy"
 
 riverctl map normal Super Q close
@@ -48,6 +52,7 @@ riverctl map normal Super F toggle-fullscreen
 riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_SINK@ toggle"
 riverctl map normal None XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_SINK@ 5%-"
 riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_SINK@ 5%+"
+riverctl map normal None XF86AudioMicMute spawn "wpctl set-mute @DEFAULT_SOURCE@ toggle"
 
 riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
@@ -60,8 +65,22 @@ riverctl rule-add -app-id 'firefox*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
 riverctl rule-add -app-id '*zathura*' ssd
 
+riverctl set-output-warp on-output-change
+
 riverctl default-layout rivertile
-riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55"
+riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55 -outer-padding 4 -view-padding 4"
 
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river:wlroots"
+riverctl spawn "wbg ~/Pictures/wallpapers/tree.jpg"
+riverctl spawn "yambar"
+if wlr-randr | grep -q HDMI; then
+    riverctl map normal Super+Control J focus-output next
+    riverctl map normal Super+Control K focus-output previous
+    riverctl map normal Super+Control+Shift J send-to-output next
+    riverctl map normal Super+Control+Shift K send-to-output previous
+    riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1440x900 --left-of eDP-1"
+    riverctl spawn "riverctl focus-output next"
+    riverctl spawn "yambar"
+    riverctl spawn "riverctl focus-output next"
+fi

@@ -193,7 +193,9 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 - paccache.timer
 - reflector.timer
 - fstrim.timer
+- pipewire.service
 - docker.socket
+- systemd-zram-setup@zram0
 
 # Setup commands
 
@@ -201,16 +203,11 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
 hwclock --systohc
 locale-gen
-grub-install --target i386-px /dev/nvme0n1
-grub-mkconfig -o /boot/grub/grub.cfg
 passwd --lock root
 xdg-user-dirs-update
-mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-mariadb-secure-installation
-useradd -m -G wheel -G gamemode mate
+useradd -m -G wheel -G gamemode -G docker mate
 passwd mate
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
-go telemetry off
 su postgres
 initdb -D /var/lib/postgres/data
 ```
@@ -221,8 +218,3 @@ initdb -D /var/lib/postgres/data
 
 - Search engines
 - Extensions
-
-## Libreoffice
-
-Go to Tools > Options > LibreOffice > Advanced and uncheck Use a Java runtime
-environment.
