@@ -13,15 +13,16 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 ## Core
 
-| Package        | Description   |
-| -------------- | ------------- |
-| linux          | Kernel        |
-| linux-firmware | Firmware      |
-| amd-ucode      | CPU Microcode |
-| base           | Tools         |
-| base-devel     | Tools         |
-| polkit         | Privileges    |
-| grub           | Bootloader    |
+| Package            | Description   |
+| ------------------ | ------------- |
+| linux              | Kernel        |
+| linux-firmware     | Firmware      |
+| amd-ucode          | CPU Microcode |
+| base               | Tools         |
+| base-devel         | Tools         |
+| polkit             | Privileges    |
+| systemd-resolvconf | resolv.conf   |
+| zram-generator     | swap on zram  |
 
 ## I/O
 
@@ -35,6 +36,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | wireplumber   | Multimedia util |
 | sof-firmware  | Laptop audio    |
 | mesa          | OpenGL          |
+| lib32-mesa    | OpenGL          |
 | vulkan-radeon | Vulkan          |
 
 ## Display
@@ -71,7 +73,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | Package                   | Description         |
 | ------------------------- | ------------------- |
 | firefox                   | Browser             |
-| libreoffice-fresh         | Office suite        |
 | zathura                   | PDF viewer          |
 | zathura-pdf-mupdf         | PDF backend         |
 | imv                       | Image viewer        |
@@ -79,6 +80,9 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | slurp                     | Area selector       |
 | steam                     | Steam               |
 | prismlauncher             | Minecraft           |
+| fuzzel                    | App launcher        |
+| wbg                       | Background          |
+| yambar                    | Status bar          |
 
 ### Console
 
@@ -100,20 +104,19 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | reflector       | Mirror retriever |
 | man-db          | Manuals          |
 | man-pages       | Manuals          |
+| texinfo         | Manuals          |
 | xdg-user-dirs   | User directories |
 | wine            | Windows layer    |
 | wine-mono       | Windows layer    |
 | wine-gecko      | Windows layer    |
-| winetricks      | Windows layer    |
 | protontricks    | Windows layer    |
-| python-vdf      | Windows layer    |
 | gamemode        | Optimizations    |
-| plocate         | Locate db        |
 | ntfs-3g         | NTFS util        |
+| e2fsprogs       | ext4 util        |
 | lftp            | FTP client       |
-| openresolv      | resolv.conf      |
 | wireguard-tools | VPN              |
 | pandoc-bin      | Document conv    |
+| fastfetch       | System info      |
 
 ## Development
 
@@ -125,16 +128,10 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | gdb             | Debugger         |
 | perf            | Profiler         |
 | scc-bin         | Code counter     |
-| rpi-imager      | Raspberry Pi     |
-| doxygen         | Documentation    |
-| enchant         | Spell checking   |
-| icu66-bin       | Unicode          |
-| libffi7         | FFI              |
-| libwebp0.5      | WebP             |
-| libxml2-legacy  | XML parser       |
 | docker          | Containers       |
 | docker-compose  | Containers       |
 | aichat          | LLM client       |
+| tree-sitter-cli | Treesitter       |
 
 ### C/C++
 
@@ -146,15 +143,8 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 ### Database
 
-- mariadb
 - postgresql
 - sqlite
-
-### Go
-
-- go
-- staticcheck
-- gopls
 
 ### HTML
 
@@ -163,9 +153,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### Java
 
 - jdk-openjdk
-- jdk21-openjdk
-- maven
-- jdtls (AUR)
 
 ### JavaScript
 
@@ -187,6 +174,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 ### Python
 
+- jupyter-notebook
 - python
 - uv
 - pyright
