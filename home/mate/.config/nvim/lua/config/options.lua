@@ -12,7 +12,6 @@ opt.pumheight = 10
 opt.pumwidth = 30
 opt.pumblend = 20
 opt.list = true
-opt.winborder = "rounded"
 opt.splitright = true
 opt.splitbelow = true
 opt.shortmess:append("I")
