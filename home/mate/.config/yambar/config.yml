@@ -1,7 +1,7 @@
 primary: &primary F5C2E7FF
 
 bar:
-  height: 30
+  height: 35
   spacing: 10
   margin: 7
   location: top
