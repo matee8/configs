@@ -25,6 +25,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | polkit             | Privileges    |
 | systemd-resolvconf | resolv.conf   |
 | zram-generator     | swap on zram  |
+| plymouth           | plymouth      |
 
 ## I/O
 
