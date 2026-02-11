@@ -83,7 +83,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 | slurp                     | Area selector       |
 | steam                     | Steam               |
 | prismlauncher             | Minecraft           |
-| fuzzel                    | App launcher        |
+| bemenu                    | App launcher        |
 | wbg                       | Background          |
 | yambar                    | Status bar          |
 
