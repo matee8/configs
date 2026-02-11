@@ -29,7 +29,9 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 
 export PATH="${PATH}:${HOME}/.local/bin"
 
-bindkey -v
+bindkey -e
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 bindkey "^[[H" beginning-of-line
@@ -39,6 +41,11 @@ bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 bindkey "^F" autosuggest-accept
 bindkey "^[[27;5;13~" autosuggest-execute
+bindkey "\eOA" history-substring-search-up
+bindkey "\eOB" history-substring-search-down
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+bindkey "\e[3~" delete-char
 
 alias ls="ls --color=auto -h"
 alias grep="grep --color=auto -i"
