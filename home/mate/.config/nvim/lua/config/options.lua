@@ -18,6 +18,7 @@ opt.shortmess:append("I")
 vim.wo.wrap = false
 vim.g.netrw_banner = 0
 opt.statusline = "%=%t"
+opt.winborder = "single"
 
 -- Indentation
 opt.autoindent = true
@@ -26,9 +27,6 @@ opt.shiftround = true
 opt.expandtab = true
 opt.shiftwidth = 0
 opt.tabstop = 4
-
--- Completion
-opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
 
 -- Time
 opt.updatetime = 200
@@ -60,5 +58,3 @@ opt.mouse = ""
 opt.vb = true
 opt.clipboard:append(vim.env.SSH_TTY and "" or "unnamedplus")
 vim.g.mapleader = vim.keycode("<space>")
-
-vim.cmd.colorscheme("vim")

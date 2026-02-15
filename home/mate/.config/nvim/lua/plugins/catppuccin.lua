@@ -7,15 +7,18 @@ MiniDeps.now(function()
         flavour = "mocha",
         transparent_background = true,
         show_end_of_buffer = false,
-        term_colors = true,
+        float = {
+            transparent = true,
+            solid = true,
+        },
+        default_integrations = false,
         integrations = {
-            mason = true,
-            cmp = true,
-            fzf = true,
-            harpoon = true,
             native_lsp = {
                 enabled = true,
             },
+            mini = {
+                enabled = true,
+            }
         },
     })
 

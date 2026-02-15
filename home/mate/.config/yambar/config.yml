@@ -1,11 +1,15 @@
 primary: &primary F5C2E7FF
+primary_font: &primary_font
+  foreground: *primary
+  font: Hack Nerd Font:style=Bold:size=15
+
 
 bar:
   height: 35
   spacing: 10
   margin: 7
   location: top
-  font: Hack Nerd Font:style=Bold:size=14
+  font: Hack Nerd Font Mono:style=Bold:size=14
   foreground: CDD6F4FF
   background: 11111BFF
   left:
@@ -18,7 +22,7 @@ bar:
                 - map:
                     conditions:
                       state == "focused":
-                        string: {text: "{id}", foreground: *primary, margin: 5, font: Hack Nerd Font:style=Bold:size=16}
+                        string: {text: "{id}", margin: 5, <<: *primary_font}
                       state == "invisible":
                         string: {text: "{id}", margin: 5}
                       id == "default":
@@ -30,17 +34,17 @@ bar:
           map:
             conditions:
               id < 0:
-                - string: {text: " ", foreground: *primary}
+                - string: {text: " ", <<: *primary_font}
                 - string: {text: "{cpu}% "}
     - script:
         path: /home/mate/.local/bin/yambar-temperature
         content:
-          - string: {text: " ", foreground: *primary}
+          - string: {text: " ", <<: *primary_font}
           - string: {text: "{temperature} °C"}
     - mem:
         poll-interval: 1000
         content:
-          - string: {text: " ", foreground: *primary}
+          - string: {text: " ", <<: *primary_font}
           - string: {text: "{used:mb} MB / {total:gb} GB ({free:gb} GB)"}
     - disk-io:
         poll-interval: 1000
@@ -50,7 +54,7 @@ bar:
               device == Total:
                 list:
                   items:
-                    - string: {text: " ", foreground: *primary}
+                    - string: {text: " ", <<: *primary_font}
                     - string: {text: "R: "}
                     - map:
                         default: {string: {text: "{read_speed} B/s"}}
@@ -77,10 +81,10 @@ bar:
           map:
             conditions:
               name == "wlan0" && state == "up":
-                - string: {text: "󰖩 ", foreground: *primary}
+                - string: {text: "󰖩 ", <<: *primary_font}
                 - string: {text: "{quality}% DL {dl-speed:mb} MB/s UL {ul-speed:mb} MB/s"}
               name == "wlan0":
-                - string: {text: "󰖩 ", foreground: *primary}
+                - string: {text: "󰖩 ", <<: *primary_font}
                 - string: {text: "{state}"}
     - pipewire:
         content:
@@ -90,38 +94,38 @@ bar:
                   map:
                     conditions:
                       ~muted:
-                        - string: {text: " ", foreground: *primary}
+                        - string: {text: " ", <<: *primary_font}
                         - string: {text: "{linear_volume}%"}
                       muted:
-                        - string: {text: " ", foreground: *primary}
+                        - string: {text: " ", <<: *primary_font}
                         - string: {text: "mute"}
                 type == "source":
                   map:
                     conditions:
                       ~muted:
-                        - string: {text: "  ", foreground: *primary}
+                        - string: {text: "  ", <<: *primary_font}
                         - string: {text: "{linear_volume}%"}
                       muted:
-                        - string: {text: "  ", foreground: *primary}
+                        - string: {text: "  ", <<: *primary_font}
                         - string: {text: "mute"}
     - backlight:
         name: amdgpu_bl1
         content:
-          - string: {text: "󰃠 ", foreground: *primary}
+          - string: {text: "󰃠 ", <<: *primary_font}
           - string: {text: "{percent}%"}
     - battery:
         name: BAT0
         poll-interval: 30000
         content:
-          - string: {text: " ", foreground: *primary}
+          - string: {text: " ", <<: *primary_font}
           - string: {text: "{capacity}% ({estimate}) "}
     - clock:
         date-format: "%Y.%m.%d"
         content:
-          - string: {text: " ", foreground: *primary}
+          - string: {text: " ", <<: *primary_font}
           - string: {text: "{date}"}
     - clock:
         time-format: "%H:%M"
         content:
-          - string: {text: "󰥔 ", foreground: *primary}
+          - string: {text: "󰥔 ", <<: *primary_font}
           - string: {text: "{time}"}

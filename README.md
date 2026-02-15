@@ -11,194 +11,102 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 - [Setup commands](#setup-commands)
 - [Manual setup](#manual-setup)
 
-# Packages
+## System Core
 
-## Core
+- **Kernel & Firmware**: linux, linux-firmware, amd-ucode
+- **Base System**: base, base-devel, polkit, systemd-resolvconf, zram-generator
 
-| Package            | Description   |
-| ------------------ | ------------- |
-| linux              | Kernel        |
-| linux-firmware     | Firmware      |
-| amd-ucode          | CPU Microcode |
-| base               | Tools         |
-| base-devel         | Tools         |
-| polkit             | Privileges    |
-| systemd-resolvconf | resolv.conf   |
-| zram-generator     | swap on zram  |
-| plymouth           | plymouth      |
+## Hardware Support
 
-## I/O
+- **Bluetooth**: bluez, bluez-utils
+- **Audio**: pipewire, wireplumber, sof-firmware
+- **Graphics**: mesa, lib32-mesa, vulkan-radeon
+- **Utilities**: brightnessctl
 
-| Package       | Description     |
-| ------------- | --------------- |
-| bluez         | Bluetooth       |
-| bluez-utils   | Bluetooth tools |
-| brightnessctl | Backlight       |
-| iwd           | Network         |
-| pipewire      | Multimedia      |
-| wireplumber   | Multimedia util |
-| sof-firmware  | Laptop audio    |
-| mesa          | OpenGL          |
-| lib32-mesa    | OpenGL          |
-| vulkan-radeon | Vulkan          |
+## Networking
 
-## Display
+- **Core**: iwd
+- **Tools**: openssh, sshpass, wireguard-tools, lftp
 
-| Package                | Description            |
-| ---------------------- | ---------------------- |
-| river                  | Compositor             |
-| ttf-hack-nerd          | Font                   |
-| noto-fonts-emoji       | Emojis                 |
-| xdg-desktop-portal     | Application sandboxing |
-| xdg-desktop-portal-wlr | Portal implementation  |
-| qt6-wayland            | Compatibility layer    |
-| wlr-randr              | Output manager         |
+## Display & UI
+
+- **Compositor**: river
+- **Display Management**: wlr-randr
+- **Compatibility**: qt6-wayland, xdg-desktop-portal, xdg-desktop-portal-wlr
+- **Fonts**: ttf-hack-nerd, noto-fonts-emoji
+- **Visuals**: wbg (AUR), yambar (AUR)
 
 ## Terminal
 
-| Package  | Description  |
-| -------- | ------------ |
-| foot     | Emulator     |
-| tmux     | Multiplexer  |
-| zsh      | Shell        |
+- **Emulator**: foot
+- **Shell Enhancements**: bash-completion, fzf, zoxide
+- **System Monitoring**: btop, fastfetch
+- **pacman Utilities**: pacutils, pacman-contrib, reflector
 
-### ZSH Plugins
 
-- zsh-autosuggestions
-- zsh-completions
-- zsh-history-substring-search
-- zsh-syntax-highlighting
+## Core Applications
+- **Browser**: firefox
+- **File Management**: atool, unrar, zip, unzip, ntfs-3g, e2fsprogs
+- **Screenshots/Clipboard**: grim, slurp, wl-clipboard
 
-## Applications
+## Gaming
+- **Platforms**: steam, prismlauncher
+- **Compatibility**: wine, wine-mono, wine-gecko, protontricks
+- **Optimization**: gamemode
 
-### Graphical
+## Development Tools
 
-| Package                   | Description         |
-| ------------------------- | ------------------- |
-| firefox                   | Browser             |
-| zathura                   | PDF viewer          |
-| zathura-pdf-mupdf         | PDF backend         |
-| imv                       | Image viewer        |
-| ffmpeg                    | Media player        |
-| slurp                     | Area selector       |
-| steam                     | Steam               |
-| prismlauncher             | Minecraft           |
-| bemenu                    | App launcher        |
-| wbg                       | Background          |
-| yambar                    | Status bar          |
+- **Version Control**: git
+- **Debugging/Profiling**: valgrind, gdb, perf
+- **Containerization**: docker, docker-compose
+- **Editor**: neovim, tree-sitter-cli
+- **Utilities**: scc-bin (AUR), aichat, man-db, man-pages
 
-### Console
+## Language Support
+- **C/C++**: clang
+- **Java**: jdk-openjdk
+- **JavaScript/TypeScript**: nodejs, npm, typescript-language-server, vscode-css-languageserver, vscode-html-languageserver
+- **Lua**: lua, stylua
+- **Python**: python, uv, pyright, jupyter-notebook
+- **Rust**: rustup
+- **LaTeX**: texlive, texlive-langeuropean, biber, texlab
 
-| Package         | Description      |
-| --------------- | ---------------- |
-| grim            | Screenshot util  |
-| wl-clipboard    | Clipboard util   |
-| openssh         | SSH              |
-| sshpass         | SSH passwords    |
-| atool           | Archive manager  |
-| unrar           | Archiver         |
-| zip             | Archiver         |
-| unzip           | Archiver         |
-| btop            | Resource monitor |
-| fzf             | Fuzzy finder     |
-| zoxide          | Smarter cd       |
-| pacman-contrib  | Pacman scripts   |
-| pacutils        | Pacman utils     |
-| reflector       | Mirror retriever |
-| man-db          | Manuals          |
-| man-pages       | Manuals          |
-| texinfo         | Manuals          |
-| xdg-user-dirs   | User directories |
-| wine            | Windows layer    |
-| wine-mono       | Windows layer    |
-| wine-gecko      | Windows layer    |
-| protontricks    | Windows layer    |
-| gamemode        | Optimizations    |
-| ntfs-3g         | NTFS util        |
-| e2fsprogs       | ext4 util        |
-| lftp            | FTP client       |
-| wireguard-tools | VPN              |
-| pandoc-bin      | Document conv    |
-| fastfetch       | System info      |
+## System Services (system level)
 
-## Development
+### Core System
 
-| Package         | Description      |
-| --------------- | ---------------- |
-| neovim          | Editor           |
-| git             | Version control  |
-| valgrind        | Memory checker   |
-| gdb             | Debugger         |
-| perf            | Profiler         |
-| scc-bin         | Code counter     |
-| docker          | Containers       |
-| docker-compose  | Containers       |
-| aichat          | LLM client       |
-| tree-sitter-cli | Treesitter       |
+- **getty@.service** - Terminal getty (login prompts)
+- **remote-fs.target** - Remote filesystem mounting target
 
-### C/C++
+### Network
 
-- clang
+- **iptables.service** / **ip6tables.service** - Firewall rules
+- **iwd.service** - Wireless daemon
+- **systemd-resolved.service** - DNS resolver
 
-### CSS
+### Time & Scheduling
 
-- vscode-css-languageserver
+- **systemd-timesyncd.service** - NTP time synchronization
+- **fstrim.timer** - SSD TRIM optimization
+- **paccache.timer** - Pacman cache cleaning
+- **reflector.timer** - Mirror list updating
 
-### Database
+### Systemd Infrastructure
 
-- postgresql
-- sqlite
+- **systemd-resolved-monitor.socket** / **systemd-resolved-varlink.socket** - DNS resolver sockets
+- **systemd-userdbd.socket** - User database service socket
 
-### HTML
+## User Services (--user level)
 
-- vscode-html-languageserver
+### Audio
 
-### Java
+- **pipewire.service** / **pipewire.socket** - Multimedia framework
+- **wireplumber.service** - Session/policy manager for PipeWire
 
-- jdk-openjdk
+### Desktop Integration
 
-### JavaScript
-
-- nodejs
-- npm
-- typescript-language-server
-
-### LaTeX
-
-- biber
-- texlive
-- texlive-langeuropean
-- texlab
-
-### Lua
-
-- lua
-- stylua
-
-### Python
-
-- jupyter-notebook
-- python
-- uv
-- pyright
-
-### Rust
-
-- rustup
-
-# Enabled services
-
-- systemd-timesyncd
-- iwd
-- systemd-resolved
-- iptables
-- ip6tables
-- paccache.timer
-- reflector.timer
-- fstrim.timer
-- pipewire.service
-- docker.socket
-- systemd-zram-setup@zram0
+- **xdg-user-dirs.service** - User directory management
+- **p11-kit-server.socket** - PKCS#11 cryptographic token server
 
 # Setup commands
 

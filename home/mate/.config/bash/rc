@@ -1,0 +1,32 @@
+export HISTCONTROL="erasedups:ignorespace"
+HISTSIZE=10000
+HISTFILESIZE=10000
+shopt -s histappend
+set bell-style none 2> /dev/null
+
+export PS1='\[\e[1m\]\[\e[34m\]\u@\h\[\e[0m\] \[\e[32m\]($?)\[\e[0m\] \[\e[35m\]\w\n\[\e[31m\]\$ \[\e[0m\]'
+
+export GPG_TTY=$(tty)
+
+alias ls="ls --color=auto -h"
+alias grep="grep --color=auto -i"
+alias diff="diff --color=auto"
+alias ip="ip -color=auto"
+alias mkdir="mkdir -pv"
+alias ping="ping -c 5"
+alias rm="rm -I --preserve-root"
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias chown="chown --preserve-root"
+alias chmod="chmod --preserve-root"
+alias chgrp="chgrp --preserve-root"
+alias df="df -h"
+alias du="du -shc"
+alias dmesg="dmesg -HL"
+export LESS='-R --use-color -Dd+r$Du+b$'
+
+source <(fzf --bash)
+eval "$(zoxide init bash --cmd cd)"
+
+fastfetch

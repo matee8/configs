@@ -3,7 +3,6 @@ local set_keymap = vim.keymap.set
 set_keymap(
     {
         "i",
-        "t",
     },
     "<C-c>",
     "<Esc>",
@@ -69,14 +68,8 @@ end, {
     silent = true,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspAttach", { clear = false }),
-    callback = function(ev)
-        set_keymap("n", "<leader>la", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-        end, {
-            silent = true,
-            desc = "Show argument names",
-        })
-    end,
+set_keymap("n", "<leader>tt", "<cmd>tab term<cr>", {
+    silent = true,
 })
+
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')

@@ -15,7 +15,6 @@ riverctl input "*TrackPoint" pointer-accel -0.5
 riverctl map normal Super Return spawn foot
 riverctl map normal Super B spawn firefox
 riverctl map normal Super O spawn libreoffice
-riverctl map normal Super R spawn 'bemenu-run -i  -p "run:" -C --fn "Hack Nerd Font 12" --nb "#11111b" --tb "#11111b" --hb "#f5c2e7" --fb "#11111b" --tf "#f5c2e7" --hf "#11111b" --ab "#11111b" --hp 10 -H 34'
 riverctl map normal None Print spawn "pkill slurp || slurp | grim -g - - | wl-copy"
 
 riverctl map normal Super Q close
@@ -58,7 +57,7 @@ riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
 
 riverctl background-color 0xF5C2E7
 riverctl border-color-focused 0xF5C2E7
-riverctl border-color-unfocused 0x11111b
+riverctl border-color-unfocused 0x6c7086
 riverctl border-width 3
 riverctl rule-add -app-id 'firefox*' ssd
 riverctl rule-add -app-id 'libreoffice*' ssd
@@ -71,7 +70,7 @@ riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.55 -out
 
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river:wlroots"
-riverctl spawn "wbg ~/Pictures/wallpapers/tree.jpg"
+riverctl spawn "wbg ~/Pictures/wallpapers/tree.jpg -s"
 riverctl spawn "yambar"
 if wlr-randr | grep -q HDMI; then
     riverctl map normal Super+Control J focus-output next
