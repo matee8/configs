@@ -76,7 +76,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### Core System
 
 - **getty@.service** - Terminal getty (login prompts)
-- **remote-fs.target** - Remote filesystem mounting target
 
 ### Network
 
@@ -106,7 +105,6 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ### Desktop Integration
 
 - **xdg-user-dirs.service** - User directory management
-- **p11-kit-server.socket** - PKCS#11 cryptographic token server
 
 # Setup commands
 
