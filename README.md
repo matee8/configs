@@ -30,11 +30,12 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 ## Display & UI
 
-- **Compositor**: river
+- **Compositor**: sway
 - **Display Management**: wlr-randr
+- **Tiling Script**: autotiling
 - **Compatibility**: qt6-wayland, xdg-desktop-portal, xdg-desktop-portal-wlr
 - **Fonts**: ttf-hack-nerd, noto-fonts-emoji
-- **Visuals**: wbg (AUR), yambar (AUR)
+- **Visuals**: swaybg, yambar (AUR)
 
 ## Terminal
 
@@ -45,6 +46,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 
 
 ## Core Applications
+
 - **Browser**: firefox
 - **File Management**: atool, unrar, zip, unzip, ntfs-3g, e2fsprogs
 - **Screenshots/Clipboard**: grim, slurp, wl-clipboard
@@ -63,6 +65,7 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 - **Utilities**: scc-bin (AUR), aichat, man-db, man-pages
 
 ## Language Support
+
 - **C/C++**: clang
 - **Java**: jdk-openjdk
 - **JavaScript/TypeScript**: nodejs, npm, typescript-language-server, vscode-css-languageserver, vscode-html-languageserver
@@ -117,8 +120,6 @@ xdg-user-dirs-update
 useradd -m -G wheel -G gamemode -G docker mate
 passwd mate
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
-su postgres
-initdb -D /var/lib/postgres/data
 ```
 
 # Maual setup
