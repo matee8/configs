@@ -12,21 +12,18 @@ bar:
   font: Hack Nerd Font Mono:style=Bold:size=14
   foreground: CDD6F4FF
   background: 11111BFF
+  border:
+    bottom-width: 3
+    color: *primary
   left:
-    - river:
+    - i3:
         content:
-          map:
-            conditions:
-              ~occupied: {empty: {}}
-              occupied:
-                - map:
-                    conditions:
-                      state == "focused":
-                        string: {text: "{id}", margin: 5, <<: *primary_font}
-                      state == "invisible":
-                        string: {text: "{id}", margin: 5}
-                      id == "default":
-                        string: {text: ""}
+          "":
+            map:
+              default: {string: {text: "{name}", margin: 5}}
+              conditions:
+                state == focused:
+                  string: {text: "{name}", margin: 5, <<: *primary_font}
   right:
     - cpu:
         poll-interval: 1000

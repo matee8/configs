@@ -31,16 +31,16 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ## Display & UI
 
 - **Compositor**: sway
-- **Display Management**: wlr-randr
 - **Tiling Script**: autotiling
-- **Compatibility**: qt6-wayland, xdg-desktop-portal, xdg-desktop-portal-wlr
+- **Compatibility**: xdg-desktop-portal, xdg-desktop-portal-wlr
 - **Fonts**: ttf-hack-nerd, noto-fonts-emoji
 - **Visuals**: swaybg, yambar (AUR)
+- **Launcher**: fuzzel
 
 ## Terminal
 
 - **Emulator**: foot
-- **Shell Enhancements**: bash-completion, fzf, zoxide
+- **Shell Enhancements**: bash-completion, fzf, zoxide, tree
 - **System Monitoring**: btop, fastfetch
 - **pacman Utilities**: pacutils, pacman-contrib, reflector
 
@@ -48,12 +48,12 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 ## Core Applications
 
 - **Browser**: firefox
-- **File Management**: atool, unrar, zip, unzip, ntfs-3g, e2fsprogs
+- **File Management**: atool, unrar, zip, unzip, ntfs-3g, e2fsprogs, exfatprogs
 - **Screenshots/Clipboard**: grim, slurp, wl-clipboard
 
 ## Gaming
-- **Platforms**: steam, prismlauncher
-- **Compatibility**: wine, wine-mono, wine-gecko, protontricks
+
+- **Compatibility**: wine, wine-mono, wine-gecko
 - **Optimization**: gamemode
 
 ## Development Tools
@@ -62,12 +62,11 @@ Personal system-wide and user-specific configuration files for Arch Linux.
 - **Debugging/Profiling**: valgrind, gdb, perf
 - **Containerization**: docker, docker-compose
 - **Editor**: neovim, tree-sitter-cli
-- **Utilities**: scc-bin (AUR), aichat, man-db, man-pages
+- **Utilities**: aichat, man-db, man-pages
 
 ## Language Support
 
 - **C/C++**: clang
-- **Java**: jdk-openjdk
 - **JavaScript/TypeScript**: nodejs, npm, typescript-language-server, vscode-css-languageserver, vscode-html-languageserver
 - **Lua**: lua, stylua
 - **Python**: python, uv, pyright, jupyter-notebook

@@ -2,7 +2,6 @@ vim.lsp.enable({
     "clangd",
     "css",
     "html",
-    "jdtls",
     "pyright",
     "rust-analyzer",
     "tsls",
