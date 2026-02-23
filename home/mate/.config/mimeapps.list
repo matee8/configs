@@ -1,0 +1,125 @@
+# Note: I generated this file with `Gemini 2.5 Pro` since I was too lazy to
+# map each mimetype to an application, and I very rarely, if ever use
+# `xdg-open`. Thus, this might not be correct.
+
+[Added Associations]
+# Web
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+
+# Documents (PDF, etc.)
+application/pdf=firefox.desktop
+application/epub+zip=firefox.desktop
+application/postscript=firefox.desktop
+image/vnd.djvu=firefox.desktop
+image/vnd.djvu+multipage=firefox.desktop
+
+# Plain Text and Code
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+application/json=nvim.desktop
+application/xml=nvim.desktop
+application/x-shellscript=nvim.desktop
+text/css=nvim.desktop
+text/csv=nvim.desktop
+text/javascript=nvim.desktop
+application/x-javascript=nvim.desktop
+text/x-csrc=nvim.desktop
+text/x-chdr=nvim.desktop
+text/x-c++src=nvim.desktop
+text/x-c++hdr=nvim.desktop
+text/x-python=nvim.desktop
+text/x-java-source=nvim.desktop
+text/x-shellscript=nvim.desktop
+application/sql=nvim.desktop
+application/toml=nvim.desktop
+application/yaml=nvim.desktop
+text/x-log=nvim.desktop
+text/x-readme=nvim.desktop
+text/x-authors=nvim.desktop
+text/x-changelog=nvim.desktop
+text/x-copying=nvim.desktop
+
+# LibreOffice Documents
+application/vnd.oasis.opendocument.text=writer.desktop
+application/vnd.oasis.opendocument.text-template=writer.desktop
+application/vnd.oasis.opendocument.text-master=writer.desktop
+application/vnd.oasis.opendocument.text-web=writer.desktop
+application/vnd.oasis.opendocument.spreadsheet=calc.desktop
+application/vnd.oasis.opendocument.spreadsheet-template=calc.desktop
+application/vnd.oasis.opendocument.presentation=impress.desktop
+application/vnd.oasis.opendocument.presentation-template=impress.desktop
+application/vnd.oasis.opendocument.graphics=draw.desktop
+application/vnd.oasis.opendocument.graphics-template=draw.desktop
+application/vnd.oasis.opendocument.chart=calc.desktop
+application/vnd.oasis.opendocument.formula=math.desktop
+application/vnd.oasis.opendocument.database=base.desktop
+application/vnd.oasis.opendocument.image=draw.desktop
+
+# Microsoft Office Documents
+application/msword=writer.desktop
+application/vnd.ms-word=writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.template=writer.desktop
+application/rtf=writer.desktop
+application/vnd.ms-excel=calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.template=calc.desktop
+application/vnd.ms-powerpoint=impress.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=impress.desktop
+application/vnd.openxmlformats-officedocument.presentationml.template=impress.desktop
+application/vnd.openxmlformats-officedocument.presentationml.slideshow=impress.desktop
+application/vnd.visio=draw.desktop
+
+# Images
+image/jpeg=firefox.desktop
+image/png=firefox.desktop
+image/gif=firefox.desktop
+image/bmp=firefox.desktop
+image/tiff=firefox.desktop
+image/svg+xml=firefox.desktop
+image/webp=firefox.desktop
+image/avif=firefox.desktop
+image/heif=firefox.desktop
+image/vnd.microsoft.icon=firefox.desktop
+image/x-xcf=firefox.desktop
+image/x-portable-pixmap=firefox.desktop
+image/x-portable-graymap=firefox.desktop
+image/x-portable-bitmap=firefox.desktop
+image/x-portable-anymap=firefox.desktop
+image/x-canon-cr2=firefox.desktop
+image/x-adobe-dng=firefox.desktop
+image/x-nikon-nef=firefox.desktop
+image/x-sony-arw=firefox.desktop
+
+# Audio/Video
+video/mp4=firefox.desktop
+video/x-matroska=firefox.desktop
+video/webm=firefox.desktop
+video/x-flv=firefox.desktop
+video/quicktime=firefox.desktop
+video/vnd.avi=firefox.desktop
+video/mpeg=firefox.desktop
+video/ogg=firefox.desktop
+audio/mpeg=firefox.desktop
+audio/ogg=firefox.desktop
+audio/flac=firefox.desktop
+audio/aac=firefox.desktop
+audio/mp4=firefox.desktop
+audio/webm=firefox.desktop
+audio/x-matroska=firefox.desktop
+audio/x-wav=firefox.desktop
+audio/vnd.wave=firefox.desktop
+application/ogg=firefox.desktop
+
+# Other
+application/x-bittorrent=firefox.desktop
+application/x-iso9660-appimage=wine.desktop
+application/vnd.appimage=wine.desktop
+application/x-dosexec=wine.desktop
+application/vnd.microsoft.portable-executable=wine.desktop
+inode/directory=firefox.desktop
